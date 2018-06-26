@@ -11,10 +11,13 @@ import edu.mil.cet002.compraslita.*;
  * @author User
  */
 public class PanelBusqueda extends javax.swing.JFrame {
-
+    ResultadosBusqueda r=null;
+    Carrito carro;
+    
     /**
      * Creates new form PanelBusqueda
      */
+    
     public PanelBusqueda() {
         initComponents();
         setdefault();
@@ -195,7 +198,15 @@ public class PanelBusqueda extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+    
+    public Carrito getCarro() {
+        return carro;
+    }
 
+    public void agregarAlCarro(Producto p){
+        carro.agregarAlCarrito(p);
+    }
+    
     private void setdefault() {
         horas.setVisible(false);
     }
@@ -209,9 +220,9 @@ public class PanelBusqueda extends javax.swing.JFrame {
     }//GEN-LAST:event_horarioEspecificoActionPerformed
 
     private void botonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBuscarActionPerformed
-        ResultadosBusqueda r = new ResultadosBusqueda(Servicios.getInstance().buscarProducto(campoBusqueda.getText()));
+        r = new ResultadosBusqueda(Servicios.getInstance().buscarProducto(campoBusqueda.getText()), this);
         r.setVisible(true);
-        this.dispose();        
+        this.setVisible(false);
     }//GEN-LAST:event_botonBuscarActionPerformed
 
     private void horasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_horasActionPerformed

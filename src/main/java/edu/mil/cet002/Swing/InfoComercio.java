@@ -1,6 +1,6 @@
 package edu.mil.cet002.Swing;
 
-
+import edu.mil.cet002.compraslita.*;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;

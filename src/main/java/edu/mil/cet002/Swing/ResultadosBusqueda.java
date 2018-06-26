@@ -17,6 +17,7 @@ public class ResultadosBusqueda extends javax.swing.JFrame {
 
     DefaultListModel<String> dlm = new DefaultListModel<>();
     List<Producto> resultado;
+    PanelBusqueda p;
 
     /**
      * Creates new form NewJFrame
@@ -28,9 +29,10 @@ public class ResultadosBusqueda extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
     }
 
-    public ResultadosBusqueda(List<Producto> resultado) {
+    public ResultadosBusqueda(List<Producto> resultado, PanelBusqueda p) {
         this();
         this.resultado = resultado;
+        this.p = p;
         iniciar();
     }
 
@@ -93,8 +95,13 @@ public class ResultadosBusqueda extends javax.swing.JFrame {
         textoOrdenar.setFocusable(false);
 
         comboOrden.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        comboOrden.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Precio (Menor a mayor)", "Precio (Mayor a menor)", "Puntuación (Menor a mayor)", "Puntuación (Mayor a menor)" }));
+        comboOrden.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nada", "Precio (Menor a mayor)", "Precio (Mayor a menor)", "Puntuación (Menor a mayor)", "Puntuación (Mayor a menor)" }));
         comboOrden.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        comboOrden.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboOrdenActionPerformed(evt);
+            }
+        });
 
         botonNuevaBusqueda.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         botonNuevaBusqueda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectoswing/imagenes/buscar png.png"))); // NOI18N
@@ -120,6 +127,11 @@ public class ResultadosBusqueda extends javax.swing.JFrame {
         botonAgregarCarro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectoswing/imagenes/agregar al carrito.png"))); // NOI18N
         botonAgregarCarro.setText("Agregar producto al carro");
         botonAgregarCarro.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        botonAgregarCarro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonAgregarCarroActionPerformed(evt);
+            }
+        });
 
         listaProductos.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         listaProductos.setModel(new javax.swing.AbstractListModel<String>() {
@@ -225,33 +237,43 @@ public class ResultadosBusqueda extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
     private void iniciar() {
-        for(int i=0;i<resultado.size();i++){
-        dlm.addElement(resultado.get(i).getNombre());
+        for (int i = 0; i < resultado.size(); i++) {
+            dlm.addElement(resultado.get(i).getNombre());
         }
+        // = Servicios.getInstance().crearCarrito();
     }
     private void textoResultadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textoResultadosActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_textoResultadosActionPerformed
 
     private void botonIrCarritoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonIrCarritoActionPerformed
-        Carro c = new Carro();
-        c.setVisible(true);
-        this.dispose();
+      //  Carro c = new Carro(carro);
+       // c.setVisible(true);
+
     }//GEN-LAST:event_botonIrCarritoActionPerformed
 
     private void botonNuevaBusquedaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonNuevaBusquedaActionPerformed
-        PanelBusqueda p = new PanelBusqueda();
         p.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_botonNuevaBusquedaActionPerformed
 
     private void botonInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonInfoActionPerformed
-        
+        InfoComercio a = new InfoComercio(resultado.get(listaProductos.getSelectedIndex()).getComercio());
+        a.setVisible(true);
+
     }//GEN-LAST:event_botonInfoActionPerformed
 
     private void botonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSalirActionPerformed
         System.exit(0);
     }//GEN-LAST:event_botonSalirActionPerformed
+
+    private void botonAgregarCarroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAgregarCarroActionPerformed
+        
+    }//GEN-LAST:event_botonAgregarCarroActionPerformed
+
+    private void comboOrdenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboOrdenActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_comboOrdenActionPerformed
 
     /**
      * @param args the command line arguments
