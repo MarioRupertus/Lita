@@ -5,7 +5,7 @@
  */
 package edu.mil.cet002.Swing;
 
-import edu.mil.cet002.compraslita.*;
+import edu.mil.cet002.compraslita.Carrito;
 import javax.swing.*;
 
 
