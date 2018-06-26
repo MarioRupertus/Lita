@@ -4,7 +4,10 @@
  * and open the template in the editor.
  */
 package edu.mil.cet002.Swing;
+
 import edu.mil.cet002.compraslita.*;
+import java.util.List;
+import javax.swing.DefaultListModel;
 
 /**
  *
@@ -12,12 +15,23 @@ import edu.mil.cet002.compraslita.*;
  */
 public class ResultadosBusqueda extends javax.swing.JFrame {
 
+    DefaultListModel<String> dlm = new DefaultListModel<>();
+    List<Producto> resultado;
+
     /**
      * Creates new form NewJFrame
+     *
+     * @param resultado
      */
     public ResultadosBusqueda() {
         initComponents();
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+    }
+
+    public ResultadosBusqueda(List<Producto> resultado) {
+        this();
+        this.resultado = resultado;
+        iniciar();
     }
 
     /**
@@ -39,6 +53,7 @@ public class ResultadosBusqueda extends javax.swing.JFrame {
         botonAgregarCarro = new javax.swing.JButton();
         panelItems = new javax.swing.JScrollPane();
         listaProductos = new javax.swing.JList<>();
+        listaProductos.setModel(dlm);
         botonSalir = new javax.swing.JButton();
         botonInfo = new javax.swing.JButton();
 
@@ -79,12 +94,12 @@ public class ResultadosBusqueda extends javax.swing.JFrame {
 
         comboOrden.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         comboOrden.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Precio (Menor a mayor)", "Precio (Mayor a menor)", "Puntuación (Menor a mayor)", "Puntuación (Mayor a menor)" }));
-        comboOrden.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        comboOrden.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         botonNuevaBusqueda.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         botonNuevaBusqueda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectoswing/imagenes/buscar png.png"))); // NOI18N
         botonNuevaBusqueda.setText("Nueva Búsqueda");
-        botonNuevaBusqueda.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        botonNuevaBusqueda.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         botonNuevaBusqueda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonNuevaBusquedaActionPerformed(evt);
@@ -94,7 +109,7 @@ public class ResultadosBusqueda extends javax.swing.JFrame {
         botonIrCarrito.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         botonIrCarrito.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectoswing/imagenes/carrito png.png"))); // NOI18N
         botonIrCarrito.setText("Ir al carrito");
-        botonIrCarrito.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        botonIrCarrito.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         botonIrCarrito.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonIrCarritoActionPerformed(evt);
@@ -104,7 +119,7 @@ public class ResultadosBusqueda extends javax.swing.JFrame {
         botonAgregarCarro.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         botonAgregarCarro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectoswing/imagenes/agregar al carrito.png"))); // NOI18N
         botonAgregarCarro.setText("Agregar producto al carro");
-        botonAgregarCarro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        botonAgregarCarro.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         listaProductos.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         listaProductos.setModel(new javax.swing.AbstractListModel<String>() {
@@ -113,7 +128,7 @@ public class ResultadosBusqueda extends javax.swing.JFrame {
             public String getElementAt(int i) { return strings[i]; }
         });
         listaProductos.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-        listaProductos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        listaProductos.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         listaProductos.setSelectionBackground(new java.awt.Color(51, 102, 255));
         listaProductos.setVisibleRowCount(5);
         panelItems.setViewportView(listaProductos);
@@ -121,7 +136,7 @@ public class ResultadosBusqueda extends javax.swing.JFrame {
         botonSalir.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         botonSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectoswing/imagenes/salir png.png"))); // NOI18N
         botonSalir.setText("Salir");
-        botonSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        botonSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         botonSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonSalirActionPerformed(evt);
@@ -131,7 +146,7 @@ public class ResultadosBusqueda extends javax.swing.JFrame {
         botonInfo.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         botonInfo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectoswing/imagenes/info.png"))); // NOI18N
         botonInfo.setText("Ver informacion del comercio");
-        botonInfo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        botonInfo.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         botonInfo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonInfoActionPerformed(evt);
@@ -209,7 +224,11 @@ public class ResultadosBusqueda extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    private void iniciar() {
+        for(int i=0;i<resultado.size();i++){
+        dlm.addElement(resultado.get(i).getNombre());
+        }
+    }
     private void textoResultadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textoResultadosActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_textoResultadosActionPerformed
@@ -217,17 +236,17 @@ public class ResultadosBusqueda extends javax.swing.JFrame {
     private void botonIrCarritoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonIrCarritoActionPerformed
         Carro c = new Carro();
         c.setVisible(true);
-        this.dispose(); 
+        this.dispose();
     }//GEN-LAST:event_botonIrCarritoActionPerformed
 
     private void botonNuevaBusquedaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonNuevaBusquedaActionPerformed
         PanelBusqueda p = new PanelBusqueda();
         p.setVisible(true);
-        this.dispose(); 
+        this.dispose();
     }//GEN-LAST:event_botonNuevaBusquedaActionPerformed
 
     private void botonInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonInfoActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_botonInfoActionPerformed
 
     private void botonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSalirActionPerformed
@@ -268,7 +287,7 @@ public class ResultadosBusqueda extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new ResultadosBusqueda().setVisible(true);
-                
+
             }
         });
     }
