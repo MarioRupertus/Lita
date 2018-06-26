@@ -33,15 +33,14 @@ public class PanelBusqueda extends javax.swing.JFrame {
         Horario = new javax.swing.ButtonGroup();
         botonBuscar = new javax.swing.JButton();
         PanelProducto = new javax.swing.JPanel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
+        titulo = new javax.swing.JTextField();
+        campoBusqueda = new javax.swing.JTextField();
+        icono = new javax.swing.JLabel();
         PanelHorarios = new javax.swing.JPanel();
         horarioNull = new javax.swing.JRadioButton();
         horarioActual = new javax.swing.JRadioButton();
         horarioEspecifico = new javax.swing.JRadioButton();
         horas = new javax.swing.JComboBox<>();
-        minutos = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -57,20 +56,18 @@ public class PanelBusqueda extends javax.swing.JFrame {
         PanelProducto.setBackground(new java.awt.Color(255, 255, 255));
         PanelProducto.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
-        jTextField1.setEditable(false);
-        jTextField1.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField1.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
-        jTextField1.setText("Ingrese el producto que busca:");
-        jTextField1.setBorder(null);
-        jTextField1.setFocusable(false);
+        titulo.setEditable(false);
+        titulo.setBackground(new java.awt.Color(255, 255, 255));
+        titulo.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
+        titulo.setText("Ingrese el producto que busca:");
+        titulo.setBorder(null);
+        titulo.setFocusable(false);
 
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        campoBusqueda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                campoBusquedaActionPerformed(evt);
             }
         });
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectoswing/imagenes/buscar.png"))); // NOI18N
 
         javax.swing.GroupLayout PanelProductoLayout = new javax.swing.GroupLayout(PanelProducto);
         PanelProducto.setLayout(PanelProductoLayout);
@@ -80,25 +77,25 @@ public class PanelBusqueda extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(PanelProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PanelProductoLayout.createSequentialGroup()
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(campoBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel1))
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(icono))
+                    .addComponent(titulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         PanelProductoLayout.setVerticalGroup(
             PanelProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelProductoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(titulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(PanelProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PanelProductoLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 78, Short.MAX_VALUE)
+                        .addComponent(campoBusqueda, javax.swing.GroupLayout.DEFAULT_SIZE, 78, Short.MAX_VALUE)
                         .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelProductoLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel1)
+                        .addComponent(icono)
                         .addGap(39, 39, 39))))
         );
 
@@ -138,14 +135,6 @@ public class PanelBusqueda extends javax.swing.JFrame {
             }
         });
 
-        minutos.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        minutos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "00", "15", "30", "45" }));
-        minutos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                minutosActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout PanelHorariosLayout = new javax.swing.GroupLayout(PanelHorarios);
         PanelHorarios.setLayout(PanelHorariosLayout);
         PanelHorariosLayout.setHorizontalGroup(
@@ -158,9 +147,7 @@ public class PanelBusqueda extends javax.swing.JFrame {
                     .addComponent(horarioEspecifico)
                     .addGroup(PanelHorariosLayout.createSequentialGroup()
                         .addGap(8, 8, 8)
-                        .addComponent(horas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(minutos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(horas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         PanelHorariosLayout.setVerticalGroup(
@@ -173,9 +160,7 @@ public class PanelBusqueda extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(horarioEspecifico)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(PanelHorariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(horas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(minutos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(horas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -213,18 +198,19 @@ public class PanelBusqueda extends javax.swing.JFrame {
 
     private void setdefault() {
         horas.setVisible(false);
-        minutos.setVisible(false);
     }
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void campoBusquedaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoBusquedaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_campoBusquedaActionPerformed
 
     private void horarioEspecificoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_horarioEspecificoActionPerformed
         horas.setVisible(true);
-        minutos.setVisible(true);        // TODO add your handling code here:
+   // TODO add your handling code here:
     }//GEN-LAST:event_horarioEspecificoActionPerformed
 
     private void botonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBuscarActionPerformed
+        System.out.println(campoBusqueda.getText());
+        Servicios.getInstance().buscarProducto(campoBusqueda.getText());
         ResultadosBusqueda r = new ResultadosBusqueda();
         r.setVisible(true);
         this.dispose();        
@@ -234,18 +220,14 @@ public class PanelBusqueda extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_horasActionPerformed
 
-    private void minutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_minutosActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_minutosActionPerformed
-
     private void horarioActualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_horarioActualActionPerformed
         horas.setVisible(false);
-        minutos.setVisible(false);        // TODO add your handling code here:
+      // TODO add your handling code here:
     }//GEN-LAST:event_horarioActualActionPerformed
 
     private void horarioNullActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_horarioNullActionPerformed
         horas.setVisible(false);
-        minutos.setVisible(false);        // TODO add your handling code here:
+      // TODO add your handling code here:
     }//GEN-LAST:event_horarioNullActionPerformed
 
     /**
@@ -289,13 +271,12 @@ public class PanelBusqueda extends javax.swing.JFrame {
     private javax.swing.JPanel PanelHorarios;
     private javax.swing.JPanel PanelProducto;
     private javax.swing.JButton botonBuscar;
+    private javax.swing.JTextField campoBusqueda;
     private javax.swing.JRadioButton horarioActual;
     private javax.swing.JRadioButton horarioEspecifico;
     private javax.swing.JRadioButton horarioNull;
     private javax.swing.JComboBox<String> horas;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JComboBox<String> minutos;
+    private javax.swing.JLabel icono;
+    private javax.swing.JTextField titulo;
     // End of variables declaration//GEN-END:variables
 }
