@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package edu.mil.cet002.Swing;
-import com.ar.cet002.comprasLita.*;
+import edu.mil.cet002.compraslita.*;
 
 /**
  *
