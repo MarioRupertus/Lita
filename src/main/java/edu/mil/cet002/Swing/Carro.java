@@ -6,7 +6,7 @@
 package edu.mil.cet002.Swing;
 
 import javax.swing.*;
-import com.ar.cet002.comprasLita.*;
+import edu.ar.cet002.compraslita.*;
 
 /**
  *
