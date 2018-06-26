@@ -209,9 +209,7 @@ public class PanelBusqueda extends javax.swing.JFrame {
     }//GEN-LAST:event_horarioEspecificoActionPerformed
 
     private void botonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBuscarActionPerformed
-        System.out.println(campoBusqueda.getText());
-        Servicios.getInstance().buscarProducto(campoBusqueda.getText());
-        ResultadosBusqueda r = new ResultadosBusqueda();
+        ResultadosBusqueda r = new ResultadosBusqueda(Servicios.getInstance().buscarProducto(campoBusqueda.getText()));
         r.setVisible(true);
         this.dispose();        
     }//GEN-LAST:event_botonBuscarActionPerformed
