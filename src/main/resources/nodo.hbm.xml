@@ -46,6 +46,6 @@ Contributor(s):
         <id column="idnodo" name="idnodo"/>
         <property name="nombre"/>
         <one-to-many name="proximos" class="Proximos" column= "fkNodoOrigen"/>
-        
+       
     </class>
 </hibernate-mapping>

@@ -47,4 +47,5 @@ Contributor(s):
  </composite-id>
  <property name="costo"/>
  <property name="sentido"/>
+  <one-to-one name="nodo"/> 
 </hibernate-mapping>
