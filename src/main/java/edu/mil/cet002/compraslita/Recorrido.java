@@ -117,7 +117,7 @@ public class Recorrido {
         }
 
         // LA ULTIMA ITERACION SE PRODUCE PARA IR A LA POSICION FINAL
-        calcularMapa(nodoActual);
+        calcularMapaAuto(nodoActual);
         nodoObjetivo = destinoFinal;
         costoTotal += nodoObjetivo.getPesoAcumulado();
 
