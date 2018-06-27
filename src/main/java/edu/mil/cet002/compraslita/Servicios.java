@@ -42,9 +42,10 @@ public class Servicios {
 //        Comercio c2 = new Comercio(9, 20);
 //        Comercio c3 = new Comercio(7, 18);
         
-        lista.add(new Producto p1);
-        lista.add(new Producto p2);
+/*
+        lista.add(new Producto());
+        lista.add(new Producto());
         lista.add(new Producto p3);
-        return listaDeProductosBuscados;
+  */      return listaDeProductosBuscados;
     }
 }

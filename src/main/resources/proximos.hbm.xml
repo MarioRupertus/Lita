@@ -40,12 +40,14 @@ made subject to such option by the copyright holder.
 Contributor(s):
 -->
 <hibernate-mapping>
-  <class name="edu.mil.cet002.compraslita.Proximos" table="proximos"/>
- <composite-id>
+  <class name="edu.mil.cet002.compraslita.Proximos" table="proximos">
+ <!--composite-id>
           <key-many-to-one name="nodo" class="Nodo" column="nodo_idnodo1"/>
           <key-one-to-one name="nodo" class="Nodo" column="fkNodoOrigen"/>
- </composite-id>
+ </composite-id-->
+ <id column="nodo" name="nodo_idnodo1"/>
  <property name="costo"/>
  <property name="sentido"/>
   <one-to-one name="nodo"/> 
+  </class>
 </hibernate-mapping>

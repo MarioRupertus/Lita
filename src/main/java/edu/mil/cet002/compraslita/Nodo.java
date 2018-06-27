@@ -10,7 +10,25 @@ import java.util.Objects;
  */
 public class Nodo {
     
+    
     private String nombre;
+    private Integer idnodo;
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void setVecinos(List<Proximos> vecinos) {
+        this.vecinos = vecinos;
+    }
+
+    public Integer getIdnodo() {
+        return idnodo;
+    }
+
+    public void setIdnodo(Integer idnodo) {
+        this.idnodo = idnodo;
+    }
     private Nodo antecesor;
     private int pesoAcumulado;
     private List <Proximos> vecinos = new ArrayList<>();

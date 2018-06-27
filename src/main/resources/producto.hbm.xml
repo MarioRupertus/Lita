@@ -40,10 +40,10 @@ made subject to such option by the copyright holder.
 Contributor(s):
 -->
 <hibernate-mapping>
-  <class name="edu.mil.cet002.compraslita.Producto" table="producto"/>
+  <class name="edu.mil.cet002.compraslita.Producto" table="producto">
   <id column="idproducto" name="idproducto"/>
   <property name="nombre"/>
   <property name="precio"/>
-  <many-to-one name="comercio" class="Comercio" column="idcomercio"/>
- 
+  <!--many-to-one name="comercio" class="Comercio" column="idcomercio"/-->
+   </class>
 </hibernate-mapping>

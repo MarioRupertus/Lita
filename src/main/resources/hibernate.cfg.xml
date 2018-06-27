@@ -11,6 +11,6 @@
     <mapping resource="nodo.hbm.xml"/>
     <mapping resource="producto.hbm.xml"/>
     <mapping resource="comercio.hbm.xml"/>
-    <mapping resource="proximos.hbm.xml"/>
+    <!--mapping resource="proximos.hbm.xml"/-->
   </session-factory>
 </hibernate-configuration>

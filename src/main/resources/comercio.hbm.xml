@@ -40,17 +40,21 @@ made subject to such option by the copyright holder.
 Contributor(s):
 -->
 <hibernate-mapping>
-    <class name="com.ar.cet002.comprasLita.Comercio" table="comercio"/>
+    <class name="edu.mil.cet002.compraslita.Comercio" table="comercio">
     <id column="idcomercio" name="idcomercio"/>
     <property name="nombre"/>
     <property name="duenio"  column="dueño"/>
-    <property name="horarioapertura" column="hora de apertura"/>
-    <property name="horariocierre" column="hora de cierre"/>
-    <property name="calificacionpositiva" column="calificacion positiva"/>
-    <property name="calificacionegativa" column="calificacion negativa"/>
-    <many-to-one name="nodo" class="Nodo" column="idnodo"/>
-    <bag name="producto" table="producto" inverse="false" fetch="select">
+    <property name="horarioApertura" column="hora de apertura"/>
+    <property name="horarioCierre" column="hora de cierre"/>
+    <property name="calificacionPositiva" column="calificacion positiva"/>
+    <property name="calificacionNegativa" column="calificacion negativa"/>
+    <many-to-one name="ubicacion" class="edu.mil.cet002.compraslita.Nodo" column="idnodo"/>
+    
+    <bag name="listaDeProductos" table="producto" inverse="false" fetch="select">
         <key column="fkcomercio"/>
-        <one-to-many class="Producto"/>
+        <one-to-many class="edu.mil.cet002.compraslita.Producto"/>
     </bag>
+    
+     
+    </class>
 </hibernate-mapping>

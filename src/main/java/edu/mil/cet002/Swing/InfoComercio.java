@@ -13,7 +13,7 @@ public class InfoComercio extends javax.swing.JFrame {
     public InfoComercio(Comercio c) {
         initComponents();
 //xd
-        nombreComercio.setText(c.getNombre());
+        //nombreComercio.setText(c.getNombre());
 
         SimpleDateFormat hora = new SimpleDateFormat("dd/MM/yyyy");
         String horario = hora.format(c.getHorario());

@@ -24,6 +24,40 @@ public class Comercio {
     private int horarioCierre;
     private int calificacionPositiva;
     private int calificacionNegativa;
+    private Integer idcomercio;
+    private String nombre;
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public int getHorarioApertura() {
+        return horarioApertura;
+    }
+
+    public void setHorarioApertura(int horarioApertura) {
+        this.horarioApertura = horarioApertura;
+    }
+
+    public int getHorarioCierre() {
+        return horarioCierre;
+    }
+
+    public void setHorarioCierre(int horarioCierre) {
+        this.horarioCierre = horarioCierre;
+    }
+
+    public Integer getIdcomercio() {
+        return idcomercio;
+    }
+
+    public void setIdcomercio(Integer idcomercio) {
+        this.idcomercio = idcomercio;
+    }
 
     public List<Producto> getListaDeProductos() {
         return listaDeProductos;
