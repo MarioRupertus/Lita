@@ -15,6 +15,7 @@ public class Recorrido {
     private Mapa mapa;
     private List<Nodo> recorridoCompleto = new ArrayList<>();
     private int costoTotal;
+    private int auto;
 
     public Recorrido(Mapa mapa) {
         this.mapa = mapa;
@@ -38,6 +39,12 @@ public class Recorrido {
         int[] distancia = d.calcularDistTodos(nodo, this.mapa);
         return distancia;
     }
+    
+    private int[] calcularMapaAuto(Nodo nodo) { //Calcula la distancia a todos los puntos
+        DijkstraAuto d = new DijkstraAuto();
+        int[] distancia = d.calcularDistTodos(nodo, this.mapa, this.auto);
+        return distancia;
+    }
 
     public List<Nodo> calcularRecorrido() { // Calcula el recorrido entre nodo y destino
         Nodo proxNodo, nodoObjetivo, nodoActual;
@@ -46,6 +53,52 @@ public class Recorrido {
 
         while (!isTodosVisitados()) {
             calcularMapa(nodoActual); // Calculo el mapa para el nodo que estoy posicionado
+            nodoObjetivo = buscarNodoCercano(); // Busco el destino mas cercano sin visitar
+            costoTotal += nodoObjetivo.getPesoAcumulado();
+            System.out.println("Distancia del trayecto " + nodoObjetivo.getPesoAcumulado());
+
+            proxNodo = nodoObjetivo;
+            camino.add(proxNodo); // el camino se arma desde fin hacia inicio, por lo tanto agrego el nodo objtivo al recorrido
+
+            while (proxNodo != nodoActual) { // mientras el proximo nodo a  visitar sea diferente al nodo de inicio
+                proxNodo = proxNodo.getAntecesor(); // agrego al recorrido el antecesor del nodo que estaba en la vuelta anterior
+                camino.add(proxNodo);
+            }
+
+            almacenarRecorrido(camino);
+            imprimirRecorrido();
+            nodoActual = nodoObjetivo; // ahora me posiciono en el nodo que visité y repito el proceso desde este nodo   
+        }
+
+        // LA ULTIMA ITERACION SE PRODUCE PARA IR A LA POSICION FINAL
+        calcularMapa(nodoActual);
+        nodoObjetivo = destinoFinal;
+        costoTotal += nodoObjetivo.getPesoAcumulado();
+
+        proxNodo = nodoObjetivo;
+        camino.add(proxNodo);
+
+        while (proxNodo != nodoActual) {
+            proxNodo = proxNodo.getAntecesor();
+            camino.add(proxNodo);
+        }
+        almacenarRecorrido(camino);
+        imprimirRecorrido();
+        camino.clear();
+
+        // FIN DE ARMADO DEL RECORRIDO
+        imprimirRecorrido();
+        System.out.println("Costo total = " + costoTotal);
+        return recorridoCompleto;
+    }
+    
+    public List<Nodo> calcularRecorridoAuto() { // Calcula el recorrido entre nodo y destino
+        Nodo proxNodo, nodoObjetivo, nodoActual;
+        List<Nodo> camino = new ArrayList<>();
+        nodoActual = origen;
+
+        while (!isTodosVisitados()) {
+            calcularMapaAuto(nodoActual); // Calculo el mapa para el nodo que estoy posicionado
             nodoObjetivo = buscarNodoCercano(); // Busco el destino mas cercano sin visitar
             costoTotal += nodoObjetivo.getPesoAcumulado();
             System.out.println("Distancia del trayecto " + nodoObjetivo.getPesoAcumulado());
