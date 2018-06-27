@@ -8,13 +8,20 @@ public class Proximos {
 
     private Nodo nodoVecino;
     private int costo;
+    private int sentido;
 
     public Proximos(Nodo vecino, int costo) {
         this.nodoVecino = vecino;
         this.costo = costo;
     }
 
-    public Nodo getnodoVecino() {
+    public Proximos(Nodo nodoVecino, int costo, int sentido) {
+        this.nodoVecino = nodoVecino;
+        this.costo = costo;
+        this.sentido = sentido;
+    }
+    
+     public Nodo getnodoVecino() {
         return nodoVecino;
     }
 
@@ -30,4 +37,14 @@ public class Proximos {
         this.costo = costo;
     }
 
+    public int getSentido() {
+        return sentido;
+    }
+
+    public void setSentido(int sentido) {
+        this.sentido = sentido;
+    }
+
+    
+    
 }
