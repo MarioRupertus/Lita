@@ -32,8 +32,7 @@ public class Servicios {
     }
     
     public Carrito crearCarrito(){
-        Carrito carrito = new Carrito();
-        return carrito;
+        return new Carrito();
     }
     
      public List<Producto> buscarProductoReal(String nombre) {
@@ -49,3 +48,37 @@ public class Servicios {
   */      return listaDeProductosBuscados;
     }
 }
+
+
+/**
+PANEL BÚSQUEDA
+buscarProductoSinHorario(String): list<> productos
+buscarProductoConHorario(String nombre, int horario): list<> productos
+
+RESULTADO BÚSQUEDA
+ordenarResultadoProdNombre(List<> productos): List<> Productos;
+ordenarResultadoProdPrecioAscendente(List<> productos): List<> Productos;
+ordenarResultadoProdPrecioDescendente(List<> productos): List<> Productos;
+ordenarResultadoProdPuntosAscendente(List<> productos): List<> Productos;
+ordenarResultadoProdPuntosDescendente(List<> productos): List<> Productos;
+agregarProductoCarro(Carro, Producto): void
+
+CARRO
+mostrarCarro(): void
+eliminarProducto(Producto): void
+definirDestinos(List<> Productos): List<> Comercios
+
+INFO COMERCIO
+getUbicacionCom(Comercio): String
+getDuenioCom(Comercio): String
+getHorarioAperturaCom(Comercio): int
+getHorarioCierreCom(Comercio): int
+getCalificacionPositivasCom(Comercio): int
+getCalificacionNegativasCom(Comercio): int
+getProductosCom(Comercio): list<> productos
+
+
+CALIFICACION
+calificarPositivo(Comercio): void
+calificarNegativo(Comercio): void
+ */
