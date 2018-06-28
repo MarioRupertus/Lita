@@ -4,20 +4,22 @@
  * and open the template in the editor.
  */
 package edu.mil.cet002.Swing;
+
 import edu.mil.cet002.compraslita.*;
+import javax.swing.JTextField;
 
 /**
  *
  * @author User
  */
 public class PanelBusqueda extends javax.swing.JFrame {
-    ResultadosBusqueda r=null;
+
+    ResultadosBusqueda r = null;
     Carrito carro;
-    
+
     /**
      * Creates new form PanelBusqueda
      */
-    
     public PanelBusqueda() {
         initComponents();
         setdefault();
@@ -104,6 +106,7 @@ public class PanelBusqueda extends javax.swing.JFrame {
 
         Horario.add(horarioNull);
         horarioNull.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        horarioNull.setSelected(true);
         horarioNull.setText("Cualquier horario");
         horarioNull.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -198,15 +201,16 @@ public class PanelBusqueda extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    
+
     public Carrito getCarro() {
         return carro;
+        
     }
 
-    public void agregarAlCarro(Producto p){
+    public void agregarAlCarro(Producto p) {
         carro.agregarAlCarrito(p);
     }
-    
+
     private void setdefault() {
         horas.setVisible(false);
     }
@@ -216,7 +220,8 @@ public class PanelBusqueda extends javax.swing.JFrame {
 
     private void horarioEspecificoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_horarioEspecificoActionPerformed
         horas.setVisible(true);
-   // TODO add your handling code here:
+        
+        // TODO add your handling code here:
     }//GEN-LAST:event_horarioEspecificoActionPerformed
 
     private void botonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBuscarActionPerformed
@@ -231,13 +236,17 @@ public class PanelBusqueda extends javax.swing.JFrame {
 
     private void horarioActualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_horarioActualActionPerformed
         horas.setVisible(false);
-      // TODO add your handling code here:
+        // TODO add your handling code here:
     }//GEN-LAST:event_horarioActualActionPerformed
 
     private void horarioNullActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_horarioNullActionPerformed
         horas.setVisible(false);
-      // TODO add your handling code here:
+        // TODO add your handling code here:
     }//GEN-LAST:event_horarioNullActionPerformed
+
+    public JTextField getCampo() {
+        return campoBusqueda;
+    }
 
     /**
      * @param args the command line arguments
@@ -280,7 +289,7 @@ public class PanelBusqueda extends javax.swing.JFrame {
     private javax.swing.JPanel PanelHorarios;
     private javax.swing.JPanel PanelProducto;
     private javax.swing.JButton botonBuscar;
-    private javax.swing.JTextField campoBusqueda;
+    public javax.swing.JTextField campoBusqueda;
     private javax.swing.JRadioButton horarioActual;
     private javax.swing.JRadioButton horarioEspecifico;
     private javax.swing.JRadioButton horarioNull;
