@@ -23,13 +23,17 @@ public class Servicios {
     public List<Producto> buscarProducto(String nombre) {
         return litaDB.buscarProductoPorNombre(nombre);
     }
+    
+    
 
     public void calificarPositivo(Comercio comercio) {
         comercio.sumarVotoPositivo();
+        litaDB.actualizarComercio(comercio);
     }
     
     public void calificarNegativo(Comercio comercio) {
         comercio.sumarVotoNegativo();
+        litaDB.actualizarComercio(comercio);
     }
     
     public void agregarProductoCarro(Carrito c, Producto p){

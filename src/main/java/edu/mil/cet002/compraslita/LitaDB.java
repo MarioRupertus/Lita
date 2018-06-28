@@ -7,6 +7,12 @@ package edu.mil.cet002.compraslita;
 
 import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.criteria.CriteriaQuery;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.boot.MetadataSources;
+import org.hibernate.boot.registry.StandardServiceRegistry;
+import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 
 /**
  *
@@ -14,16 +20,46 @@ import java.util.List;
  */
 public class LitaDB {
     
-    public List<Producto> buscarProductoPorNombre(String nombre){
-        List<Producto> lista = new ArrayList<>();
-        Comercio c1 = new Comercio(9, 18);
-        Comercio c2 = new Comercio(9, 20);
-        Comercio c3 = new Comercio(7, 18);
-        lista.add(new Producto("Martillo verde", 1, c1));
-        lista.add(new Producto("Martillo de goma", 233, c2));
-        lista.add(new Producto("Martillo neumatico", 1234, c3));       
-        return lista;
-        
+    SessionFactory sessionFactory = null;
+    
+    
+    public LitaDB(){
+        StandardServiceRegistry registry = new StandardServiceRegistryBuilder()
+                .configure() // obtiene los valores de hibernate.cfg.xml
+                .build();
+            sessionFactory = new MetadataSources(registry)
+                    .buildMetadata().buildSessionFactory();
     }
+    
+    public List<Producto> buscarProductoPorNombre(String nombre){
+
+        //pido una sesion de BD
+        Session session = sessionFactory.openSession();
+        CriteriaQuery<Producto> q
+                = session.getCriteriaBuilder().createQuery(Producto.class);
+        q.select(q.from(Producto.class));
+        List<Producto> l = session.createQuery(q).list();
+        //libero la sesion
+        session.close();
+        return l;
+
+    }
+    
+    public Comercio getComercio(int id){
+        Session session = sessionFactory.openSession();
+        Comercio c=session.get(Comercio.class, id);
+        session.close();
+        return c;
+    }
+    
+    public void actualizarComercio(Comercio c){
+    Session session = sessionFactory.openSession();
+    session.beginTransaction();
+    session.update(c);
+    session.getTransaction().commit();
+    session.close();
+    }
+    
+
     
 }

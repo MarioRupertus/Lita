@@ -26,6 +26,8 @@ public class Comercio {
     private int calificacionNegativa;
     private Integer idcomercio;
     private String nombre;
+    
+    public Comercio(){}
 
     //CONSTRUCTORES
     public Comercio(int horarioApertura, int horarioCierre) {
