@@ -1,5 +1,9 @@
-package edu.mil.cet002.compraslita;
+package edu.mil.cet002.test;
 
+import edu.mil.cet002.compraslita.Mapa;
+import edu.mil.cet002.compraslita.Nodo;
+import edu.mil.cet002.compraslita.Proximos;
+import edu.mil.cet002.compraslita.Recorrido;
 import java.util.Scanner;
 
 /**
