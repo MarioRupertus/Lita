@@ -24,8 +24,20 @@ public class Servicios {
         return litaDB.buscarProductoPorNombre(nombre);
     }
 
-    public void calificarComercio(Comercio comercio) {
-        
+    public void calificarPositivo(Comercio comercio) {
+        comercio.sumarVotoPositivo();
+    }
+    
+    public void calificarNegativo(Comercio comercio) {
+        comercio.sumarVotoNegativo();
+    }
+    
+    public void agregarProductoCarro(Carrito c, Producto p){
+        c.agregarAlCarrito(p);
+    }
+    
+    public void eliminarProductoCarro(Carrito c, Producto p){
+        c.eliminarProducto(p);
     }
 
     public void calcularRecorrido(Recorrido recorrido) {
@@ -61,12 +73,12 @@ ordenarResultadoProdPrecioAscendente(List<> productos): List<> Productos;
 ordenarResultadoProdPrecioDescendente(List<> productos): List<> Productos;
 ordenarResultadoProdPuntosAscendente(List<> productos): List<> Productos;
 ordenarResultadoProdPuntosDescendente(List<> productos): List<> Productos;
-agregarProductoCarro(Carro, Producto): void
+OK agregarProductoCarro(Carrito, Producto): void
 
 CARRO
-mostrarCarro(): void
-eliminarProducto(Producto): void
-definirDestinos(List<> Productos): List<> Comercios
+mostrarCarro(Carrito): void
+OK eliminarProducto(Carrito): void
+definirDestinos(Carrito): List<> Comercios
 
 INFO COMERCIO
 getUbicacionCom(Comercio): String
@@ -79,6 +91,6 @@ getProductosCom(Comercio): list<> productos
 
 
 CALIFICACION
-calificarPositivo(Comercio): void
-calificarNegativo(Comercio): void
+OK calificarPositivo(Comercio): void
+OK calificarNegativo(Comercio): void
  */
