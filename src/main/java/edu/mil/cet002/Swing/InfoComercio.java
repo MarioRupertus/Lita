@@ -84,6 +84,11 @@ public class InfoComercio extends javax.swing.JFrame {
         textoHorario.setText("Horario");
         textoHorario.setBorder(null);
         textoHorario.setFocusable(false);
+        textoHorario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textoHorarioActionPerformed(evt);
+            }
+        });
 
         textoCalifPosit.setEditable(false);
         textoCalifPosit.setBackground(new java.awt.Color(255, 255, 255));
@@ -173,6 +178,10 @@ public class InfoComercio extends javax.swing.JFrame {
     private void nombreComercioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombreComercioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_nombreComercioActionPerformed
+
+    private void textoHorarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textoHorarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textoHorarioActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

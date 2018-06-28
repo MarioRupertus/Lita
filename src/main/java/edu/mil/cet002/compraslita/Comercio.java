@@ -19,7 +19,7 @@ public class Comercio {
     private List<Producto> listaDeProductos;
     private Nodo ubicacion;
     private String duenio;
-    private Date horario;
+    // Atributo Date reemplazado por int Apertura e Int Cierre // private Date horario;
     private int horarioApertura;
     private int horarioCierre;
     private int calificacionPositiva;
