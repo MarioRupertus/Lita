@@ -15,7 +15,7 @@ import java.util.List;
  * @author User
  */
 public class Comercio {
-    
+
     private List<Producto> listaDeProductos;
     private Nodo ubicacion;
     private String duenio;
@@ -27,6 +27,31 @@ public class Comercio {
     private Integer idcomercio;
     private String nombre;
 
+    //CONSTRUCTORES
+    public Comercio(int horarioApertura, int horarioCierre) {
+        this.horarioApertura = horarioApertura;
+        this.horarioCierre = horarioCierre;
+    }
+
+    // OTROS METODOS
+    public void saberSiEstaAbierto(int horaApertura, int horaCierre) {
+        Calendar fecha = new GregorianCalendar();
+        int horaActual = fecha.get(Calendar.HOUR_OF_DAY);
+
+        if ((horaActual) >= (horaApertura) && (horaActual) <= (horaCierre)) {
+            System.out.println("Abierto");
+        } else {
+            System.out.println("Cerrado");
+        }
+    }
+    public void sumarVotoPositivo(){
+        calificacionPositiva ++;
+    }
+    public void sumarVotoNegativo(){
+        calificacionNegativa ++;
+    }
+
+    // GETTER Y SETTER
     public String getNombre() {
         return nombre;
     }
@@ -106,24 +131,4 @@ public class Comercio {
     public void setCalificacionNegativa(int calificacionNegativa) {
         this.calificacionNegativa = calificacionNegativa;
     }
-    
-     public Comercio(int horarioApertura, int horarioCierre) {
-        this.horarioApertura = horarioApertura;
-        this.horarioCierre = horarioCierre;
-    }
-
-    
-      public void saberSiEstaAbierto(int horaApertura,int horaCierre ) {
-        Calendar fecha = new GregorianCalendar();   
-        int horaActual = fecha.get(Calendar.HOUR_OF_DAY);
-        
-        if ((horaActual) >= (horaApertura) && (horaActual) <= (horaCierre)) {
-            System.out.println("Abierto");
-        } else {
-            System.out.println("Cerrado");
-        }
-        
-    
-    
-}
 }
