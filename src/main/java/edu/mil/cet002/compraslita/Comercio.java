@@ -110,13 +110,13 @@ public class Comercio {
         this.duenio = duenio;
     }
 
-    public Date getHorario() {
+   /* public Date getHorario() {
         return horario;
     }
 
     public void setHorario(Date horario) {
         this.horario = horario;
-    }
+    }*/
 
     public int getCalificacionPositiva() {
         return calificacionPositiva;
