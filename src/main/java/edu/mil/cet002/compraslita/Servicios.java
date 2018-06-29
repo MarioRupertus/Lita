@@ -20,8 +20,8 @@ public class Servicios {
         litaDB = new LitaDB();
     }
 
-    public List<?> buscarProducto(String nombre,int horario) {
-        return litaDB.buscarProductoPorNombre(nombre,horario);
+    public List<?> buscarProducto(String nombre,int horario,String criterioOrden,String orden) {
+        return litaDB.buscarProductoPorNombre(nombre,horario,criterioOrden,orden);
     }
     
     
@@ -55,18 +55,7 @@ public class Servicios {
         return c.getListaDeProductos();
     }
     
-     public List<Producto> buscarProductoReal(String nombre) {
-          List<Producto> listaDeProductosBuscados = new ArrayList<>();
-//        Comercio c1 = new Comercio(9, 18);
-//        Comercio c2 = new Comercio(9, 20);
-//        Comercio c3 = new Comercio(7, 18);
-        
-/*
-        lista.add(new Producto());
-        lista.add(new Producto());
-        lista.add(new Producto p3);
-  */      return listaDeProductosBuscados;
-    }
+
 }
 
 
