@@ -5,7 +5,7 @@
     <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
     <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
     <property name="hibernate.connection.url">jdbc:mysql://comprasl.ddns.net:3306/comprasLita?serverTimezone=UTC</property>
-    <property name="hibernate.show_sql">true</property>
+    <property name="hibernate.show_sql">false</property>
     <!--<property name="hibernate.connection.url">jdbc:mysql://comprasl.ddns.net:3306/comprasLita?zeroDateTimeBehavior=convertToNull&serverTimezone=UTC-3</property>-->
     <property name="hibernate.connection.username">cet002</property>
     <property name="hibernate.connection.password">comprasLita002</property>
