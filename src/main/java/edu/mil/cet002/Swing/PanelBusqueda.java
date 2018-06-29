@@ -225,7 +225,11 @@ public class PanelBusqueda extends javax.swing.JFrame {
     }//GEN-LAST:event_horarioEspecificoActionPerformed
 
     private void botonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBuscarActionPerformed
-        r = new ResultadosBusqueda(Servicios.getInstance().buscarProducto(campoBusqueda.getText()), this);
+       String precio="precio";
+       String ASC="ASC";
+       int i = 1;//si le pasamos acá o en el constructor el horario (que no entiendo de donde lo puedo buscar) quedaría bien. Ahora el horario es 1. Mariela
+        r = new ResultadosBusqueda(Servicios.getInstance().
+                buscarProducto(campoBusqueda.getText(),i , precio, ASC), this);
         r.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_botonBuscarActionPerformed

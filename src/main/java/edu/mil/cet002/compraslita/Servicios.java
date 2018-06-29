@@ -20,7 +20,7 @@ public class Servicios {
         litaDB = new LitaDB();
     }
 
-    public List<?> buscarProducto(String nombre,int horario,String criterioOrden,String orden) {
+    public List<Producto> buscarProducto(String nombre,int horario,String criterioOrden,String orden) {
         return litaDB.buscarProductoPorNombre(nombre,horario,criterioOrden,orden);
     }
     
