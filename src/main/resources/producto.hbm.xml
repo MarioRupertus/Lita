@@ -44,6 +44,6 @@ Contributor(s):
   <id column="idproducto" name="idproducto"/>
   <property name="nombre"/>
   <property name="precio"/>
-  <!--many-to-one name="comercio" class="Comercio" column="idcomercio"/-->
+  <many-to-one name="comercio" class="edu.mil.cet002.compraslita.Comercio" column="fkcomercio" lazy="false"></many-to-one>
    </class>
 </hibernate-mapping>

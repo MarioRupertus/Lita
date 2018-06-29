@@ -13,53 +13,63 @@ import org.hibernate.SessionFactory;
 import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+import org.hibernate.query.Query;
 
 /**
  *
  * @author User
  */
 public class LitaDB {
-    
+
     SessionFactory sessionFactory = null;
     
-    
-    public LitaDB(){
+    public void cerrarSesion(){
+        sessionFactory.close();
+    }
+
+    public LitaDB() {
         StandardServiceRegistry registry = new StandardServiceRegistryBuilder()
                 .configure() // obtiene los valores de hibernate.cfg.xml
                 .build();
-            sessionFactory = new MetadataSources(registry)
-                    .buildMetadata().buildSessionFactory();
+        sessionFactory = new MetadataSources(registry)
+                .buildMetadata().buildSessionFactory();
     }
-    
-    public List<Producto> buscarProductoPorNombre(String nombre){
 
-        //pido una sesion de BD
+    public List<Producto> buscarProductoPorNombre(String nombre,int horario,String criterioOrden,String orden) {
         Session session = sessionFactory.openSession();
-        CriteriaQuery<Producto> q
-                = session.getCriteriaBuilder().createQuery(Producto.class);
-        q.select(q.from(Producto.class));
-        List<Producto> l = session.createQuery(q).list();
-        //libero la sesion
+        String hql="from Producto p where p.nombre like :nombre";
+        if(horario!=-1){
+            hql=hql+ " and p.comercio.horarioApertura<= :horario and p.comercio.horarioCierre > :horario ";            
+        }
+        if ("precio".equals(criterioOrden)){
+            hql=hql+" order by p.precio "+orden;
+        }
+        if ("puntuacion".equals(criterioOrden)){
+            hql=hql+" order by p.comercio.calificacionPositiva - p.comercio.calificacionNegativa "+orden;
+        }               
+        Query q = session.createQuery(hql,Producto.class);
+        q.setParameter("nombre", "%" + nombre + "%");
+        if(horario!=-1){
+            q.setParameter("horario", horario);
+        }
+        List<Producto> l = q.list();
         session.close();
         return l;
-
     }
-    
-    public Comercio getComercio(int id){
+
+    public Comercio getComercio(int id) {
         Session session = sessionFactory.openSession();
-        Comercio c=session.get(Comercio.class, id);
+        Comercio c = session.get(Comercio.class, id);
         session.close();
         return c;
     }
-    
-    public void actualizarComercio(Comercio c){
-    Session session = sessionFactory.openSession();
-    session.beginTransaction();
-    session.update(c);
-    session.getTransaction().commit();
-    session.close();
-    }
-    
 
-    
+    public void actualizarComercio(Comercio c) {
+        Session session = sessionFactory.openSession();
+        session.beginTransaction();
+        session.update(c);
+        session.getTransaction().commit();
+        session.close();
+    }
+
 }
