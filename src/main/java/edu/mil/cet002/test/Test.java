@@ -1,5 +1,6 @@
-package edu.mil.cet002.compraslita;
+package edu.mil.cet002.test;
 
+import edu.mil.cet002.compraslita.Nodo;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.MetadataSources;
@@ -10,7 +11,7 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
  *
  * @author User
  */
-public class TestMavenClase6 {
+public class Test {
 
     public static void main(String[] args) {
         StandardServiceRegistry registry = new StandardServiceRegistryBuilder()

@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package edu.mil.cet002.compraslita;
+package edu.mil.cet002.test;
 
+import edu.mil.cet002.compraslita.Producto;
 import java.util.List;
 import javax.management.Query;
 import javax.persistence.criteria.CriteriaQuery;

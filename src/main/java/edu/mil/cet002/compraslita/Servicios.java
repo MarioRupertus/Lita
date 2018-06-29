@@ -51,6 +51,10 @@ public class Servicios {
         return new Carrito();
     }
     
+    public List<Producto> mostrarCarrito(Carrito c){
+        return c.getListaDeProductos();
+    }
+    
      public List<Producto> buscarProductoReal(String nombre) {
           List<Producto> listaDeProductosBuscados = new ArrayList<>();
 //        Comercio c1 = new Comercio(9, 18);
@@ -66,35 +70,28 @@ public class Servicios {
 }
 
 
-/**
+/*
 PANEL BÚSQUEDA
-buscarProductoSinHorario(String): list<> productos
-buscarProductoConHorario(String nombre, int horario): list<> productos
+buscarProducto(String nombre, int horario, String criterioOrden, String ordenSentido): list<> productos
+getHorarioActual();
 
 RESULTADO BÚSQUEDA
-ordenarResultadoProdNombre(List<> productos): List<> Productos;
-ordenarResultadoProdPrecioAscendente(List<> productos): List<> Productos;
-ordenarResultadoProdPrecioDescendente(List<> productos): List<> Productos;
-ordenarResultadoProdPuntosAscendente(List<> productos): List<> Productos;
-ordenarResultadoProdPuntosDescendente(List<> productos): List<> Productos;
 OK agregarProductoCarro(Carrito, Producto): void
 
 CARRO
-mostrarCarro(Carrito): void
+mostrarCarro(Carrito): List<> productos
 OK eliminarProducto(Carrito): void
 definirDestinos(Carrito): List<> Comercios
+iniciarRecorridoCaminando(nodoOrigen, nodoDestino, destinos);
+iniciarRecorridoAuto(nodoOrigen, nodoDestino, destinos);
+calcularPrecioTotal(Carrito);
+buscarUbicacion(): nodo; // utilizado para ubicacion final e inicial
 
 INFO COMERCIO
-getUbicacionCom(Comercio): String
-getDuenioCom(Comercio): String
-getHorarioAperturaCom(Comercio): int
-getHorarioCierreCom(Comercio): int
-getCalificacionPositivasCom(Comercio): int
-getCalificacionNegativasCom(Comercio): int
-getProductosCom(Comercio): list<> productos
-
+El codigo interno de la pantalla se encarga de obtener los datos necesarios
 
 CALIFICACION
+mostrarComerciosVisitados(Carrito): List<> Comercios
 OK calificarPositivo(Comercio): void
 OK calificarNegativo(Comercio): void
  */

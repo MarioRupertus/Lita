@@ -46,17 +46,17 @@ public class Carro extends javax.swing.JFrame {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
-        jTextField2 = new javax.swing.JTextField();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
+        textoTransporte = new javax.swing.JTextField();
+        botonAuto = new javax.swing.JRadioButton();
+        botonCaminar = new javax.swing.JRadioButton();
         textoCarro = new javax.swing.JTextField();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        panelItems = new javax.swing.JScrollPane();
         listaProductos = new javax.swing.JList<>();
         botonEliminar = new javax.swing.JButton();
         mostrarRecorrido = new javax.swing.JButton();
-        jTextField3 = new javax.swing.JTextField();
-        jCheckBox1 = new javax.swing.JCheckBox();
-        jTextField4 = new javax.swing.JTextField();
+        textoDestino = new javax.swing.JTextField();
+        checkDestino = new javax.swing.JCheckBox();
+        textoTotal = new javax.swing.JTextField();
         precio = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -68,24 +68,29 @@ public class Carro extends javax.swing.JFrame {
         jPanel1.setFocusable(false);
         jPanel1.setPreferredSize(new java.awt.Dimension(500, 450));
 
-        jTextField2.setEditable(false);
-        jTextField2.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField2.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        jTextField2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField2.setText(" Medio de transporte:");
-        jTextField2.setBorder(null);
-        jTextField2.setFocusable(false);
+        textoTransporte.setEditable(false);
+        textoTransporte.setBackground(new java.awt.Color(255, 255, 255));
+        textoTransporte.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        textoTransporte.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        textoTransporte.setText(" Medio de transporte:");
+        textoTransporte.setBorder(null);
+        textoTransporte.setFocusable(false);
 
-        jRadioButton1.setBackground(new java.awt.Color(255, 255, 255));
-        buttonGroup1.add(jRadioButton1);
-        jRadioButton1.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        jRadioButton1.setSelected(true);
-        jRadioButton1.setText("Auto");
+        botonAuto.setBackground(new java.awt.Color(255, 255, 255));
+        buttonGroup1.add(botonAuto);
+        botonAuto.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        botonAuto.setSelected(true);
+        botonAuto.setText("Auto");
 
-        jRadioButton2.setBackground(new java.awt.Color(255, 255, 255));
-        buttonGroup1.add(jRadioButton2);
-        jRadioButton2.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        jRadioButton2.setText("Caminar");
+        botonCaminar.setBackground(new java.awt.Color(255, 255, 255));
+        buttonGroup1.add(botonCaminar);
+        botonCaminar.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        botonCaminar.setText("Caminar");
+        botonCaminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonCaminarActionPerformed(evt);
+            }
+        });
 
         textoCarro.setEditable(false);
         textoCarro.setBackground(new java.awt.Color(255, 255, 255));
@@ -96,7 +101,7 @@ public class Carro extends javax.swing.JFrame {
 
         listaProductos.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         listaProductos.setModel(dlm);
-        jScrollPane1.setViewportView(listaProductos);
+        panelItems.setViewportView(listaProductos);
 
         botonEliminar.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         botonEliminar.setText("Eliminar producto del carro");
@@ -108,15 +113,15 @@ public class Carro extends javax.swing.JFrame {
 
         mostrarRecorrido.setText("Mostrar recorrido");
 
-        jCheckBox1.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox1.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        jCheckBox1.setText("Destino Final:");
-        jCheckBox1.setFocusable(false);
+        checkDestino.setBackground(new java.awt.Color(255, 255, 255));
+        checkDestino.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        checkDestino.setText("Destino Final:");
+        checkDestino.setFocusable(false);
 
-        jTextField4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jTextField4.setText("Total a pagar: $");
-        jTextField4.setToolTipText("");
-        jTextField4.setBorder(null);
+        textoTotal.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        textoTotal.setText("Total a pagar: $");
+        textoTotal.setToolTipText("");
+        textoTotal.setBorder(null);
 
         precio.setFont(new java.awt.Font("Tahoma", 2, 14)); // NOI18N
         precio.setBorder(null);
@@ -127,20 +132,20 @@ public class Carro extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1)
+                .addComponent(panelItems)
                 .addContainerGap())
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(20, 20, 20)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jRadioButton2)
-                            .addComponent(jRadioButton1)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(35, 35, 35)
+                            .addComponent(botonCaminar)
+                            .addComponent(botonAuto)
+                            .addComponent(textoTransporte, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(30, 30, 30)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jCheckBox1)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 316, Short.MAX_VALUE)))
+                            .addComponent(checkDestino)
+                            .addComponent(textoDestino, javax.swing.GroupLayout.DEFAULT_SIZE, 316, Short.MAX_VALUE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(10, 10, 10)
                         .addComponent(textoCarro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -149,7 +154,7 @@ public class Carro extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(botonEliminar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(textoTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(precio, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(10, 10, 10))
@@ -164,25 +169,25 @@ public class Carro extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(textoCarro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(panelItems, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(botonEliminar)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textoTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(precio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jCheckBox1))
+                    .addComponent(textoTransporte, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(checkDestino))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(6, 6, 6)
-                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(textoDestino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jRadioButton1)
+                        .addComponent(botonAuto)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jRadioButton2)))
+                        .addComponent(botonCaminar)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
                 .addComponent(mostrarRecorrido)
                 .addContainerGap())
@@ -217,6 +222,10 @@ public class Carro extends javax.swing.JFrame {
         precio.setText(calcularPrecio());//Se actualiza el precio total del carrito
 
     }//GEN-LAST:event_botonEliminarActionPerformed
+
+    private void botonCaminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCaminarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_botonCaminarActionPerformed
     private void iniciarLista(Carrito a) {
         for (int i = 0; i != a.getListaDeProductos().size(); i++) {
             dlm.addElement(carro.getListaDeProductos().get(i).getNombre());
@@ -262,19 +271,19 @@ public class Carro extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JRadioButton botonAuto;
+    private javax.swing.JRadioButton botonCaminar;
     private javax.swing.JButton botonEliminar;
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JCheckBox jCheckBox1;
+    private javax.swing.JCheckBox checkDestino;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
     private javax.swing.JList<String> listaProductos;
     private javax.swing.JButton mostrarRecorrido;
+    private javax.swing.JScrollPane panelItems;
     private javax.swing.JTextField precio;
     private javax.swing.JTextField textoCarro;
+    private javax.swing.JTextField textoDestino;
+    private javax.swing.JTextField textoTotal;
+    private javax.swing.JTextField textoTransporte;
     // End of variables declaration//GEN-END:variables
 }
