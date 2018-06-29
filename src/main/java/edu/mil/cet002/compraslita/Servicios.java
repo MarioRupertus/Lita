@@ -45,8 +45,7 @@ public class Servicios {
     }
 
     public void calcularRecorrido(Recorrido recorrido) {
-        Dijkstra d =new Dijkstra();
-        d.calcularDistTodos(origen, mapa);
+        
     }
     
     public Carrito crearCarrito(){
