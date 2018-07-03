@@ -32,7 +32,7 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+              <Component id="jPanel1" max="32767" attributes="0"/>
               <EmptySpace min="0" pref="24" max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -55,7 +55,7 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace min="-2" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <Component id="textoResultados" min="-2" max="-2" attributes="0"/>
@@ -63,7 +63,7 @@
                           <Component id="textoProducto" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="panelItems" max="32767" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="textoOrdenar" min="-2" pref="76" max="-2" attributes="0"/>
@@ -73,7 +73,7 @@
                                   <Component id="botonNuevaBusqueda" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace max="-2" attributes="0"/>
+                          <EmptySpace min="-2" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" max="-2" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="botonIrCarrito" min="-2" pref="135" max="-2" attributes="0"/>
@@ -83,7 +83,7 @@
                               <Component id="botonAgregarCarro" max="32767" attributes="0"/>
                               <Component id="botonInfo" alignment="0" pref="252" max="32767" attributes="0"/>
                           </Group>
-                          <EmptySpace min="0" pref="10" max="32767" attributes="0"/>
+                          <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -92,12 +92,12 @@
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace min="-2" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="textoResultados" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
                       <Component id="textoProducto" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace min="-2" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="comboOrden" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="botonNuevaBusqueda" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -113,11 +113,11 @@
                           <Component id="botonAgregarCarro" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="panelItems" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" max="-2" attributes="0"/>
+                          <Component id="panelItems" max="32767" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace min="-2" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -183,14 +183,14 @@
               <Font name="Tahoma" size="13" style="0"/>
             </Property>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="5">
-                <StringItem index="0" value="Nada"/>
-                <StringItem index="1" value="Precio (Menor a mayor)"/>
-                <StringItem index="2" value="Precio (Mayor a menor)"/>
-                <StringItem index="3" value="Puntuaci&#xf3;n (Menor a mayor)"/>
-                <StringItem index="4" value="Puntuaci&#xf3;n (Mayor a menor)"/>
+              <StringArray count="4">
+                <StringItem index="0" value="Precio (Menor a mayor)"/>
+                <StringItem index="1" value="Precio (Mayor a menor)"/>
+                <StringItem index="2" value="Puntuaci&#xf3;n (Menor a mayor)"/>
+                <StringItem index="3" value="Puntuaci&#xf3;n (Mayor a menor)"/>
               </StringArray>
             </Property>
+            <Property name="selectedIndex" type="int" value="1"/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
               <Color id="Default Cursor"/>
             </Property>
@@ -263,7 +263,7 @@
             <Component class="javax.swing.JList" name="listaProductos">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Tahoma" size="24" style="0"/>
+                  <Font name="Tahoma" size="18" style="0"/>
                 </Property>
                 <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
                   <StringArray count="10">
