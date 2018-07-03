@@ -8,7 +8,6 @@ package edu.mil.cet002.Swing;
 import edu.mil.cet002.compraslita.Carrito;
 import javax.swing.*;
 
-
 /**
  *
  * @author User
@@ -127,7 +126,7 @@ public class Carro extends javax.swing.JFrame {
         precio.setFont(new java.awt.Font("Tahoma", 2, 14)); // NOI18N
         precio.setBorder(null);
 
-        jButton1.setText("jButton1");
+        jButton1.setLabel("Volver");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -242,7 +241,7 @@ public class Carro extends javax.swing.JFrame {
     }//GEN-LAST:event_botonCaminarActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
- this.setVisible(false);        
+        this.setVisible(false);
 // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
     private void iniciarLista(Carrito a) {
