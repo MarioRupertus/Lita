@@ -5,9 +5,7 @@
  */
 package edu.mil.cet002.compraslita;
 
-import java.util.ArrayList;
 import java.util.List;
-import javax.persistence.criteria.CriteriaQuery;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.MetadataSources;

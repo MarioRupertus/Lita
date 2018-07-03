@@ -11,7 +11,8 @@ public class ResultadosBusqueda extends javax.swing.JFrame {
     List<Producto> resultado;
     PanelBusqueda p;
     String b;
-
+   // private Carrito carro;
+    
     /**
      * Creates new form NewJFrame
      *
@@ -239,9 +240,9 @@ public class ResultadosBusqueda extends javax.swing.JFrame {
     }//GEN-LAST:event_textoResultadosActionPerformed
 
     private void botonIrCarritoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonIrCarritoActionPerformed
-        //  Carro c = new Carro(carro);
-        // c.setVisible(true);
-
+        Carro c = new Carro(p.getCarro());
+        c.setVisible(true);
+        
     }//GEN-LAST:event_botonIrCarritoActionPerformed
 
     private void botonNuevaBusquedaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonNuevaBusquedaActionPerformed
@@ -261,7 +262,11 @@ public class ResultadosBusqueda extends javax.swing.JFrame {
     }//GEN-LAST:event_botonSalirActionPerformed
 
     private void botonAgregarCarroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAgregarCarroActionPerformed
-
+        
+        Producto producto = null;
+        producto = resultado.get(listaProductos.getSelectedIndex());
+        Servicios.getInstance().agregarProductoCarro(p.getCarro(), producto);
+        //this.setVisible(false);
     }//GEN-LAST:event_botonAgregarCarroActionPerformed
 
     private void comboOrdenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboOrdenActionPerformed

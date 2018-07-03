@@ -15,7 +15,7 @@ import javax.swing.JTextField;
 public class PanelBusqueda extends javax.swing.JFrame {
 
     ResultadosBusqueda r = null;
-    Carrito carro;
+    Carrito carro = new Carrito();
 
     /**
      * Creates new form PanelBusqueda
@@ -227,7 +227,7 @@ public class PanelBusqueda extends javax.swing.JFrame {
     private void botonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBuscarActionPerformed
        String precio="precio";
        String ASC="ASC";
-       int i = 1;//si le pasamos acá o en el constructor el horario (que no entiendo de donde lo puedo buscar) quedaría bien. Ahora el horario es 1. Mariela
+       int i = -1;//si le pasamos acá o en el constructor el horario (que no entiendo de donde lo puedo buscar) quedaría bien. Ahora el horario es 1. Mariela
         r = new ResultadosBusqueda(Servicios.getInstance().
                 buscarProducto(campoBusqueda.getText(),i , precio, ASC), this);
         r.setVisible(true);
