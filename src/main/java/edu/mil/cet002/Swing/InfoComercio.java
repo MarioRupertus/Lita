@@ -10,20 +10,20 @@ public class InfoComercio extends javax.swing.JFrame {
 
     private DefaultListModel<String> dlm = new DefaultListModel<>();
 
-    public InfoComercio(String nombre,String ubicacion, String duenio) {
-      initComponents();
+    public InfoComercio(Comercio c) {
+        initComponents();
 //xd
-        nombreComercio.setText(nombre);
+        nombreComercio.setText(c.getNombre());
 
-//        SimpleDateFormat hora = new SimpleDateFormat("dd/MM/yyyy");
-//        String horarioAp = hora.format(c.getHorarioApertura());
-//        String horarioCi = hora.format(c.getHorarioCierre());
+        SimpleDateFormat hora = new SimpleDateFormat("hh:mm:ss");
+        String horarioAp = hora.format(c.getHorarioApertura());
+        String horarioCi = hora.format(c.getHorarioCierre());
 
-//        textoHorario.setText("De " + horarioAp + " a " + horarioCi);
-        textoDueño.setText(duenio);
-        textoUbicacion.setText(ubicacion);
-//        textoCalifPosit.setText("Calificaciones Positivas: " + String.valueOf(c.getCalificacionPositiva()));
-//        textoCalifNegat.setText("Calificaciones Negativas: " + String.valueOf(c.getCalificacionNegativa()));
+        textoHorario.setText("De " + horarioAp + " a " + horarioCi);
+        textoDueño.setText(c.getDuenio());
+        textoUbicacion.setText(c.getUbicacion().getNombre());
+        textoCalifPosit.setText("Calificaciones Positivas: " + String.valueOf(c.getCalificacionPositiva()));
+        textoCalifNegat.setText("Calificaciones Negativas: " + String.valueOf(c.getCalificacionNegativa()));
 
 //        for (int i = 0; i > c.getListaDeProductos().size(); i++) {
 //            dlm.addElement(c.getListaDeProductos().get(i).getNombre());
@@ -45,9 +45,6 @@ public class InfoComercio extends javax.swing.JFrame {
         textoHorario = new javax.swing.JTextField();
         textoCalifPosit = new javax.swing.JTextField();
         textoCalifNegat = new javax.swing.JTextField();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        listaProductos = new javax.swing.JList<>();
-        textoProductos = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -106,22 +103,6 @@ public class InfoComercio extends javax.swing.JFrame {
         textoCalifNegat.setBorder(null);
         textoCalifNegat.setFocusable(false);
 
-        listaProductos.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        listaProductos.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        listaProductos.setFocusable(false);
-        jScrollPane1.setViewportView(listaProductos);
-
-        textoProductos.setEditable(false);
-        textoProductos.setBackground(new java.awt.Color(255, 255, 255));
-        textoProductos.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        textoProductos.setText("Productos:");
-        textoProductos.setBorder(null);
-        textoProductos.setFocusable(false);
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -134,11 +115,9 @@ public class InfoComercio extends javax.swing.JFrame {
                     .addComponent(textoHorario)
                     .addComponent(textoCalifPosit)
                     .addComponent(textoCalifNegat)
-                    .addComponent(jScrollPane1)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(nombreComercio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 130, Short.MAX_VALUE))
-                    .addComponent(textoProductos))
+                        .addGap(0, 130, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -156,11 +135,7 @@ public class InfoComercio extends javax.swing.JFrame {
                 .addComponent(textoCalifPosit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(textoCalifNegat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(textoProductos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(7, 7, 7)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(29, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jButton1.setLabel("Volver");
@@ -242,14 +217,11 @@ public class InfoComercio extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JList<String> listaProductos;
     private javax.swing.JTextField nombreComercio;
     private javax.swing.JTextField textoCalifNegat;
     private javax.swing.JTextField textoCalifPosit;
     private javax.swing.JTextField textoDueño;
     private javax.swing.JTextField textoHorario;
-    private javax.swing.JTextField textoProductos;
     private javax.swing.JTextField textoUbicacion;
     // End of variables declaration//GEN-END:variables
 }
