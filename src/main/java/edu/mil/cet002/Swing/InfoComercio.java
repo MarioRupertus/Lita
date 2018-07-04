@@ -14,14 +14,14 @@ public class InfoComercio extends javax.swing.JFrame {
         initComponents();
 //xd
         nombreComercio.setText(c.getNombre());
+        
+        //SimpleDateFormat hora = new SimpleDateFormat("hh");
+        //String horarioAp = hora.format(c.getHorarioApertura());
+        //String horarioCi = hora.format(c.getHorarioCierre());
 
-        SimpleDateFormat hora = new SimpleDateFormat("hh:mm:ss");
-        String horarioAp = hora.format(c.getHorarioApertura());
-        String horarioCi = hora.format(c.getHorarioCierre());
-
-        textoHorario.setText("De " + horarioAp + " a " + horarioCi);
+        textoHorario.setText("Horario: De " + c.getHorarioApertura() + " a " + c.getHorarioCierre());
         textoDueño.setText(c.getDuenio());
-        textoUbicacion.setText(c.getUbicacion().getNombre());
+        textoUbicacion.setText("Dirección: "+c.getUbicacion().getNombre());
         textoCalifPosit.setText("Calificaciones Positivas: " + String.valueOf(c.getCalificacionPositiva()));
         textoCalifNegat.setText("Calificaciones Negativas: " + String.valueOf(c.getCalificacionNegativa()));
 
