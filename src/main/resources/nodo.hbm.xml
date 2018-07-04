@@ -45,6 +45,6 @@ Contributor(s):
     <class name="edu.mil.cet002.compraslita.Nodo" table="nodo">
         <id column="idnodo" name="idnodo"/>
         <property name="nombre"/>
-        <!--one-to-many name="proximos" class="edu.mil.cet002.compraslita.Proximos" column= "fkNodoOrigen"/-->
+        <many-to-one name="vecinos" class="edu.mil.cet002.compraslita.Proximos" column= "fkNodoOrigen" lazy="false"/>
     </class>
 </hibernate-mapping>

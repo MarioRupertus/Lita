@@ -48,7 +48,7 @@ Contributor(s):
  </composite-id>
  <property name="costo"/>
  <property name="sentido"/>
-  <!--key-many-to-one name="nodoOrigen" class="edu.mil.cet002.compraslita.Nodo" column="fkNodoDestino"/-->
-  <!--key-many-to-one name="nodoVecino" class="edu.mil.cet002.compraslita.Nodo" column="fkNodoDestino"/-->
+  <!--key-one-to-many name="nodoOrigen" class="edu.mil.cet002.compraslita.Nodo" column="fkNodoDestino" lazy="false"/>
+  <key-one-to-many name="nodoVecino" class="edu.mil.cet002.compraslita.Nodo" column="fkNodoDestino" lazy="false"/-->
   </class>
 </hibernate-mapping>
