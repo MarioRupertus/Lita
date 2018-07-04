@@ -46,17 +46,18 @@ Contributor(s):
         <id column="idnodo" name="idnodo"/>
         <property name="nombre"/>
         
-        <!--http://cursohibernate.es/doku.php?id=unidades:03_relaciones:04_uno_a_muchos_ordenada-->
+        <!-- LINK CON TUTORIAL LISTAS RELACION UNO A MUCHOS
+        http://cursohibernate.es/doku.php?id=unidades:03_relaciones:04_uno_a_muchos_ordenada-->
         
-        <list name="vecinos"  cascade="all" inverse="false" lazy="false" >
+        <!--list name="vecinos"  cascade="all" inverse="false" lazy="false" >
             <key>
                 <column name="fkNodoOrigen"  />
             </key>
-            <!--list-index>
+            <list-index>
                 <column name="fkNodoOrigen"  />
-            </list-index-->
+            </list-index>
             <one-to-many class="edu.mil.cet002.compraslita.Proximos" />
-        </list>
+        </list-->
         
         <!--one-to-many name="vecinos" class="edu.mil.cet002.compraslita.Proximos" column= "fkNodoOrigen" lazy="false"/-->
     </class>
