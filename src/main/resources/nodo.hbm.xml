@@ -43,12 +43,18 @@ Contributor(s):
     <class name="edu.mil.cet002.compraslita.Nodo" table="nodo">
         <id column="idnodo" name="idnodo" type="integer"/>
         <property name="nombre" />
- 
-        <!--set name="vecinos"  cascade="all" inverse="true" lazy="false">
-            <key>
-                <column name="fkNodoOrigen"/>
-            </key>
-            <one-to-many class="edu.mil.cet002.compraslita.Proximos" />
-        </set-->
+        
+        <list name="vecinos" lazy="false"> 
+            <key column="fkNodoOrigen" /> 
+            <index column="ordenLista" /> 
+            <one-to-many class="edu.mil.cet002.compraslita.Proximos" /> 
+        </list>
+   
     </class>
 </hibernate-mapping>
+
+<!-- LINK CON EXPLICACION RELACION LISTA UNO A MUCHO
+http://www.javatutoriales.com/2009/06/hibernate-parte-4-relaciones-uno-muchos.html
+http://cursohibernate.es/doku.php?id=unidades:03_relaciones:03_uno_a_muchos_desordenada
+http://cursohibernate.es/doku.php?id=unidades:03_relaciones:04_uno_a_muchos_ordenada
+-->
