@@ -21,14 +21,13 @@ public class TestMavenClase6 {
             
             
             int a = 40;
-            
-            
-            
             SessionFactory sessionFactory = new MetadataSources(registry).buildMetadata().buildSessionFactory();
             Session session = sessionFactory.openSession();
             session.beginTransaction();
             Nodo n = (Nodo) session.load(Nodo.class, 1);
-            System.out.println(n);
+                System.out.println("");
+                System.out.println(n);
+                System.out.println("");
             session.getTransaction().commit();
             session.close();
             sessionFactory.close();
