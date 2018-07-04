@@ -40,25 +40,15 @@ made subject to such option by the copyright holder.
 Contributor(s):
 -->
 <hibernate-mapping>
-
-  
     <class name="edu.mil.cet002.compraslita.Nodo" table="nodo">
-        <id column="idnodo" name="idnodo"/>
-        <property name="nombre"/>
-        
-        <!-- LINK CON TUTORIAL LISTAS RELACION UNO A MUCHOS
-        http://cursohibernate.es/doku.php?id=unidades:03_relaciones:04_uno_a_muchos_ordenada-->
-        
-        <!--list name="vecinos"  cascade="all" inverse="false" lazy="false" >
+        <id column="idnodo" name="idnodo" type="integer"/>
+        <property name="nombre" />
+ 
+        <!--set name="vecinos"  cascade="all" inverse="true" lazy="false">
             <key>
-                <column name="fkNodoOrigen"  />
+                <column name="fkNodoOrigen"/>
             </key>
-            <list-index>
-                <column name="fkNodoOrigen"  />
-            </list-index>
             <one-to-many class="edu.mil.cet002.compraslita.Proximos" />
-        </list-->
-        
-        <!--one-to-many name="vecinos" class="edu.mil.cet002.compraslita.Proximos" column= "fkNodoOrigen" lazy="false"/-->
+        </set-->
     </class>
 </hibernate-mapping>

@@ -5,18 +5,11 @@
  */
 package edu.mil.cet002.test;
 
-import edu.mil.cet002.compraslita.Comercio;
 import edu.mil.cet002.compraslita.LitaDB;
 import edu.mil.cet002.compraslita.Mapa;
 import edu.mil.cet002.compraslita.Nodo;
-import edu.mil.cet002.compraslita.Producto;
 import edu.mil.cet002.compraslita.Proximos;
-import edu.mil.cet002.compraslita.Servicios;
-import java.util.List;
-import org.hibernate.collection.spi.PersistentCollection;
-import org.hibernate.proxy.HibernateProxy;
-import org.hibernate.proxy.LazyInitializer;
-import org.hibernate.proxy.pojo.bytebuddy.SerializableProxy;
+
 
 /**
  *
@@ -31,14 +24,15 @@ public class TestGetMapa {
 
         LitaDB litaDB = new LitaDB();
 
-        List<Proximos> p = litaDB.getProximos();
+/**        List<Proximos> p = litaDB.getProximos();
         for (Proximos i : p) {
             System.out.println("Nodo origen: " + i.getNodoOrigen().getNombre());
             System.out.println("Nodo vecino: " + i.getNodoVecino().getNombre());
             
         }
+**/
 
-/**    Mapa m = litaDB.getMapa();
+    Mapa m = litaDB.getMapa();
         
         for (Nodo n : m.getMapa()){
             System.out.println("");
@@ -49,7 +43,7 @@ public class TestGetMapa {
             }
             System.out.println("");
         }
-        **/
+        
         litaDB.cerrarSesion();
 
     }
