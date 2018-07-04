@@ -5,7 +5,9 @@
  */
 package edu.mil.cet002.compraslita;
 
+import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.criteria.CriteriaQuery;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.MetadataSources;
@@ -20,8 +22,8 @@ import org.hibernate.query.Query;
 public class LitaDB {
 
     SessionFactory sessionFactory = null;
-    
-    public void cerrarSesion(){
+
+    public void cerrarSesion() {
         sessionFactory.close();
     }
 
@@ -33,21 +35,21 @@ public class LitaDB {
                 .buildMetadata().buildSessionFactory();
     }
 
-    public List<Producto> buscarProductoPorNombre(String nombre,int horario,String criterioOrden,String orden) {
+    public List<Producto> buscarProductoPorNombre(String nombre, int horario, String criterioOrden, String orden) {
         Session session = sessionFactory.openSession();
-        String hql="from Producto p where p.nombre like :nombre";
-        if(horario!=-1){
-            hql=hql+ " and p.comercio.horarioApertura<= :horario and p.comercio.horarioCierre > :horario ";            
+        String hql = "from Producto p where p.nombre like :nombre";
+        if (horario != -1) {
+            hql = hql + " and p.comercio.horarioApertura<= :horario and p.comercio.horarioCierre > :horario ";
         }
-        if ("precio".equals(criterioOrden)){
-            hql=hql+" order by p.precio "+orden;
+        if ("precio".equals(criterioOrden)) {
+            hql = hql + " order by p.precio " + orden;
         }
-        if ("puntuacion".equals(criterioOrden)){
-            hql=hql+" order by p.comercio.calificacionPositiva - p.comercio.calificacionNegativa "+orden;
-        }               
-        Query q = session.createQuery(hql,Producto.class);
+        if ("puntuacion".equals(criterioOrden)) {
+            hql = hql + " order by p.comercio.calificacionPositiva - p.comercio.calificacionNegativa " + orden;
+        }
+        Query q = session.createQuery(hql, Producto.class);
         q.setParameter("nombre", "%" + nombre + "%");
-        if(horario!=-1){
+        if (horario != -1) {
             q.setParameter("horario", horario);
         }
         List<Producto> l = q.list();
@@ -70,4 +72,21 @@ public class LitaDB {
         session.close();
     }
 
+    public Mapa getMapa() {
+        Session session = sessionFactory.openSession();
+        Mapa m = new Mapa();
+        Query q = session.createQuery("from Nodo", Nodo.class);
+        m.setMapa(q.list());
+        session.close();
+        return m;
+    }
+
+    public List<Proximos> getProximos() {
+        Session session = sessionFactory.openSession();
+        List<Proximos> p = new ArrayList<>();
+        Query q = session.createQuery("from Proximos", Proximos.class);
+        p = q.list();
+        session.close();
+        return p;
+    }
 }

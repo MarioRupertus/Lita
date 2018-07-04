@@ -17,4 +17,12 @@ public class Mapa {
     public void agregarNodo(Nodo nodo){
         mapa.add(nodo);
     }
+
+    public void setMapa(List<Nodo> mapa) {
+        this.mapa = mapa;
+    }
+    
+    
+    
+    
 }
