@@ -31,41 +31,24 @@ public class TestGetMapa {
 
         LitaDB litaDB = new LitaDB();
 
-        List<Proximos> p = litaDB.getProximos();
-        for (Proximos i : p) {
-
-            Nodo origen = i.getNodoOrigen();
-            Nodo origen2 = null;
-            if (origen instanceof HibernateProxy) {
-                HibernateProxy proxy = (HibernateProxy) origen;
-                LazyInitializer li = proxy.getHibernateLazyInitializer();
-                origen2 = (Nodo) li.getIdentifier();
-            }
-
-            origen2.toString();
-
-            //origen = unproxyHibernateProxy(origen);
-            // property.getWriteMethod().invoke(value, fieldValue);
-            /*
-            if (origen instanceof HibernateProxy) {
-                origen = (Nodo) ((HibernateProxy) origen).getHibernateLazyInitializer()
-                .getImplementation();
-            }*/
-        }
-
-//     
-//        Mapa m = litaDB.getMapa();
-//        
-//        for (Nodo n : m.getMapa()){
-//            System.out.println("");
-//            n.toString();
-//            System.out.println("Vecino de " + n.getNombre());
-//            for (Proximos p : n.getVecinos()){
-//                p.toString();
-//            }
-//            System.out.println("");
+//        List<Proximos> p = litaDB.getProximos();
+//        for (Proximos i : p) {
+//            System.out.println("Nodo origen: " + i.getNodoOrigen().getNombre());
+//            System.out.println("Nodo vecino: " + i.getNodoVecino().getNombre());
+//            
 //        }
-//        
+
+    Mapa m = litaDB.getMapa();
+        
+        for (Nodo n : m.getMapa()){
+            System.out.println("");
+            System.out.println(n);
+            System.out.println("Vecino de " + n.getNombre());
+            for (Proximos p : n.getVecinos()){
+                System.out.println(p);
+            }
+            System.out.println("");
+        }
         litaDB.cerrarSesion();
 
     }

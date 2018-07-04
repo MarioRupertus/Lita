@@ -43,8 +43,8 @@ Contributor(s):
 <hibernate-mapping>
   <class name="edu.mil.cet002.compraslita.Proximos" table="proximos">
  <composite-id>
-        <key-many-to-one name="nodoOrigen" class="edu.mil.cet002.compraslita.Nodo" column="fkNodoOrigen"/>     
-        <key-many-to-one name="nodoVecino" class="edu.mil.cet002.compraslita.Nodo" column="fkNodoDestino"/>  
+        <key-many-to-one name="nodoOrigen" class="edu.mil.cet002.compraslita.Nodo" column="fkNodoOrigen" lazy="false"/>     
+        <key-many-to-one name="nodoVecino" class="edu.mil.cet002.compraslita.Nodo" column="fkNodoDestino" lazy="false"/>  
  </composite-id>
  <property name="costo"/>
  <property name="sentido"/>

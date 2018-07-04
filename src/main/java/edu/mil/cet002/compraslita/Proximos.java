@@ -71,8 +71,10 @@ public class Proximos implements Serializable{
 
     @Override
     public String toString() {
-        return "Proximos{" + "nodoVecino=" + nodoVecino.toString() + ", costo=" + costo + ", sentido=" + sentido + '}';
+        return "Proximos{" + "nodoVecino=" + nodoVecino + ", nodoOrigen=" + nodoOrigen + ", costo=" + costo + ", sentido=" + sentido + '}';
     }
+
+    
     
     
 
