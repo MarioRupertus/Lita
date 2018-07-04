@@ -48,7 +48,7 @@ Contributor(s):
     <property name="horarioCierre" column="horariocierre"/>
     <property name="calificacionPositiva" column="calificacionpositiva"/>
     <property name="calificacionNegativa" column="calificacionnegativa"/>
-    <many-to-one name="ubicacion" class="edu.mil.cet002.compraslita.Nodo" column="fknodo"/>
+    <many-to-one name="ubicacion" class="edu.mil.cet002.compraslita.Nodo" column="fknodo"  lazy="false"/>
     
 <!--    <bag name="listaDeProductos" table="producto" inverse="false" fetch="select">
         <key column="fkcomercio"/>

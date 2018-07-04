@@ -11,8 +11,8 @@ public class ResultadosBusqueda extends javax.swing.JFrame {
     List<Producto> resultado;
     PanelBusqueda p;
     String b;
-   // private Carrito carro;
-    
+    // private Carrito carro;
+
     /**
      * Creates new form NewJFrame
      *
@@ -242,17 +242,26 @@ public class ResultadosBusqueda extends javax.swing.JFrame {
     private void botonIrCarritoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonIrCarritoActionPerformed
         Carro c = new Carro(p.getCarro());
         c.setVisible(true);
-        
+
     }//GEN-LAST:event_botonIrCarritoActionPerformed
 
     private void botonNuevaBusquedaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonNuevaBusquedaActionPerformed
         p.campoBusqueda.setText(null);
-        p.setVisible(true);        
+        p.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_botonNuevaBusquedaActionPerformed
 
     private void botonInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonInfoActionPerformed
-        InfoComercio a = new InfoComercio(resultado.get(listaProductos.getSelectedIndex()).getComercio());
+
+//        Comercio c = new Comercio();
+//        c = resultado.get(listaProductos.getSelectedIndex()).getComercio();
+//        InfoComercio iF = new InfoComercio();
+//        iF.setVisible(true);
+//System.out.println(resultado.get(listaProductos.getSelectedIndex()).getComercio().getNombre());
+
+        InfoComercio a = new InfoComercio(resultado.get(listaProductos.getSelectedIndex()).getComercio().getNombre(),
+                resultado.get(listaProductos.getSelectedIndex()).getComercio().getUbicacion().getNombre(),
+                resultado.get(listaProductos.getSelectedIndex()).getComercio().getDuenio());
         a.setVisible(true);
 
     }//GEN-LAST:event_botonInfoActionPerformed
@@ -262,7 +271,7 @@ public class ResultadosBusqueda extends javax.swing.JFrame {
     }//GEN-LAST:event_botonSalirActionPerformed
 
     private void botonAgregarCarroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAgregarCarroActionPerformed
-        
+
         Producto producto = null;
         producto = resultado.get(listaProductos.getSelectedIndex());
         Servicios.getInstance().agregarProductoCarro(p.getCarro(), producto);

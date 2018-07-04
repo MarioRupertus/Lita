@@ -10,27 +10,27 @@ public class InfoComercio extends javax.swing.JFrame {
 
     private DefaultListModel<String> dlm = new DefaultListModel<>();
 
-    public InfoComercio(Comercio c) {
-        initComponents();
+    public InfoComercio(String nombre,String ubicacion, String duenio) {
+      initComponents();
 //xd
-        //nombreComercio.setText(c.getNombre());
+        nombreComercio.setText(nombre);
 
-        SimpleDateFormat hora = new SimpleDateFormat("dd/MM/yyyy");
-        String horarioAp = hora.format(c.getHorarioApertura());
-        String horarioCi = hora.format(c.getHorarioCierre());
-        
-        textoHorario.setText("De "+horarioAp+" a "+horarioCi);
-        textoDueño.setText(c.getDuenio());
-        textoUbicacion.setText(c.getUbicacion().getNombre());
-        textoCalifPosit.setText("Calificaciones Positivas: " + String.valueOf(c.getCalificacionPositiva()));
-        textoCalifNegat.setText("Calificaciones Negativas: " + String.valueOf(c.getCalificacionNegativa()));
+//        SimpleDateFormat hora = new SimpleDateFormat("dd/MM/yyyy");
+//        String horarioAp = hora.format(c.getHorarioApertura());
+//        String horarioCi = hora.format(c.getHorarioCierre());
 
-        for (int i = 0; i > c.getListaDeProductos().size(); i++) {
-            dlm.addElement(c.getListaDeProductos().get(i).getNombre());
-        }
+//        textoHorario.setText("De " + horarioAp + " a " + horarioCi);
+        textoDueño.setText(duenio);
+        textoUbicacion.setText(ubicacion);
+//        textoCalifPosit.setText("Calificaciones Positivas: " + String.valueOf(c.getCalificacionPositiva()));
+//        textoCalifNegat.setText("Calificaciones Negativas: " + String.valueOf(c.getCalificacionNegativa()));
+
+//        for (int i = 0; i > c.getListaDeProductos().size(); i++) {
+//            dlm.addElement(c.getListaDeProductos().get(i).getNombre());
+//        }
     }
 
-    private InfoComercio() {
+    public InfoComercio() {
         initComponents();
     }
 
@@ -48,6 +48,7 @@ public class InfoComercio extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         listaProductos = new javax.swing.JList<>();
         textoProductos = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -136,7 +137,7 @@ public class InfoComercio extends javax.swing.JFrame {
                     .addComponent(jScrollPane1)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(nombreComercio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 121, Short.MAX_VALUE))
+                        .addGap(0, 130, Short.MAX_VALUE))
                     .addComponent(textoProductos))
                 .addContainerGap())
         );
@@ -159,30 +160,51 @@ public class InfoComercio extends javax.swing.JFrame {
                 .addComponent(textoProductos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(7, 7, 7)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
+
+        jButton1.setLabel("Volver");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void nombreComercioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombreComercioActionPerformed
+
         // TODO add your handling code here:
     }//GEN-LAST:event_nombreComercioActionPerformed
 
     private void textoHorarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textoHorarioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_textoHorarioActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        this.setVisible(false);
+// TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -218,6 +240,7 @@ public class InfoComercio extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JList<String> listaProductos;
