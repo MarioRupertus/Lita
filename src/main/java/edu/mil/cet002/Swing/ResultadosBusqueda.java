@@ -266,9 +266,10 @@ public class ResultadosBusqueda extends javax.swing.JFrame {
 //        iF.setVisible(true);
 //System.out.println(resultado.get(listaProductos.getSelectedIndex()).getComercio().getNombre());
 
-        InfoComercio a = new InfoComercio(resultado.get(listaProductos.getSelectedIndex()).getComercio().getNombre(),
-                resultado.get(listaProductos.getSelectedIndex()).getComercio().getUbicacion().getNombre(),
-                resultado.get(listaProductos.getSelectedIndex()).getComercio().getDuenio());
+        InfoComercio a = new InfoComercio(resultado.get(listaProductos.getSelectedIndex()).getComercio());
+//                .getNombre(),
+//                resultado.get(listaProductos.getSelectedIndex()).getComercio().getUbicacion().getNombre(),
+//                resultado.get(listaProductos.getSelectedIndex()).getComercio().getDuenio());
         a.setVisible(true);
 
     }//GEN-LAST:event_botonInfoActionPerformed
