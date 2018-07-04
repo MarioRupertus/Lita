@@ -24,15 +24,7 @@ public class TestGetMapa {
 
         LitaDB litaDB = new LitaDB();
 
-/**        List<Proximos> p = litaDB.getProximos();
-        for (Proximos i : p) {
-            System.out.println("Nodo origen: " + i.getNodoOrigen().getNombre());
-            System.out.println("Nodo vecino: " + i.getNodoVecino().getNombre());
-            
-        }
-**/
-
-    Mapa m = litaDB.getMapa();
+        Mapa m = litaDB.getMapa();
         
         for (Nodo n : m.getMapa()){
             System.out.println("Desde el NODO " + n.getNombre() + " se puede ir a...");
