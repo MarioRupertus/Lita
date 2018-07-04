@@ -9,13 +9,31 @@ import java.util.List;
  */
 public class Recorrido {
 
+    //ATRIBUTOS NECESARIOS PARA FUNCIONAR
     private Nodo origen;
     private Nodo destinoFinal;
     private List<Nodo> destinoIntermedio;
     private Mapa mapa;
+    private int auto;
+    
+    //ATRIBUTOS CALCULADOS POR DIJKSTRA
     private List<Nodo> recorridoCompleto = new ArrayList<>();
     private int costoTotal;
-    private int auto;
+
+
+    public Recorrido(Nodo origen, Nodo destinoFinal, List<Nodo> destinoIntermedio, Mapa mapa, int auto) {
+        this.origen = origen;
+        this.destinoFinal = destinoFinal;
+        this.destinoIntermedio = destinoIntermedio;
+        this.mapa = mapa;
+        this.auto = auto;
+    }
+
+    public List<Nodo> getRecorridoCompleto() {
+        return recorridoCompleto;
+    }
+    
+      
 
     public Recorrido(Mapa mapa) {
         this.mapa = mapa;
