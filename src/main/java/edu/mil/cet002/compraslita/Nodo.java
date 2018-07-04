@@ -12,10 +12,12 @@ public class Nodo {
 
     private String nombre;
     private Integer idnodo;
-    private Nodo antecesor;
-    private int pesoAcumulado;
+    
     private List<Proximos> vecinos = new ArrayList<>();
-    private boolean visitado;
+    
+    private Nodo antecesor; // Utilizados y completados por Dijkstra
+    private int pesoAcumulado; // Utilizados y completados por Dijkstra
+    private boolean visitado; // Utilizados y completados por Dijkstra
 
     public Nodo() {
     }
@@ -99,4 +101,6 @@ public class Nodo {
         return true;
     }
 
+    
+    
 }

@@ -45,11 +45,11 @@ public class ResultadosBusqueda extends javax.swing.JFrame {
         botonNuevaBusqueda = new javax.swing.JButton();
         botonIrCarrito = new javax.swing.JButton();
         botonAgregarCarro = new javax.swing.JButton();
+        botonSalir = new javax.swing.JButton();
+        botonInfo = new javax.swing.JButton();
         panelItems = new javax.swing.JScrollPane();
         listaProductos = new javax.swing.JList<>();
         listaProductos.setModel(dlm);
-        botonSalir = new javax.swing.JButton();
-        botonInfo = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Resultados de la búsqueda");
@@ -87,7 +87,7 @@ public class ResultadosBusqueda extends javax.swing.JFrame {
         textoOrdenar.setFocusable(false);
 
         comboOrden.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        comboOrden.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nada", "Precio (Menor a mayor)", "Precio (Mayor a menor)", "Puntuación (Menor a mayor)", "Puntuación (Mayor a menor)" }));
+        comboOrden.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Precio (Menor a mayor)", "Precio (Mayor a menor)", "Puntuación (Menor a mayor)", "Puntuación (Mayor a menor)" }));
         comboOrden.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         comboOrden.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -125,18 +125,6 @@ public class ResultadosBusqueda extends javax.swing.JFrame {
             }
         });
 
-        listaProductos.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        listaProductos.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5", "Item 6", "Item 7", "Item 8", "Item 9", "Item 10" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        listaProductos.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-        listaProductos.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        listaProductos.setSelectionBackground(new java.awt.Color(51, 102, 255));
-        listaProductos.setVisibleRowCount(5);
-        panelItems.setViewportView(listaProductos);
-
         botonSalir.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         botonSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectoswing/imagenes/salir png.png"))); // NOI18N
         botonSalir.setText("Salir");
@@ -157,6 +145,20 @@ public class ResultadosBusqueda extends javax.swing.JFrame {
             }
         });
 
+        panelItems.setToolTipText("");
+
+        listaProductos.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        listaProductos.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5", "Item 6", "Item 7", "Item 8", "Item 9", "Item 10" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        listaProductos.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        listaProductos.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        listaProductos.setSelectionBackground(new java.awt.Color(51, 102, 255));
+        listaProductos.setVisibleRowCount(5);
+        panelItems.setViewportView(listaProductos);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -169,14 +171,15 @@ public class ResultadosBusqueda extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(textoProducto))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(panelItems)
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(textoOrdenar, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(comboOrden, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(botonNuevaBusqueda)))
+                                .addComponent(botonNuevaBusqueda))
+                            .addComponent(panelItems, javax.swing.GroupLayout.PREFERRED_SIZE, 439, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
@@ -185,12 +188,12 @@ public class ResultadosBusqueda extends javax.swing.JFrame {
                                 .addComponent(botonSalir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addComponent(botonAgregarCarro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(botonInfo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 252, Short.MAX_VALUE))
-                        .addGap(0, 10, Short.MAX_VALUE))))
+                        .addGap(10, 10, 10))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(textoResultados, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(textoProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -210,20 +213,24 @@ public class ResultadosBusqueda extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(panelItems, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
+
+        panelItems.getAccessibleContext().setAccessibleParent(jPanel1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(0, 24, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -279,7 +286,40 @@ public class ResultadosBusqueda extends javax.swing.JFrame {
     }//GEN-LAST:event_botonAgregarCarroActionPerformed
 
     private void comboOrdenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboOrdenActionPerformed
-        // TODO add your handling code here:
+        System.out.println("Si");
+        int a = comboOrden.getSelectedIndex();
+        String criterio = null;
+        String orden = null;
+        switch (a) {
+            case 0:
+                System.out.println("0");
+                criterio = "precio";
+                orden = "ASC";
+                break;
+            case 1:
+                System.out.println("1");
+                criterio = "precio";
+                orden = "DESC";
+                break;
+            case 2:
+                System.out.println("2");
+                criterio = "puntuacion";
+                orden = "ASC";
+                break;
+            case 3:
+                System.out.println("3");
+                criterio = "puntuacion";
+                orden = "DESC";
+                break;
+        }
+        int j = -1;//si le pasamos acá o en el constructor el horario (que no entiendo de donde lo puedo buscar) quedaría bien. Ahora el horario es 1. Mariela
+        resultado = Servicios.getInstance().buscarProducto(p.campoBusqueda.getText(), j, criterio, orden);
+        dlm.removeAllElements();
+        for (int i = 0; i < resultado.size(); i++) {
+            dlm.addElement(resultado.get(i).getNombre());
+        }
+        listaProductos.setModel(dlm);
+
     }//GEN-LAST:event_comboOrdenActionPerformed
 
     /**

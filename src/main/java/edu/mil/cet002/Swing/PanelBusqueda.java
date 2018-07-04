@@ -41,6 +41,7 @@ public class PanelBusqueda extends javax.swing.JFrame {
         titulo = new javax.swing.JTextField();
         campoBusqueda = new javax.swing.JTextField();
         icono = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         PanelHorarios = new javax.swing.JPanel();
         horarioNull = new javax.swing.JRadioButton();
         horarioActual = new javax.swing.JRadioButton();
@@ -74,6 +75,8 @@ public class PanelBusqueda extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectoswing/imagenes/buscar.png"))); // NOI18N
+
         javax.swing.GroupLayout PanelProductoLayout = new javax.swing.GroupLayout(PanelProducto);
         PanelProducto.setLayout(PanelProductoLayout);
         PanelProductoLayout.setHorizontalGroup(
@@ -83,8 +86,10 @@ public class PanelBusqueda extends javax.swing.JFrame {
                 .addGroup(PanelProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PanelProductoLayout.createSequentialGroup()
                         .addComponent(campoBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(icono))
+                        .addGap(18, 18, 18)
+                        .addGroup(PanelProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(icono)
+                            .addComponent(jLabel1)))
                     .addComponent(titulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
@@ -100,7 +105,9 @@ public class PanelBusqueda extends javax.swing.JFrame {
                         .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelProductoLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(icono)
+                        .addGroup(PanelProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel1)
+                            .addComponent(icono))
                         .addGap(39, 39, 39))))
         );
 
@@ -180,7 +187,7 @@ public class PanelBusqueda extends javax.swing.JFrame {
                     .addComponent(PanelHorarios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(PanelProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 112, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGap(124, 124, 124)
@@ -299,6 +306,7 @@ public class PanelBusqueda extends javax.swing.JFrame {
     private javax.swing.JRadioButton horarioNull;
     private javax.swing.JComboBox<String> horas;
     private javax.swing.JLabel icono;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JTextField titulo;
     // End of variables declaration//GEN-END:variables
 }
