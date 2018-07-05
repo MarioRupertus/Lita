@@ -6,6 +6,10 @@
 package edu.mil.cet002.Swing;
 
 import edu.mil.cet002.compraslita.*;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+import javax.swing.ButtonModel;
 import javax.swing.JTextField;
 
 /**
@@ -16,6 +20,7 @@ public class PanelBusqueda extends javax.swing.JFrame {
 
     ResultadosBusqueda r = null;
     Carrito carro = new Carrito();
+    int horario;
 
     /**
      * Creates new form PanelBusqueda
@@ -150,7 +155,7 @@ public class PanelBusqueda extends javax.swing.JFrame {
         });
 
         logo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectoswing/imagenes/logo.png"))); // NOI18N
+        logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectoswing/imagenes/logo3.png"))); // NOI18N
 
         javax.swing.GroupLayout PanelHorariosLayout = new javax.swing.GroupLayout(PanelHorarios);
         PanelHorarios.setLayout(PanelHorariosLayout);
@@ -222,7 +227,7 @@ public class PanelBusqueda extends javax.swing.JFrame {
 
     public Carrito getCarro() {
         return carro;
-        
+
     }
 
     public void agregarAlCarro(Producto p) {
@@ -238,16 +243,27 @@ public class PanelBusqueda extends javax.swing.JFrame {
 
     private void horarioEspecificoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_horarioEspecificoActionPerformed
         horas.setVisible(true);
-        
+
         // TODO add your handling code here:
     }//GEN-LAST:event_horarioEspecificoActionPerformed
 
     private void botonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBuscarActionPerformed
-       String precio="precio";
-       String ASC="ASC";
-       int i = -1;//si le pasamos acá o en el constructor el horario (que no entiendo de donde lo puedo buscar) quedaría bien. Ahora el horario es 1. Mariela
+        String precio = "precio";
+        String ASC = "ASC";
+        
+        if (Horario.getSelection() == horarioNull.getModel()) {
+            horario = -1;
+        } else {
+            if (Horario.getSelection() == horarioActual.getModel()) {
+                Calendar calendario = new GregorianCalendar();
+                horario = calendario.get(Calendar.HOUR_OF_DAY);
+            } else {
+                horario = horas.getSelectedIndex() + 7;
+            }
+        }
+        // int i = -1;//si le pasamos acá o en el constructor el horario (que no entiendo de donde lo puedo buscar) quedaría bien. Ahora el horario es 1. Mariela
         r = new ResultadosBusqueda(Servicios.getInstance().
-                buscarProducto(campoBusqueda.getText(),i , precio, ASC), this);
+                buscarProducto(campoBusqueda.getText(), horario, precio, ASC), this);
         r.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_botonBuscarActionPerformed
