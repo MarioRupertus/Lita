@@ -19,6 +19,7 @@ public class MapaVisual extends javax.swing.JFrame {
     List<JButton> botones;
     Color defaultCol;
     Recorrido r;
+    int iteracion=0;
 
     /**
      * Creates new form MapaVisual
@@ -76,7 +77,7 @@ public class MapaVisual extends javax.swing.JFrame {
     }
 
     private void iniciarRecorrido() {
-
+        ubicarNodo(0);
     }
 
     private void ubicarNodo(int i) {
