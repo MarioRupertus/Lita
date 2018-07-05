@@ -287,34 +287,29 @@ public class ResultadosBusqueda extends javax.swing.JFrame {
     }//GEN-LAST:event_botonAgregarCarroActionPerformed
 
     private void comboOrdenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboOrdenActionPerformed
-        System.out.println("Si");
         int a = comboOrden.getSelectedIndex();
         String criterio = null;
         String orden = null;
         switch (a) {
-            case 0:
-                System.out.println("0");
+            case 0:              
                 criterio = "precio";
                 orden = "ASC";
                 break;
-            case 1:
-                System.out.println("1");
+            case 1:               
                 criterio = "precio";
                 orden = "DESC";
                 break;
-            case 2:
-                System.out.println("2");
+            case 2:               
                 criterio = "puntuacion";
                 orden = "ASC";
                 break;
-            case 3:
-                System.out.println("3");
+            case 3:                
                 criterio = "puntuacion";
                 orden = "DESC";
                 break;
         }
         int j = -1;//si le pasamos acá o en el constructor el horario (que no entiendo de donde lo puedo buscar) quedaría bien. Ahora el horario es 1. Mariela
-        resultado = Servicios.getInstance().buscarProducto(p.campoBusqueda.getText(), j, criterio, orden);
+        resultado = Servicios.getInstance().buscarProducto(p.campoBusqueda.getText(), p.horario, criterio, orden);
         dlm.removeAllElements();
         for (int i = 0; i < resultado.size(); i++) {
             dlm.addElement(resultado.get(i).getNombre());

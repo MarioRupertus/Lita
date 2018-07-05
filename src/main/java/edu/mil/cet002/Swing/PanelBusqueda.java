@@ -6,6 +6,10 @@
 package edu.mil.cet002.Swing;
 
 import edu.mil.cet002.compraslita.*;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+import javax.swing.ButtonModel;
 import javax.swing.JTextField;
 
 /**
@@ -16,6 +20,7 @@ public class PanelBusqueda extends javax.swing.JFrame {
 
     ResultadosBusqueda r = null;
     Carrito carro = new Carrito();
+    int horario;
 
     /**
      * Creates new form PanelBusqueda
@@ -47,7 +52,7 @@ public class PanelBusqueda extends javax.swing.JFrame {
         horarioActual = new javax.swing.JRadioButton();
         horarioEspecifico = new javax.swing.JRadioButton();
         horas = new javax.swing.JComboBox<>();
-        jLabel2 = new javax.swing.JLabel();
+        logo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -149,8 +154,8 @@ public class PanelBusqueda extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectoswing/imagenes/logo.png"))); // NOI18N
+        logo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectoswing/imagenes/logo3.png"))); // NOI18N
 
         javax.swing.GroupLayout PanelHorariosLayout = new javax.swing.GroupLayout(PanelHorarios);
         PanelHorarios.setLayout(PanelHorariosLayout);
@@ -166,7 +171,7 @@ public class PanelBusqueda extends javax.swing.JFrame {
                         .addGap(8, 8, 8)
                         .addComponent(horas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(logo, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         PanelHorariosLayout.setVerticalGroup(
             PanelHorariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -175,11 +180,11 @@ public class PanelBusqueda extends javax.swing.JFrame {
                 .addGroup(PanelHorariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PanelHorariosLayout.createSequentialGroup()
                         .addGap(6, 6, 6)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(logo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(PanelHorariosLayout.createSequentialGroup()
                         .addComponent(horarioNull)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(horarioActual)
+                        .addComponent(horarioActual, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(horarioEspecifico)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -222,7 +227,7 @@ public class PanelBusqueda extends javax.swing.JFrame {
 
     public Carrito getCarro() {
         return carro;
-        
+
     }
 
     public void agregarAlCarro(Producto p) {
@@ -238,16 +243,27 @@ public class PanelBusqueda extends javax.swing.JFrame {
 
     private void horarioEspecificoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_horarioEspecificoActionPerformed
         horas.setVisible(true);
-        
+
         // TODO add your handling code here:
     }//GEN-LAST:event_horarioEspecificoActionPerformed
 
     private void botonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBuscarActionPerformed
-       String precio="precio";
-       String ASC="ASC";
-       int i = -1;//si le pasamos acá o en el constructor el horario (que no entiendo de donde lo puedo buscar) quedaría bien. Ahora el horario es 1. Mariela
+        String precio = "precio";
+        String ASC = "ASC";
+        
+        if (Horario.getSelection() == horarioNull.getModel()) {
+            horario = -1;
+        } else {
+            if (Horario.getSelection() == horarioActual.getModel()) {
+                Calendar calendario = new GregorianCalendar();
+                horario = calendario.get(Calendar.HOUR_OF_DAY);
+            } else {
+                horario = horas.getSelectedIndex() + 7;
+            }
+        }
+        // int i = -1;//si le pasamos acá o en el constructor el horario (que no entiendo de donde lo puedo buscar) quedaría bien. Ahora el horario es 1. Mariela
         r = new ResultadosBusqueda(Servicios.getInstance().
-                buscarProducto(campoBusqueda.getText(),i , precio, ASC), this);
+                buscarProducto(campoBusqueda.getText(), horario, precio, ASC), this);
         r.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_botonBuscarActionPerformed
@@ -318,7 +334,7 @@ public class PanelBusqueda extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> horas;
     private javax.swing.JLabel icono;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel logo;
     private javax.swing.JTextField titulo;
     // End of variables declaration//GEN-END:variables
 }

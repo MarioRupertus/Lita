@@ -5,17 +5,87 @@
  */
 package edu.mil.cet002.Swing;
 
+import edu.mil.cet002.compraslita.Recorrido;
+import java.awt.Color;
+import java.util.List;
+import javax.swing.JButton;
+
 /**
  *
  * @author Mariela Toscano
  */
 public class MapaVisual extends javax.swing.JFrame {
 
+    List<JButton> botones;
+    Color defaultCol;
+    Recorrido r;
+    int iteracion=0;
+
     /**
      * Creates new form MapaVisual
      */
     public MapaVisual() {
         initComponents();
+    }
+
+    public MapaVisual(Recorrido r) {
+        this();
+        this.r = r;
+        iniciarBotones();
+        iniciarRecorrido();
+    }
+
+    private void iniciarBotones() {
+        botones.add(jButton1);
+        botones.add(jButton2);
+        botones.add(jButton3);
+        botones.add(jButton4);
+        botones.add(jButton5);
+        botones.add(jButton6);
+        botones.add(jButton7);
+        botones.add(jButton8);
+        botones.add(jButton9);
+        botones.add(jButton10);
+        botones.add(jButton11);
+        botones.add(jButton12);
+        botones.add(jButton13);
+        botones.add(jButton14);
+        botones.add(jButton15);
+        botones.add(jButton16);
+        botones.add(jButton17);
+        botones.add(jButton18);
+        botones.add(jButton19);
+        botones.add(jButton20);
+        botones.add(jButton21);
+        botones.add(jButton22);
+        botones.add(jButton23);
+        botones.add(jButton24);
+        botones.add(jButton25);
+        botones.add(jButton26);
+        botones.add(jButton27);
+        botones.add(jButton28);
+        botones.add(jButton29);
+        botones.add(jButton30);
+        botones.add(jButton31);
+        botones.add(jButton32);
+        botones.add(jButton33);
+        botones.add(jButton34);
+        botones.add(jButton35);
+        botones.add(jButton36);
+        botones.add(jButton37);
+        defaultCol = jButton1.getBackground();
+    }
+
+    private void iniciarRecorrido() {
+        ubicarNodo(0);
+    }
+
+    private void ubicarNodo(int i) {
+        for (int a = 0; a < botones.size(); a++) {
+            if (r.getRecorridoCompleto().get(i).getIdnodo() + 1 == Integer.parseInt(botones.get(a).getText())) {
+                botones.get(a).setBackground(new java.awt.Color(176, 0, 0));
+            }
+        }
     }
 
     /**
@@ -27,69 +97,310 @@ public class MapaVisual extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
+        jButton7 = new javax.swing.JButton();
+        jButton8 = new javax.swing.JButton();
+        jButton9 = new javax.swing.JButton();
+        jButton10 = new javax.swing.JButton();
+        jButton11 = new javax.swing.JButton();
+        jButton12 = new javax.swing.JButton();
+        jButton13 = new javax.swing.JButton();
+        jButton14 = new javax.swing.JButton();
+        jButton15 = new javax.swing.JButton();
+        jButton16 = new javax.swing.JButton();
+        jButton17 = new javax.swing.JButton();
+        jButton18 = new javax.swing.JButton();
+        jButton19 = new javax.swing.JButton();
+        jButton20 = new javax.swing.JButton();
+        jButton21 = new javax.swing.JButton();
+        jButton22 = new javax.swing.JButton();
+        jButton23 = new javax.swing.JButton();
+        jButton24 = new javax.swing.JButton();
+        jButton25 = new javax.swing.JButton();
+        jButton26 = new javax.swing.JButton();
+        jButton27 = new javax.swing.JButton();
+        jButton28 = new javax.swing.JButton();
+        jButton29 = new javax.swing.JButton();
+        jButton30 = new javax.swing.JButton();
+        jButton31 = new javax.swing.JButton();
+        jButton32 = new javax.swing.JButton();
+        jButton33 = new javax.swing.JButton();
+        jButton34 = new javax.swing.JButton();
+        jButton35 = new javax.swing.JButton();
+        jButton36 = new javax.swing.JButton();
+        jButton37 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectoswing/imagenes/mapa.png"))); // NOI18N
-        jLabel1.setText("jLabel1");
+        jPanel2.setLayout(null);
+
+        jButton1.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jButton1.setText("1");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButton1);
+        jButton1.setBounds(0, 10, 40, 21);
+
+        jButton2.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
+        jButton2.setText("2");
+        jPanel2.add(jButton2);
+        jButton2.setBounds(90, 10, 40, 19);
+
+        jButton3.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jButton3.setText("3");
+        jPanel2.add(jButton3);
+        jButton3.setBounds(160, 10, 40, 21);
+
+        jButton4.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jButton4.setText("4");
+        jPanel2.add(jButton4);
+        jButton4.setBounds(240, 10, 40, 21);
+
+        jButton5.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jButton5.setText("5");
+        jPanel2.add(jButton5);
+        jButton5.setBounds(320, 10, 40, 21);
+
+        jButton6.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jButton6.setText("6");
+        jPanel2.add(jButton6);
+        jButton6.setBounds(320, 100, 40, 21);
+
+        jButton7.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jButton7.setText("7");
+        jPanel2.add(jButton7);
+        jButton7.setBounds(240, 100, 40, 21);
+
+        jButton8.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jButton8.setText("8");
+        jPanel2.add(jButton8);
+        jButton8.setBounds(203, 100, 37, 20);
+
+        jButton9.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jButton9.setText("9");
+        jPanel2.add(jButton9);
+        jButton9.setBounds(150, 100, 40, 21);
+
+        jButton10.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
+        jButton10.setText("10");
+        jPanel2.add(jButton10);
+        jButton10.setBounds(90, 100, 40, 19);
+
+        jButton11.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
+        jButton11.setText("11");
+        jPanel2.add(jButton11);
+        jButton11.setBounds(10, 100, 40, 20);
+
+        jButton12.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
+        jButton12.setText("12");
+        jButton12.setPreferredSize(new java.awt.Dimension(25, 13));
+        jPanel2.add(jButton12);
+        jButton12.setBounds(10, 190, 40, 20);
+
+        jButton13.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
+        jButton13.setText("13");
+        jPanel2.add(jButton13);
+        jButton13.setBounds(90, 190, 40, 19);
+
+        jButton14.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
+        jButton14.setText("14");
+        jPanel2.add(jButton14);
+        jButton14.setBounds(150, 190, 40, 19);
+
+        jButton15.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
+        jButton15.setText("15");
+        jPanel2.add(jButton15);
+        jButton15.setBounds(190, 180, 40, 19);
+
+        jButton16.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
+        jButton16.setText("16");
+        jPanel2.add(jButton16);
+        jButton16.setBounds(240, 190, 40, 19);
+
+        jButton17.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
+        jButton17.setText("17");
+        jPanel2.add(jButton17);
+        jButton17.setBounds(320, 190, 40, 19);
+
+        jButton18.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
+        jButton18.setText("18");
+        jPanel2.add(jButton18);
+        jButton18.setBounds(330, 280, 40, 19);
+
+        jButton19.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
+        jButton19.setText("19");
+        jPanel2.add(jButton19);
+        jButton19.setBounds(240, 280, 40, 19);
+
+        jButton20.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
+        jButton20.setText("20");
+        jPanel2.add(jButton20);
+        jButton20.setBounds(160, 280, 40, 19);
+
+        jButton21.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
+        jButton21.setText("21");
+        jPanel2.add(jButton21);
+        jButton21.setBounds(90, 280, 40, 19);
+
+        jButton22.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
+        jButton22.setText("22");
+        jPanel2.add(jButton22);
+        jButton22.setBounds(10, 280, 40, 19);
+
+        jButton23.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
+        jButton23.setText("23");
+        jPanel2.add(jButton23);
+        jButton23.setBounds(10, 370, 40, 19);
+
+        jButton24.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
+        jButton24.setText("24");
+        jPanel2.add(jButton24);
+        jButton24.setBounds(80, 370, 40, 19);
+
+        jButton25.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
+        jButton25.setText("25");
+        jPanel2.add(jButton25);
+        jButton25.setBounds(130, 370, 40, 19);
+
+        jButton26.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
+        jButton26.setText("26");
+        jPanel2.add(jButton26);
+        jButton26.setBounds(180, 380, 40, 19);
+
+        jButton27.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
+        jButton27.setText("27");
+        jPanel2.add(jButton27);
+        jButton27.setBounds(240, 370, 40, 19);
+
+        jButton28.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
+        jButton28.setText("28");
+        jPanel2.add(jButton28);
+        jButton28.setBounds(320, 370, 40, 19);
+
+        jButton29.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
+        jButton29.setText("29");
+        jPanel2.add(jButton29);
+        jButton29.setBounds(330, 460, 40, 19);
+
+        jButton30.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
+        jButton30.setText("30");
+        jPanel2.add(jButton30);
+        jButton30.setBounds(260, 460, 40, 19);
+
+        jButton31.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
+        jButton31.setText("31");
+        jPanel2.add(jButton31);
+        jButton31.setBounds(170, 460, 40, 19);
+
+        jButton32.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
+        jButton32.setText("32");
+        jPanel2.add(jButton32);
+        jButton32.setBounds(100, 460, 40, 19);
+
+        jButton33.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
+        jButton33.setText("33");
+        jPanel2.add(jButton33);
+        jButton33.setBounds(0, 450, 40, 19);
+
+        jButton34.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
+        jButton34.setText("34");
+        jPanel2.add(jButton34);
+        jButton34.setBounds(160, 539, 40, 20);
+
+        jButton35.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
+        jButton35.setText("35");
+        jPanel2.add(jButton35);
+        jButton35.setBounds(270, 540, 40, 19);
+
+        jButton36.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
+        jButton36.setText("36");
+        jPanel2.add(jButton36);
+        jButton36.setBounds(320, 540, 40, 19);
+
+        jButton37.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
+        jButton37.setText("37");
+        jPanel2.add(jButton37);
+        jButton37.setBounds(160, 240, 40, 19);
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectoswing/imagenes/mapa.jpg"))); // NOI18N
+        jPanel2.add(jLabel2);
+        jLabel2.setBounds(-10, 0, 370, 580);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 586, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(58, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MapaVisual.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MapaVisual.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MapaVisual.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MapaVisual.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new MapaVisual().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton10;
+    private javax.swing.JButton jButton11;
+    private javax.swing.JButton jButton12;
+    private javax.swing.JButton jButton13;
+    private javax.swing.JButton jButton14;
+    private javax.swing.JButton jButton15;
+    private javax.swing.JButton jButton16;
+    private javax.swing.JButton jButton17;
+    private javax.swing.JButton jButton18;
+    private javax.swing.JButton jButton19;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton20;
+    private javax.swing.JButton jButton21;
+    private javax.swing.JButton jButton22;
+    private javax.swing.JButton jButton23;
+    private javax.swing.JButton jButton24;
+    private javax.swing.JButton jButton25;
+    private javax.swing.JButton jButton26;
+    private javax.swing.JButton jButton27;
+    private javax.swing.JButton jButton28;
+    private javax.swing.JButton jButton29;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton30;
+    private javax.swing.JButton jButton31;
+    private javax.swing.JButton jButton32;
+    private javax.swing.JButton jButton33;
+    private javax.swing.JButton jButton34;
+    private javax.swing.JButton jButton35;
+    private javax.swing.JButton jButton36;
+    private javax.swing.JButton jButton37;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
+    private javax.swing.JButton jButton9;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
 }
