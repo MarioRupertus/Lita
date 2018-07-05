@@ -20,6 +20,11 @@ public class Recorrido {
     private List<Nodo> recorridoCompleto = new ArrayList<>();
     private int costoTotal;
 
+    public void setDestinoIntermedio(List<Nodo> destinoIntermedio) {
+        this.destinoIntermedio = destinoIntermedio;
+    }
+
+    
 
     public Recorrido(Nodo origen, Nodo destinoFinal, List<Nodo> destinoIntermedio, Mapa mapa, int auto) {
         this.origen = origen;
@@ -78,7 +83,7 @@ public class Recorrido {
             proxNodo = nodoObjetivo;
             camino.add(proxNodo); // el camino se arma desde fin hacia inicio, por lo tanto agrego el nodo objtivo al recorrido
             
-            while (proxNodo != nodoActual) { // mientras el proximo nodo a  visitar sea diferente al nodo de inicio
+            while (proxNodo.getIdnodo() != nodoActual.getIdnodo()) { // mientras el proximo nodo a  visitar sea diferente al nodo de inicio
                 proxNodo = proxNodo.getAntecesor(); // agrego al recorrido el antecesor del nodo que estaba en la vuelta anterior
                 camino.add(proxNodo);
             }

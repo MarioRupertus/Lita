@@ -58,8 +58,7 @@ public class Servicios {
         return litaDB.getMapa();
     }
 
-    public Recorrido calcularRecorrido(Nodo origen, Nodo destinoFinal, List<Nodo> destinoIntermedio, int auto) {
-        Mapa mapa = getMapa(); //Cargo el mapa
+    public Recorrido calcularRecorrido(Nodo origen, Nodo destinoFinal, List<Nodo> destinoIntermedio, Mapa mapa, int auto) {
         Recorrido r = new Recorrido(origen, destinoFinal, destinoIntermedio, mapa, auto); //Instancio un recorrido con el origen, destino, lista nodos de lugares a visiar y auto(0/1)
 
         if (auto == 0) {

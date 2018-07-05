@@ -77,10 +77,6 @@ public class TestCompleto {
             System.out.println("ID"+u.getIdnodo()+" "+u.getNombre());
         }
         System.out.println("");
-        System.out.println("Presione enter para continuar");
-        String aux;
-        aux = scan.nextLine();
-        System.out.println("");
 
         // MOSTRANDO NODOS DEL MAPA PARA SELECCIONAR INICIO Y FIN
         System.out.println("NODOS EN EL MAPA");
@@ -93,18 +89,23 @@ public class TestCompleto {
         System.out.print("Ingrese numero de nodo Origen: ");
         input = scan.nextInt()-1;
         nodoInicial = mapa.getMapa().get(input);
-        System.out.println("");
+        System.out.println("INICIO: "+mapa.getMapa().get(input).getNombre());
 
         System.out.print("Ingrese numero de nodo Destino Final: ");
         input = scan.nextInt()-1;
         nodoFinal = mapa.getMapa().get(input);
-        System.out.println("");
+        System.out.println("FIN: "+mapa.getMapa().get(input).getNombre());
         
         // SE CALCULA EL RECORRIDO
         System.out.println("Ingrese 0 para caminar // Ingrese 1 para ir en auto: ");
         input = scan.nextInt();
-        servicios.calcularRecorrido(nodoInicial, nodoFinal, ubicaciones, input);
+        servicios.calcularRecorrido(nodoInicial, nodoFinal, ubicaciones, mapa, input);
 
+        /** ERROR
+        No funciona porque los nodos del mapa y los nodos de la lista de destinos intermedios apuntan a diferentes objetos en memoria.
+        Dijkstra graba informacion en los nodos del mapa y esta no se refleja en lo que deberia ser el mismo nodo de la lista de destino intermedios.
+        **/
+        
     }
 
 }
