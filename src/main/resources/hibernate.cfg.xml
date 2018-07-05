@@ -7,8 +7,8 @@
     <property name="hibernate.connection.url">jdbc:mysql://comprasl.ddns.net:3306/comprasLita?serverTimezone=UTC</property>
     <property name="hibernate.show_sql">false</property>
     <!--<property name="hibernate.connection.url">jdbc:mysql://comprasl.ddns.net:3306/comprasLita?zeroDateTimeBehavior=convertToNull&serverTimezone=UTC-3</property>-->
-    <property name="hibernate.connection.username">cet002</property>
-    <property name="hibernate.connection.password">comprasLita002</property>
+    <property name="hibernate.connection.username">cet002b</property>
+    <property name="hibernate.connection.password">admin</property>
     <mapping resource="nodo.hbm.xml"/>
     <mapping resource="producto.hbm.xml"/>
     <mapping resource="comercio.hbm.xml"/>

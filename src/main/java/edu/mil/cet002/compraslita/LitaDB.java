@@ -22,13 +22,19 @@ import org.hibernate.query.Query;
 public class LitaDB {
 
     SessionFactory sessionFactory = null;
+    StandardServiceRegistry registry = null;
 
     public void cerrarSesion() {
-        sessionFactory.close();
+        try{
+        sessionFactory.close();        
+        if (registry!=null)
+            StandardServiceRegistryBuilder.destroy(registry);
+        }catch(Exception e){
+        }
     }
 
     public LitaDB() {
-        StandardServiceRegistry registry = new StandardServiceRegistryBuilder()
+        registry = new StandardServiceRegistryBuilder()
                 .configure() // obtiene los valores de hibernate.cfg.xml
                 .build();
         sessionFactory = new MetadataSources(registry)
