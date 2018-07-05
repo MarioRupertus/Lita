@@ -71,6 +71,42 @@ public class Servicios {
         return r;
     }
 
+    public List<Nodo> convertirComerciosAUbicaciones(List<Comercio> com) {
+        List<Nodo> ubicaciones = new ArrayList<>();
+
+        for (Comercio c : com) {
+            if (!ubicaciones.contains(c.getUbicacion())) {
+                ubicaciones.add(c.getUbicacion());
+            }
+        }
+        return ubicaciones;
+    }
+
+    public List<Nodo> convertirProductosAUbicaciones(List<Producto> prod) {
+
+        List<Nodo> ubicaciones = new ArrayList<>();
+        Comercio c = new Comercio();
+
+        for (Producto p : prod) {
+            c = p.getComercio();
+            if (!ubicaciones.contains(c.getUbicacion())) {
+                ubicaciones.add(c.getUbicacion());
+            }
+        }
+        return ubicaciones;
+    }
+
+    public List<Comercio> convertirProductosAComercios(List<Producto> prod) {
+
+        List<Comercio> comercios = new ArrayList<>();
+
+        for (Producto p : prod) {
+            if (!comercios.contains(p.getComercio())) {
+                comercios.add(p.getComercio());
+            }
+        }
+        return comercios;
+    }
 }
 
 
