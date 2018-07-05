@@ -69,7 +69,7 @@ public class Recorrido {
         List<Nodo> camino = new ArrayList<>();
         nodoActual = origen;
 
-        while (!isTodosVisitados()) {
+        while (!isTodosVisitados()) {    
             calcularMapa(nodoActual); // Calculo el mapa para el nodo que estoy posicionado
             nodoObjetivo = buscarNodoCercano(); // Busco el destino mas cercano sin visitar
             costoTotal += nodoObjetivo.getPesoAcumulado();
@@ -77,7 +77,7 @@ public class Recorrido {
 
             proxNodo = nodoObjetivo;
             camino.add(proxNodo); // el camino se arma desde fin hacia inicio, por lo tanto agrego el nodo objtivo al recorrido
-
+            
             while (proxNodo != nodoActual) { // mientras el proximo nodo a  visitar sea diferente al nodo de inicio
                 proxNodo = proxNodo.getAntecesor(); // agrego al recorrido el antecesor del nodo que estaba en la vuelta anterior
                 camino.add(proxNodo);
@@ -124,7 +124,7 @@ public class Recorrido {
             proxNodo = nodoObjetivo;
             camino.add(proxNodo); // el camino se arma desde fin hacia inicio, por lo tanto agrego el nodo objtivo al recorrido
 
-            while (proxNodo != nodoActual) { // mientras el proximo nodo a  visitar sea diferente al nodo de inicio
+            while (proxNodo.getIdnodo() != nodoActual.getIdnodo()) { // mientras el proximo nodo a  visitar sea diferente al nodo de inicio
                 proxNodo = proxNodo.getAntecesor(); // agrego al recorrido el antecesor del nodo que estaba en la vuelta anterior
                 camino.add(proxNodo);
             }

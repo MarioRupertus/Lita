@@ -44,7 +44,7 @@ public class TestDikjstraDB {
         }
                 
         System.out.println("COMENZANDO CALCULO DE RECORRIDO...");
-        r.calcularRecorrido();
+        r.calcularRecorridoAuto();
         
         
     }
