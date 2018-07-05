@@ -43,10 +43,25 @@ public class TestDikjstraDB {
         System.out.println("");
         }
                 
+        /**do{
+            System.out.print("Ingrese modo recorrido 0 = CAMINANDO o 1=AUTO --> ");
+            aux  = sc.nextInt();
+        } while (aux>=0 && aux<=2); */
+        
+        
+        aux=99;
+        while(aux!=0 && aux!=1){
+            System.out.print("Ingrese modo recorrido 0 = CAMINANDO o 1=AUTO --> ");
+            aux  = sc.nextInt();
+        }
+           
+             
         System.out.println("COMENZANDO CALCULO DE RECORRIDO...");
-        r.calcularRecorridoAuto();
-        
-        
+        switch (aux){
+            case 0: r.calcularRecorrido();
+            case 1: r.calcularRecorridoAuto();
+        }
+                
     }
     
 }
