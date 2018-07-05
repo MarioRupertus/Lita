@@ -59,7 +59,19 @@ public class Servicios {
     }
 
     public Recorrido calcularRecorrido(Nodo origen, Nodo destinoFinal, List<Nodo> destinoIntermedio, Mapa mapa, int auto) {
-        Recorrido r = new Recorrido(origen, destinoFinal, destinoIntermedio, mapa, auto); //Instancio un recorrido con el origen, destino, lista nodos de lugares a visiar y auto(0/1)
+        
+        // IMPORTANTE: HACER ESTO PARA TRANSFORMAR LOS DESTINOS INTERMEDIOS (LISTA) EN DESTINOS DEL MAPA
+        List<Nodo> ubiAux = new ArrayList<>();
+        for (Nodo n:destinoIntermedio){
+            int i=mapa.getMapa().indexOf(n);
+            if (i!=-1){
+                ubiAux.add(mapa.getMapa().get(i));
+            }
+        
+        }
+        
+        
+        Recorrido r = new Recorrido(origen, destinoFinal, ubiAux, mapa, auto); //Instancio un recorrido con el origen, destino, lista nodos de lugares a visiar y auto(0/1)
 
         if (auto == 0) {
             r.calcularRecorrido();//si auto es 0 (false) se calcula caminando

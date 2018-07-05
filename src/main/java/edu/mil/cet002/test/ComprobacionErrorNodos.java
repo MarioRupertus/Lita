@@ -17,6 +17,8 @@ public class ComprobacionErrorNodos {
     List<Producto> productos = litaDB.getProductos();
     List<Nodo> ubicacionesProductos = servicios.convertirProductosAUbicaciones(productos);
     
+    
+    
     int a = 0;
     // Debuggear y verificar referencia en memoria a los nodos en MAPA y en UBICACIONEPRODUCTOS --> NO SON LAS MISMAS
     }

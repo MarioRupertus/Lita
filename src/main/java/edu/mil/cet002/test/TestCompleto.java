@@ -99,6 +99,11 @@ public class TestCompleto {
         // SE CALCULA EL RECORRIDO
         System.out.println("Ingrese 0 para caminar // Ingrese 1 para ir en auto: ");
         input = scan.nextInt();
+        
+        
+        
+        
+        
         servicios.calcularRecorrido(nodoInicial, nodoFinal, ubicaciones, mapa, input);
 
         /** ERROR
