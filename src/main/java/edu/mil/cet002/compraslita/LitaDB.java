@@ -89,4 +89,13 @@ public class LitaDB {
         session.close();
         return p;
     }
+
+    public List<Producto> getProductos() {
+        Session session = sessionFactory.openSession();
+        List<Producto> p = new ArrayList<>();
+        Query q = session.createQuery("from Producto", Producto.class);
+        p = q.list();
+        session.close();
+        return p;
+    }
 }
