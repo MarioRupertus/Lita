@@ -9,7 +9,7 @@ import java.util.List;
 
 public class ResultadosBusqueda extends javax.swing.JFrame {
 
-   // DefaultListModel<String> dlm = new DefaultListModel<>();
+    // DefaultListModel<String> dlm = new DefaultListModel<>();
     List<Producto> resultado;
 
     PanelBusqueda panelBusqueda;
@@ -414,7 +414,7 @@ public class ResultadosBusqueda extends javax.swing.JFrame {
 //        for (int i = 0; i < resultado.size(); i++) {
 //            dlm.addElement(resultado.get(i).getNombre());
 //        }
-        
+
         //listaProductos.setModel(dlm);
     }//GEN-LAST:event_comboOrdenActionPerformed
 
@@ -433,11 +433,12 @@ public class ResultadosBusqueda extends javax.swing.JFrame {
     private void cargarDatosATabla() {
 
         for (int i = 0; i < resultado.size(); i++) {
-            tablaProductos.setValueAt(resultado.get(i).getNombre(), i, 0);
-            tablaProductos.setValueAt(resultado.get(i).getComercio().getNombre(), i, 1);
-            tablaProductos.setValueAt(resultado.get(i).getPrecio(), i, 2);
+            if (i < 100) {
+                tablaProductos.setValueAt(resultado.get(i).getNombre(), i, 0);
+                tablaProductos.setValueAt(resultado.get(i).getComercio().getNombre(), i, 1);
+                tablaProductos.setValueAt(resultado.get(i).getPrecio(), i, 2);
+            }
         }
-
     }
 
     /**
