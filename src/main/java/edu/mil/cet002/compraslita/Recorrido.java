@@ -49,6 +49,10 @@ public class Recorrido {
         this.origen = origen;
     }
 
+    public Mapa getMapa() {
+        return mapa;
+    }
+
     public void setDestinoFinal(Nodo destinoFinal) {
         this.destinoFinal = destinoFinal;
     }

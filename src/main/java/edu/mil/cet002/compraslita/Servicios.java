@@ -19,6 +19,13 @@ public class Servicios {
     private Servicios() {
         litaDB = new LitaDB();
     }
+    
+    public void cerrarSesion(){
+        if (litaDB!=null)
+            litaDB.cerrarSesion();
+    }
+    
+    
 
     public List<Producto> buscarProducto(String nombre, int horario, String criterioOrden, String orden) {
         return litaDB.buscarProductoPorNombre(nombre, horario, criterioOrden, orden);

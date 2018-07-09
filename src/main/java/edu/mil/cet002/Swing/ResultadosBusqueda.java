@@ -1,19 +1,19 @@
 package edu.mil.cet002.Swing;
 
 import edu.mil.cet002.compraslita.*;
-import java.util.Iterator;
+//import java.util.Iterator;
 import java.util.List;
-import javax.swing.DefaultListModel;
-import javax.swing.JTextField;
-import javax.swing.table.TableModel;
+//import javax.swing.DefaultListModel;
+//import javax.swing.JTextField;
+//import javax.swing.table.TableModel;
 
 public class ResultadosBusqueda extends javax.swing.JFrame {
 
-    DefaultListModel<String> dlm = new DefaultListModel<>();
+   // DefaultListModel<String> dlm = new DefaultListModel<>();
     List<Producto> resultado;
-    
+
     PanelBusqueda panelBusqueda;
-    
+
     String b;
     // private Carrito carro;
 
@@ -355,8 +355,8 @@ public class ResultadosBusqueda extends javax.swing.JFrame {
     private void botonInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonInfoActionPerformed
 
         Comercio c = new Comercio();
-        Producto p=resultado.get(tablaProductos.getSelectedRow());
-       // p.getComercio().getNombre();
+        Producto p = resultado.get(tablaProductos.getSelectedRow());
+        // p.getComercio().getNombre();
         InfoComercio a = new InfoComercio(p.getComercio());
         a.setVisible(true);
     }//GEN-LAST:event_botonInfoActionPerformed
@@ -367,8 +367,8 @@ public class ResultadosBusqueda extends javax.swing.JFrame {
 
     private void botonAgregarCarroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAgregarCarroActionPerformed
 
-        Producto producto=resultado.get(tablaProductos.getSelectedRow());
-       // producto = resultado.get(listaProductos.getSelectedIndex());
+        Producto producto = resultado.get(tablaProductos.getSelectedRow());
+        // producto = resultado.get(listaProductos.getSelectedIndex());
         Servicios.getInstance().agregarProductoCarro(panelBusqueda.getCarro(), producto);
         //this.setVisible(false);
     }//GEN-LAST:event_botonAgregarCarroActionPerformed
@@ -385,52 +385,50 @@ public class ResultadosBusqueda extends javax.swing.JFrame {
     }//GEN-LAST:event_botonNuevaBusquedaActionPerformed
 
     private void comboOrdenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboOrdenActionPerformed
-        System.out.println("Si");
         int a = comboOrden.getSelectedIndex();
         String criterio = null;
         String orden = null;
         switch (a) {
             case 0:
-                System.out.println("0");
                 criterio = "precio";
                 orden = "ASC";
                 break;
             case 1:
-                System.out.println("1");
                 criterio = "precio";
                 orden = "DESC";
                 break;
             case 2:
-                System.out.println("2");
                 criterio = "puntuacion";
                 orden = "ASC";
                 break;
             case 3:
-                System.out.println("3");
                 criterio = "puntuacion";
                 orden = "DESC";
                 break;
         }
-        int j = -1;//si le pasamos acá o en el constructor el horario (que no entiendo de donde lo puedo buscar) quedaría bien. Ahora el horario es 1. Mariela
-        resultado = Servicios.getInstance().buscarProducto(panelBusqueda.campoBusqueda.getText(), j, criterio, orden);
-        dlm.removeAllElements();
-        for (int i = 0; i < resultado.size(); i++) {
-            dlm.addElement(resultado.get(i).getNombre());
-        }
+        int j = -1;
+        resultado = Servicios.getInstance().buscarProducto(panelBusqueda.campoBusqueda.getText(),
+                panelBusqueda.horario, criterio, orden);
+        cargarDatosATabla();
+//        dlm.removeAllElements();
+//        for (int i = 0; i < resultado.size(); i++) {
+//            dlm.addElement(resultado.get(i).getNombre());
+//        }
+        
         //listaProductos.setModel(dlm);
     }//GEN-LAST:event_comboOrdenActionPerformed
 
     private void textoResultadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textoResultadosActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_textoResultadosActionPerformed
-    private void iniciar() {
-        for (int i = 0; i < resultado.size(); i++) {
-            dlm.addElement(resultado.get(i).getNombre());
-        }
-        //listaProductos.setModel(dlm);
-        // = Servicios.getInstance().crearCarrito();
-
-    }
+//    private void iniciar() {
+//        for (int i = 0; i < resultado.size(); i++) {
+//            dlm.addElement(resultado.get(i).getNombre());
+//        }
+//        //listaProductos.setModel(dlm);
+//        // = Servicios.getInstance().crearCarrito();
+//
+//    }
 
     private void cargarDatosATabla() {
 

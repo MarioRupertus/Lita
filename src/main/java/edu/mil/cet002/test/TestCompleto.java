@@ -17,6 +17,8 @@ public class TestCompleto {
     public static void main(String args[]) {
 
         LitaDB litaDB = new LitaDB();
+        Servicios servicios = Servicios.getInstance();
+        
         List<Producto> prod = litaDB.getProductos();
         List<Comercio> com = new ArrayList<>();
         List<Nodo> ubicaciones = new ArrayList<>();
@@ -25,7 +27,6 @@ public class TestCompleto {
         Recorrido r = new Recorrido(mapa);
         Carrito carrito = new Carrito();
         Scanner scan = new Scanner(System.in);
-        Servicios servicios = Servicios.getInstance();
         int input = 0;
         int indice = 0;
 
@@ -98,19 +99,13 @@ public class TestCompleto {
         
         // SE CALCULA EL RECORRIDO
         System.out.println("Ingrese 0 para caminar // Ingrese 1 para ir en auto: ");
-        input = scan.nextInt();
-        
-        
-        
-        
-        
+        input = scan.nextInt(); 
+     
         servicios.calcularRecorrido(nodoInicial, nodoFinal, ubicaciones, mapa, input);
 
-        /** ERROR
-        No funciona porque los nodos del mapa y los nodos de la lista de destinos intermedios apuntan a diferentes objetos en memoria.
-        Dijkstra graba informacion en los nodos del mapa y esta no se refleja en lo que deberia ser el mismo nodo de la lista de destino intermedios.
-        **/
-        
+        litaDB.cerrarSesion();
+        servicios.cerrarSesion();
+        System.out.print("FIN");
     }
 
 }

@@ -12,7 +12,8 @@ public class InfoComercio extends javax.swing.JFrame {
 
     public InfoComercio(Comercio c) {
         initComponents();
-//xd
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+
         nombreComercio.setText(c.getNombre());
         
         //SimpleDateFormat hora = new SimpleDateFormat("hh");
