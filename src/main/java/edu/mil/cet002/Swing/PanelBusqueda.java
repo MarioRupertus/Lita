@@ -261,7 +261,7 @@ public class PanelBusqueda extends javax.swing.JFrame {
                 horario = horas.getSelectedIndex() + 7;
             }
         }
-        // int i = -1;//si le pasamos acá o en el constructor el horario (que no entiendo de donde lo puedo buscar) quedaría bien. Ahora el horario es 1. Mariela
+        
         r = new ResultadosBusqueda(Servicios.getInstance().
                 buscarProducto(campoBusqueda.getText(), horario, precio, ASC), this);
         r.setVisible(true);

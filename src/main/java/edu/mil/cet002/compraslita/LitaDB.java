@@ -51,7 +51,7 @@ public class LitaDB {
             hql = hql + " order by p.precio " + orden;
         }
         if ("puntuacion".equals(criterioOrden)) {
-            hql = hql + " order by p.comercio.calificacionPositiva - p.comercio.calificacionNegativa " + orden;
+            hql = hql + " order by ((p.comercio.calificacionPositiva) - (p.comercio.calificacionNegativa)) " + orden;
         }
         Query q = session.createQuery(hql, Producto.class);
         q.setParameter("nombre", "%" + nombre + "%");
