@@ -115,6 +115,7 @@ public class Carro extends javax.swing.JFrame {
         listaProductos.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         listaProductos.setModel(dlm);
         listaProductos.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        listaProductos.setSelectedIndex(0);
         panelItems.setViewportView(listaProductos);
 
         botonEliminar.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N

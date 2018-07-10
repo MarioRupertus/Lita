@@ -54,6 +54,7 @@ public class Calificacion extends javax.swing.JFrame {
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
+        jList1.setSelectedIndex(0);
         panelComercios.setViewportView(jList1);
 
         botonFinalizar.setText("Finalizar");
