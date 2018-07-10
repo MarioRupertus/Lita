@@ -34,7 +34,12 @@ public class ResultadosBusqueda extends javax.swing.JFrame {
         this.panelBusqueda = ppanelBusqueda;
         //iniciar();
         cargarDatosATabla();
-        b = " '" + panelBusqueda.getCampo().getText() + "' ";
+        if (panelBusqueda.getCampo().getText().equals("")) {
+            b = " ' ' ";
+        } else {
+            b = " '" + panelBusqueda.getCampo().getText() + "' ";
+        }
+
         textoProducto.setText(b);
     }
 
@@ -366,6 +371,7 @@ public class ResultadosBusqueda extends javax.swing.JFrame {
         Producto producto = resultado.get(tablaProductos.getSelectedRow());
         // producto = resultado.get(listaProductos.getSelectedIndex());
         Servicios.getInstance().agregarProductoCarro(panelBusqueda.getCarro(), producto);
+
         //this.setVisible(false);
     }//GEN-LAST:event_botonAgregarCarroActionPerformed
 
@@ -433,8 +439,8 @@ public class ResultadosBusqueda extends javax.swing.JFrame {
                 tablaProductos.setValueAt(resultado.get(i).getNombre(), i, 0);
                 tablaProductos.setValueAt(resultado.get(i).getComercio().getNombre(), i, 1);
                 tablaProductos.setValueAt(resultado.get(i).getPrecio(), i, 2);
-                tablaProductos.setValueAt(((resultado.get(i).getComercio().getCalificacionPositiva())-
-                        (resultado.get(i).getComercio().getCalificacionNegativa())), i, 3);
+                tablaProductos.setValueAt(((resultado.get(i).getComercio().getCalificacionPositiva())
+                        - (resultado.get(i).getComercio().getCalificacionNegativa())), i, 3);
             }
         }
     }

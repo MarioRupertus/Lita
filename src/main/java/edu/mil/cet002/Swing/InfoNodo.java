@@ -18,6 +18,7 @@ public class InfoNodo extends javax.swing.JFrame {
      */
     public InfoNodo() {
         initComponents();
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
     }
     public InfoNodo(Nodo n){
     this();
@@ -46,13 +47,16 @@ public class InfoNodo extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jScrollPane1.setBackground(new java.awt.Color(234, 234, 234));
         jScrollPane1.setBorder(null);
 
-        Lugar.setBackground(new java.awt.Color(240, 240, 240));
+        Lugar.setBackground(new java.awt.Color(234, 234, 234));
         Lugar.setBorder(null);
         Lugar.setText("Lugar:");
         Lugar.setToolTipText("");
         jScrollPane1.setViewportView(Lugar);
+
+        jScrollPane2.setBackground(new java.awt.Color(234, 234, 234));
 
         nombre.setEditable(false);
         nombre.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -67,13 +71,14 @@ public class InfoNodo extends javax.swing.JFrame {
 
         jScrollPane3.setBorder(null);
 
-        idNodo.setBackground(new java.awt.Color(240, 240, 240));
+        idNodo.setBackground(new java.awt.Color(234, 234, 234));
         idNodo.setBorder(null);
         jScrollPane3.setViewportView(idNodo);
 
+        jScrollPane4.setBackground(new java.awt.Color(234, 234, 234));
         jScrollPane4.setBorder(null);
 
-        jTextPane1.setBackground(new java.awt.Color(240, 240, 240));
+        jTextPane1.setBackground(new java.awt.Color(234, 234, 234));
         jTextPane1.setBorder(null);
         jTextPane1.setText("ID Nodo:");
         jScrollPane4.setViewportView(jTextPane1);

@@ -30,6 +30,7 @@ public class Carro extends javax.swing.JFrame {
      */
     public Carro() {
         initComponents();
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
     }
 
@@ -38,6 +39,8 @@ public class Carro extends javax.swing.JFrame {
         this.carro = carro;
         precio.setText(calcularPrecio());
         iniciarLista();
+        listaProductos.setModel(dlm);
+        listaProductos.setSelectedIndex(0);
         this.setVisible(true);
 
     }
@@ -113,7 +116,11 @@ public class Carro extends javax.swing.JFrame {
         textoCarro.setFocusable(false);
 
         listaProductos.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        listaProductos.setModel(dlm);
+        listaProductos.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
         listaProductos.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         listaProductos.setSelectedIndex(0);
         panelItems.setViewportView(listaProductos);

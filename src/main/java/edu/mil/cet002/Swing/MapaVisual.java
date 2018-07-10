@@ -29,6 +29,7 @@ public class MapaVisual extends javax.swing.JFrame {
      */
     public MapaVisual() {
         initComponents();
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
     }
 
     public MapaVisual(Recorrido r, Carrito carro) {
@@ -364,6 +365,8 @@ public class MapaVisual extends javax.swing.JFrame {
         jPanel2.add(jLabel2);
         jLabel2.setBounds(0, 0, 380, 580);
 
+        jPanel1.setBackground(new java.awt.Color(234, 234, 234));
+
         siguienteBoton.setText("Siguiente lugar");
         siguienteBoton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -378,16 +381,18 @@ public class MapaVisual extends javax.swing.JFrame {
             }
         });
 
+        jScrollPane1.setBackground(new java.awt.Color(234, 234, 234));
         jScrollPane1.setBorder(null);
 
-        texto1.setBackground(new java.awt.Color(240, 240, 240));
+        texto1.setBackground(new java.awt.Color(234, 234, 234));
         texto1.setBorder(null);
         texto1.setText("Proximo lugar:");
         jScrollPane1.setViewportView(texto1);
 
+        jScrollPane2.setBackground(new java.awt.Color(234, 234, 234));
         jScrollPane2.setBorder(null);
 
-        sigLugar.setBackground(new java.awt.Color(240, 240, 240));
+        sigLugar.setBackground(new java.awt.Color(234, 234, 234));
         sigLugar.setBorder(null);
         jScrollPane2.setViewportView(sigLugar);
 
