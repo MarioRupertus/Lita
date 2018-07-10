@@ -5,7 +5,7 @@
  */
 package edu.mil.cet002.Swing;
 
-import edu.mil.cet002.compraslita.Recorrido;
+import edu.mil.cet002.compraslita.*;
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
@@ -20,6 +20,7 @@ public class MapaVisual extends javax.swing.JFrame {
     List<JButton> botones;
     Color defaultCol;
     Recorrido r;
+    Carrito c;
     InfoNodo info;
     int iteracion = 0;
 
@@ -30,9 +31,10 @@ public class MapaVisual extends javax.swing.JFrame {
         initComponents();
     }
 
-    public MapaVisual(Recorrido r) {
+    public MapaVisual(Recorrido r, Carrito carro) {
         this();
         this.r = r;
+        this.c = c;
         iniciarBotones();
         iniciarRecorrido();
     }
@@ -104,7 +106,7 @@ public class MapaVisual extends javax.swing.JFrame {
     private void ubicarNodo(int i) {
         for (int a = 0; a < botones.size(); a++) {
             if (r.getRecorridoCompleto().get(i).getIdnodo() == Integer.parseInt(botones.get(a).getText())) {
-                botones.get(a).setBackground(new java.awt.Color(176, 0, 0));
+               
             }
         }
     }
@@ -468,7 +470,7 @@ public class MapaVisual extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_botonSalirActionPerformed
     private void verInfoNodo(java.awt.event.ActionEvent evt) {
-        JButton a=(JButton) evt.getSource();
+        JButton a = (JButton) evt.getSource();
         verInfoNodo(Integer.parseInt(a.getText()));
     }
     /**

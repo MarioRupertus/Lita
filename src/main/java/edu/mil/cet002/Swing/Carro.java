@@ -7,7 +7,11 @@ package edu.mil.cet002.Swing;
 
 import edu.mil.cet002.compraslita.Carrito;
 import edu.mil.cet002.compraslita.Mapa;
+import edu.mil.cet002.compraslita.Nodo;
+import edu.mil.cet002.compraslita.Producto;
 import edu.mil.cet002.compraslita.Servicios;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.*;
 
 /**
@@ -282,7 +286,7 @@ public class Carro extends javax.swing.JFrame {
         for (int d = 0; d != carro.getListaDeProductos().size(); d++) {
             precio = precio + carro.getListaDeProductos().get(d).getPrecio();
         }
-        
+
         return String.valueOf(precio);
     }
     private void botonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEliminarActionPerformed
@@ -301,20 +305,40 @@ public class Carro extends javax.swing.JFrame {
         this.dispose();
 // TODO add your handling code here:
     }//GEN-LAST:event_botonVolverActionPerformed
-
+    private List<Nodo> convertirProductosANodos() {
+        List<Nodo> nodos = new ArrayList();
+        for (int i = 0; i < carro.getListaDeProductos().size(); i++) {
+            nodos.add(carro.getListaDeProductos().get(i).getComercio().getUbicacion());
+        }
+        return nodos;
+    }
     private void mostrarRecorridoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mostrarRecorridoActionPerformed
-        // TODO add your handling code here:
+        Nodo origen = Servicios.getInstance().getMapa().getMapa().get(comboInici.getSelectedIndex());
+        Nodo Final = Servicios.getInstance().getMapa().getMapa().get(comboFinal.getSelectedIndex());
+        List<Nodo> destinoIntermedio = convertirProductosANodos();
+        Mapa mapa = Servicios.getInstance().getMapa();
+        int camino;
+        if (buttonGroup1.isSelected(botonAuto.getModel())) {
+            camino = 1;
+        } else {
+            camino = 0;
+        }
+        MapaVisual m= new MapaVisual(Servicios.getInstance().calcularRecorrido(origen, Final, destinoIntermedio, mapa, camino), carro);
+        m.setVisible(true);
+        this.dispose();
+
+
     }//GEN-LAST:event_mostrarRecorridoActionPerformed
     private void iniciarLista() {
         for (int i = 0; i != carro.getListaDeProductos().size(); i++) {
             dlm.addElement(carro.getListaDeProductos().get(i).getNombre());
         }
-        Mapa m=Servicios.getInstance().getMapa();
-        for (int d=0;d!=m.getMapa().size();d++){
-        dlmIni.addElement(m.getMapa().get(d).getNombre());
-        dlmFin.addElement(m.getMapa().get(d).getNombre());
+        Mapa m = Servicios.getInstance().getMapa();
+        for (int d = 0; d != m.getMapa().size(); d++) {
+            dlmIni.addElement(m.getMapa().get(d).getNombre());
+            dlmFin.addElement(m.getMapa().get(d).getNombre());
         }
-    }   
+    }
 
     /**
      * @param args the command line arguments
