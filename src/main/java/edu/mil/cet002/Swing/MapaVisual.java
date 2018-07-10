@@ -241,12 +241,14 @@ public class MapaVisual extends javax.swing.JFrame {
         jButton14.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
         jButton14.setText("14");
         jPanel2.add(jButton14);
-        jButton14.setBounds(140, 190, 50, 19);
+        jButton14.setBounds(150, 190, 41, 19);
 
         jButton15.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
         jButton15.setText("15");
+        jButton15.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        jButton15.setPreferredSize(new java.awt.Dimension(13, 19));
         jPanel2.add(jButton15);
-        jButton15.setBounds(170, 190, 50, 19);
+        jButton15.setBounds(190, 190, 30, 19);
 
         jButton16.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
         jButton16.setText("16");

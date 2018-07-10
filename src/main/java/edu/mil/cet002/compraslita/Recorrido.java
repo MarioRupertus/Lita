@@ -15,7 +15,7 @@ public class Recorrido {
     private List<Nodo> destinoIntermedio;
     private Mapa mapa;
     private int auto;
-    
+
     //ATRIBUTOS CALCULADOS POR DIJKSTRA
     private List<Nodo> recorridoCompleto = new ArrayList<>();
     private int costoTotal;
@@ -23,8 +23,6 @@ public class Recorrido {
     public void setDestinoIntermedio(List<Nodo> destinoIntermedio) {
         this.destinoIntermedio = destinoIntermedio;
     }
-
-    
 
     public Recorrido(Nodo origen, Nodo destinoFinal, List<Nodo> destinoIntermedio, Mapa mapa, int auto) {
         this.origen = origen;
@@ -37,8 +35,6 @@ public class Recorrido {
     public List<Nodo> getRecorridoCompleto() {
         return recorridoCompleto;
     }
-    
-      
 
     public Recorrido(Mapa mapa) {
         this.mapa = mapa;
@@ -66,7 +62,7 @@ public class Recorrido {
         int[] distancia = d.calcularDistTodos(nodo, this.mapa);
         return distancia;
     }
-    
+
     private int[] calcularMapaAuto(Nodo nodo) { //Calcula la distancia a todos los puntos
         DijkstraAuto d = new DijkstraAuto();
         int[] distancia = d.calcularDistTodos(nodo, this.mapa, this.auto);
@@ -78,7 +74,7 @@ public class Recorrido {
         List<Nodo> camino = new ArrayList<>();
         nodoActual = origen;
 
-        while (!isTodosVisitados()) {    
+        while (!isTodosVisitados()) {
             calcularMapa(nodoActual); // Calculo el mapa para el nodo que estoy posicionado
             nodoObjetivo = buscarNodoCercano(); // Busco el destino mas cercano sin visitar
             costoTotal += nodoObjetivo.getPesoAcumulado();
@@ -86,7 +82,10 @@ public class Recorrido {
 
             proxNodo = nodoObjetivo;
             camino.add(proxNodo); // el camino se arma desde fin hacia inicio, por lo tanto agrego el nodo objtivo al recorrido
-            
+
+            //PARCHE WORK AROUND
+            proxNodo = parcheInstanciaNodo(proxNodo);
+
             while (proxNodo.getIdnodo() != nodoActual.getIdnodo()) { // mientras el proximo nodo a  visitar sea diferente al nodo de inicio
                 proxNodo = proxNodo.getAntecesor(); // agrego al recorrido el antecesor del nodo que estaba en la vuelta anterior
                 camino.add(proxNodo);
@@ -105,6 +104,9 @@ public class Recorrido {
         proxNodo = nodoObjetivo;
         camino.add(proxNodo);
 
+        //PARCHE WORK AROUND
+        proxNodo = parcheInstanciaNodo(proxNodo);
+
         while (proxNodo != nodoActual) {
             proxNodo = proxNodo.getAntecesor();
             camino.add(proxNodo);
@@ -118,7 +120,7 @@ public class Recorrido {
         System.out.println("Costo total = " + costoTotal);
         return recorridoCompleto;
     }
-    
+
     public List<Nodo> calcularRecorridoAuto() { // Calcula el recorrido entre nodo y destino
         Nodo proxNodo, nodoObjetivo, nodoActual;
         List<Nodo> camino = new ArrayList<>();
@@ -132,6 +134,9 @@ public class Recorrido {
 
             proxNodo = nodoObjetivo;
             camino.add(proxNodo); // el camino se arma desde fin hacia inicio, por lo tanto agrego el nodo objtivo al recorrido
+
+            //PARCHE WORK AROUND
+            proxNodo = parcheInstanciaNodo(proxNodo);
 
             while (proxNodo.getIdnodo() != nodoActual.getIdnodo()) { // mientras el proximo nodo a  visitar sea diferente al nodo de inicio
                 proxNodo = proxNodo.getAntecesor(); // agrego al recorrido el antecesor del nodo que estaba en la vuelta anterior
@@ -150,6 +155,9 @@ public class Recorrido {
 
         proxNodo = nodoObjetivo;
         camino.add(proxNodo);
+
+        //PARCHE WORK AROUND
+        proxNodo = parcheInstanciaNodo(proxNodo);
 
         while (proxNodo != nodoActual) {
             proxNodo = proxNodo.getAntecesor();
@@ -173,7 +181,7 @@ public class Recorrido {
             recorridoCompleto.add(camino.get(i));
             ultimo = recorridoCompleto.size() - 1;
             if (recorridoCompleto.size() > 1) {
-                if (recorridoCompleto.get(ultimo).equals(recorridoCompleto.get(ultimo-1))) {
+                if (recorridoCompleto.get(ultimo).equals(recorridoCompleto.get(ultimo - 1))) {
                     recorridoCompleto.remove(ultimo);
                 }
             }
@@ -184,7 +192,7 @@ public class Recorrido {
 
     private Nodo buscarNodoCercano() {
         int posMin = 0;
-        while (destinoIntermedio.get(posMin).isVisitado()){
+        while (destinoIntermedio.get(posMin).isVisitado()) {
             posMin++;
         }
         for (int i = 0; i < destinoIntermedio.size(); i++) {
@@ -213,6 +221,12 @@ public class Recorrido {
             System.out.print(n.getNombre() + " -> ");
         }
 
+    }
+
+    private Nodo parcheInstanciaNodo(Nodo nodo) {
+    //PARCHE WORK AROUND: Busca en que posicion del mapa esta el nodo introducido por parametro y devuelve el mismo nodo pero de los instanciados en mapa (Dijkstra graba datos en mapa)
+        int aux = mapa.getMapa().indexOf(nodo);
+        return mapa.getMapa().get(aux);
     }
 
 }
