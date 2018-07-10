@@ -22,8 +22,8 @@ public class InfoNodo extends javax.swing.JFrame {
     }
     public InfoNodo(Nodo n){
     this();
-    nombre.setText(n.getNombre());
-    idNodo.setText(n.getIdnodo().toString());
+    nombre1.setText(n.getNombre());
+    idNodo1.setText(n.getIdnodo().toString());
     }
 
     /**
@@ -35,111 +35,125 @@ public class InfoNodo extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        Lugar = new javax.swing.JTextPane();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        nombre = new javax.swing.JTextPane();
-        botonVolver = new javax.swing.JButton();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        idNodo = new javax.swing.JTextPane();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        jTextPane1 = new javax.swing.JTextPane();
+        jPanel1 = new javax.swing.JPanel();
+        botonVolver1 = new javax.swing.JButton();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        nombre1 = new javax.swing.JTextPane();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        Lugar1 = new javax.swing.JTextPane();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        jTextPane2 = new javax.swing.JTextPane();
+        jScrollPane8 = new javax.swing.JScrollPane();
+        idNodo1 = new javax.swing.JTextPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setFocusable(false);
 
-        jScrollPane1.setBackground(new java.awt.Color(234, 234, 234));
-        jScrollPane1.setBorder(null);
-
-        Lugar.setBackground(new java.awt.Color(234, 234, 234));
-        Lugar.setBorder(null);
-        Lugar.setText("Lugar:");
-        Lugar.setToolTipText("");
-        jScrollPane1.setViewportView(Lugar);
-
-        jScrollPane2.setBackground(new java.awt.Color(234, 234, 234));
-
-        nombre.setEditable(false);
-        nombre.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jScrollPane2.setViewportView(nombre);
-
-        botonVolver.setText("Volver");
-        botonVolver.addActionListener(new java.awt.event.ActionListener() {
+        botonVolver1.setText("Volver");
+        botonVolver1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonVolverActionPerformed(evt);
+                botonVolver1ActionPerformed(evt);
             }
         });
 
-        jScrollPane3.setBorder(null);
+        nombre1.setEditable(false);
+        nombre1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jScrollPane5.setViewportView(nombre1);
 
-        idNodo.setBackground(new java.awt.Color(234, 234, 234));
-        idNodo.setBorder(null);
-        jScrollPane3.setViewportView(idNodo);
+        jScrollPane6.setBorder(null);
 
-        jScrollPane4.setBackground(new java.awt.Color(234, 234, 234));
-        jScrollPane4.setBorder(null);
+        Lugar1.setEditable(false);
+        Lugar1.setBackground(new java.awt.Color(240, 240, 240));
+        Lugar1.setBorder(null);
+        Lugar1.setText("Lugar:");
+        Lugar1.setToolTipText("");
+        Lugar1.setFocusable(false);
+        jScrollPane6.setViewportView(Lugar1);
 
-        jTextPane1.setBackground(new java.awt.Color(234, 234, 234));
-        jTextPane1.setBorder(null);
-        jTextPane1.setText("ID Nodo:");
-        jScrollPane4.setViewportView(jTextPane1);
+        jScrollPane7.setBorder(null);
+
+        jTextPane2.setEditable(false);
+        jTextPane2.setBackground(new java.awt.Color(240, 240, 240));
+        jTextPane2.setBorder(null);
+        jTextPane2.setText("ID Nodo:");
+        jTextPane2.setFocusable(false);
+        jScrollPane7.setViewportView(jTextPane2);
+
+        jScrollPane8.setBorder(null);
+
+        idNodo1.setEditable(false);
+        idNodo1.setBackground(new java.awt.Color(240, 240, 240));
+        idNodo1.setBorder(null);
+        idNodo1.setFocusable(false);
+        jScrollPane8.setViewportView(idNodo1);
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(7, 7, 7)
+                        .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane5))
+                .addContainerGap())
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(93, 93, 93)
+                .addComponent(botonVolver1)
+                .addContainerGap(98, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(botonVolver1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane2))
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(91, 91, 91)
-                .addComponent(botonVolver)
-                .addContainerGap(100, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(2, 2, 2)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(botonVolver)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void botonVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonVolverActionPerformed
-        this.dispose();
-    }//GEN-LAST:event_botonVolverActionPerformed
+    private void botonVolver1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonVolver1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_botonVolver1ActionPerformed
 
     /**
      * @param args the command line arguments
      */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextPane Lugar;
-    private javax.swing.JButton botonVolver;
-    private javax.swing.JTextPane idNodo;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JTextPane jTextPane1;
-    private javax.swing.JTextPane nombre;
+    private javax.swing.JTextPane Lugar1;
+    private javax.swing.JButton botonVolver1;
+    private javax.swing.JTextPane idNodo1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JScrollPane jScrollPane7;
+    private javax.swing.JScrollPane jScrollPane8;
+    private javax.swing.JTextPane jTextPane2;
+    private javax.swing.JTextPane nombre1;
     // End of variables declaration//GEN-END:variables
 }

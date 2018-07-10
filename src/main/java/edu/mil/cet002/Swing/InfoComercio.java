@@ -1,39 +1,35 @@
 package edu.mil.cet002.Swing;
 
 import edu.mil.cet002.compraslita.*;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.List;
 import javax.swing.DefaultListModel;
 
 public class InfoComercio extends javax.swing.JFrame {
 
+    ResultadosBusqueda r;
     Comercio c;
     private DefaultListModel<String> dlm = new DefaultListModel<>();
 
-    public InfoComercio(Comercio c) {
+    public InfoComercio(Comercio c, ResultadosBusqueda r) {
         initComponents();
+        this.r = r;
         this.c = c;
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-
+        r.setVisible(false);
+        this.r.setVisible(false);
         nombreComercio.setText(c.getNombre());
 
-        //SimpleDateFormat hora = new SimpleDateFormat("hh");
-        //String horarioAp = hora.format(c.getHorarioApertura());
-        //String horarioCi = hora.format(c.getHorarioCierre());
         textoHorario.setText("Horario: De " + c.getHorarioApertura() + " a " + c.getHorarioCierre());
         textoDueño.setText(c.getDuenio());
         textoUbicacion.setText("Dirección: " + c.getUbicacion().getNombre());
         textoCalifPosit.setText("Calificaciones Positivas: " + String.valueOf(c.getCalificacionPositiva()));
         textoCalifNegat.setText("Calificaciones Negativas: " + String.valueOf(c.getCalificacionNegativa()));
 
-//        for (int i = 0; i > c.getListaDeProductos().size(); i++) {
-//            dlm.addElement(c.getListaDeProductos().get(i).getNombre());
-//        }
     }
 
     public InfoComercio() {
         initComponents();
+        r.setVisible(false);
+        this.r.setVisible(false);
     }
 
     @SuppressWarnings("unchecked")
@@ -48,7 +44,7 @@ public class InfoComercio extends javax.swing.JFrame {
         textoHorario = new javax.swing.JTextField();
         textoCalifPosit = new javax.swing.JTextField();
         textoCalifNegat = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        botonVolver = new javax.swing.JButton();
         botonPositiva = new javax.swing.JRadioButton();
         botonNegativa = new javax.swing.JRadioButton();
         botonEnviar = new javax.swing.JButton();
@@ -56,6 +52,11 @@ public class InfoComercio extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
+            }
+        });
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -111,10 +112,10 @@ public class InfoComercio extends javax.swing.JFrame {
         textoCalifNegat.setBorder(null);
         textoCalifNegat.setFocusable(false);
 
-        jButton1.setLabel("Volver");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        botonVolver.setLabel("Volver");
+        botonVolver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                botonVolverActionPerformed(evt);
             }
         });
 
@@ -149,18 +150,18 @@ public class InfoComercio extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(nombreComercio)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButton1))
+                        .addComponent(botonVolver))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(textoUbicacion, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 350, Short.MAX_VALUE)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(textoHorario, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(textoCalifPosit, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(nombreComercio, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(textoCalifNegat, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE))
-                            .addComponent(textoDueño, javax.swing.GroupLayout.Alignment.LEADING))
+                            .addComponent(textoDueño))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
@@ -198,7 +199,7 @@ public class InfoComercio extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(textoCalifNegat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton1)
+                .addComponent(botonVolver)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -221,7 +222,6 @@ public class InfoComercio extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void nombreComercioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombreComercioActionPerformed
-
         // TODO add your handling code here:
     }//GEN-LAST:event_nombreComercioActionPerformed
 
@@ -229,34 +229,38 @@ public class InfoComercio extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_textoHorarioActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void botonVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonVolverActionPerformed
         this.setVisible(false);
-// TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+        r.setVisible(true);
+    }//GEN-LAST:event_botonVolverActionPerformed
 
     private void botonEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEnviarActionPerformed
-
         if (calificaciones.isSelected(botonPositiva.getModel())) {
             c.sumarVotoPositivo();
-            System.out.println("+1");
         } else {
             c.sumarVotoNegativo();
-            System.out.println("-1");
         }
-        
-        InfoComercio f = new InfoComercio(c);
+        InfoComercio f = new InfoComercio(c, r);
         f.setVisible(true);
-        f.botonEnviar.setEnabled(false);
-        this.dispose();
+        f.botonEnviar.setVisible(false);
+        f.botonNegativa.setVisible(false);
+        f.botonPositiva.setVisible(false);
+        f.textoCalificacion.setVisible(false);
+        f.setSize(380, f.getHeight());
+        this.setVisible(false);
+        r.setVisible(false);
     }//GEN-LAST:event_botonEnviarActionPerformed
 
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+        r.setVisible(true);
+    }//GEN-LAST:event_formWindowClosed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonEnviar;
     private javax.swing.JRadioButton botonNegativa;
     private javax.swing.JRadioButton botonPositiva;
+    private javax.swing.JButton botonVolver;
     private javax.swing.ButtonGroup calificaciones;
-    private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField nombreComercio;
     private javax.swing.JTextField textoCalifNegat;

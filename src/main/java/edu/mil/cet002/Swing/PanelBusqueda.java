@@ -282,6 +282,9 @@ public class PanelBusqueda extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_horarioNullActionPerformed
 
+    public ResultadosBusqueda getFrameResultados(){
+        return r;
+    }
     public JTextField getCampo() {
         return campoBusqueda;
     }

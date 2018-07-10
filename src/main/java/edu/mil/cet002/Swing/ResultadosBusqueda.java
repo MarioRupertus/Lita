@@ -41,6 +41,7 @@ public class ResultadosBusqueda extends javax.swing.JFrame {
         }
 
         textoProducto.setText(b);
+        tablaProductos.setRowSelectionInterval(0, 0);
     }
 
     @SuppressWarnings("unchecked")
@@ -357,9 +358,10 @@ public class ResultadosBusqueda extends javax.swing.JFrame {
 
         Comercio c = new Comercio();
         Producto p = resultado.get(tablaProductos.getSelectedRow());
-        // p.getComercio().getNombre();
-        InfoComercio a = new InfoComercio(p.getComercio());
+        InfoComercio a = new InfoComercio(p.getComercio(), this);
         a.setVisible(true);
+        this.setVisible(false);
+
     }//GEN-LAST:event_botonInfoActionPerformed
 
     private void botonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSalirActionPerformed
