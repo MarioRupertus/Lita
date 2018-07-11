@@ -298,11 +298,12 @@ public class Carro extends javax.swing.JFrame {
         return String.valueOf(precio);
     }
     private void botonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEliminarActionPerformed
-        int i = listaProductos.getSelectedIndex();
-        dlm.remove(i);
-        carro.eliminarProducto(i);
-        precio.setText(calcularPrecio());//Se actualiza el precio total del carrito
-
+        if (!listaProductos.isSelectionEmpty()) {
+            int i = listaProductos.getSelectedIndex();
+            dlm.remove(i);
+            carro.eliminarProducto(i);
+            precio.setText(calcularPrecio());//Se actualiza el precio total del carrito
+        }
     }//GEN-LAST:event_botonEliminarActionPerformed
 
     private void botonCaminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCaminarActionPerformed
@@ -331,7 +332,7 @@ public class Carro extends javax.swing.JFrame {
         } else {
             camino = 0;
         }
-        MapaVisual m= new MapaVisual(Servicios.getInstance().calcularRecorrido(origen, Final, destinoIntermedio, mapa, camino), carro);
+        MapaVisual m = new MapaVisual(Servicios.getInstance().calcularRecorrido(origen, Final, destinoIntermedio, mapa, camino), carro);
         m.setVisible(true);
         this.dispose();
 

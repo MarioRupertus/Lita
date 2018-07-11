@@ -259,7 +259,7 @@ public class ResultadosBusqueda extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "Producto", "Comercio", "Precio", "Calificación"
+                "Producto", "Comercio", "Calificación", "Precio"
             }
         ) {
             Class[] types = new Class [] {
@@ -356,12 +356,15 @@ public class ResultadosBusqueda extends javax.swing.JFrame {
 
     private void botonInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonInfoActionPerformed
 
-        Comercio c = new Comercio();
-        Producto p = resultado.get(tablaProductos.getSelectedRow());
-        InfoComercio a = new InfoComercio(p.getComercio(), this);
-        a.setVisible(true);
-        this.setVisible(false);
-
+        //Comercio c = new Comercio();
+        if (!resultado.isEmpty()) {
+            Producto p = resultado.get(tablaProductos.getSelectedRow());
+            InfoComercio a = new InfoComercio(p.getComercio(), this);
+            a.setVisible(true);
+            this.setVisible(false);
+        }
+        //podríamos agregar else con ventana con texto "no se puede realizar esta acción"
+        //igual este if soluciona que no reviente cuando no trajo ningún resultado
     }//GEN-LAST:event_botonInfoActionPerformed
 
     private void botonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSalirActionPerformed
@@ -369,12 +372,10 @@ public class ResultadosBusqueda extends javax.swing.JFrame {
     }//GEN-LAST:event_botonSalirActionPerformed
 
     private void botonAgregarCarroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAgregarCarroActionPerformed
-
-        Producto producto = resultado.get(tablaProductos.getSelectedRow());
-        // producto = resultado.get(listaProductos.getSelectedIndex());
-        Servicios.getInstance().agregarProductoCarro(panelBusqueda.getCarro(), producto);
-
-        //this.setVisible(false);
+        if (!resultado.isEmpty()) {
+            Producto producto = resultado.get(tablaProductos.getSelectedRow());
+            Servicios.getInstance().agregarProductoCarro(panelBusqueda.getCarro(), producto);
+        }
     }//GEN-LAST:event_botonAgregarCarroActionPerformed
 
     private void botonIrCarritoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonIrCarritoActionPerformed
@@ -440,9 +441,9 @@ public class ResultadosBusqueda extends javax.swing.JFrame {
             if (i < 100) {
                 tablaProductos.setValueAt(resultado.get(i).getNombre(), i, 0);
                 tablaProductos.setValueAt(resultado.get(i).getComercio().getNombre(), i, 1);
-                tablaProductos.setValueAt(resultado.get(i).getPrecio(), i, 2);
                 tablaProductos.setValueAt(((resultado.get(i).getComercio().getCalificacionPositiva())
-                        - (resultado.get(i).getComercio().getCalificacionNegativa())), i, 3);
+                        - (resultado.get(i).getComercio().getCalificacionNegativa())), i, 2);
+                tablaProductos.setValueAt(resultado.get(i).getPrecio(), i, 3);
             }
         }
     }
