@@ -8,6 +8,8 @@ package edu.mil.cet002.Swing;
 import edu.mil.cet002.compraslita.Servicios;
 import edu.mil.cet002.compraslita.Carrito;
 import edu.mil.cet002.compraslita.Producto;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -29,8 +31,10 @@ public class PanelBusqueda extends javax.swing.JFrame {
      */
     public PanelBusqueda() {
         initComponents();
+        inic();
         setdefault();
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+
     }
 
     /**
@@ -58,12 +62,22 @@ public class PanelBusqueda extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
+        addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                formKeyPressed(evt);
+            }
+        });
 
         botonBuscar.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         botonBuscar.setText("Buscar!");
         botonBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonBuscarActionPerformed(evt);
+            }
+        });
+        botonBuscar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                botonBuscarKeyPressed(evt);
             }
         });
 
@@ -249,31 +263,30 @@ public class PanelBusqueda extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_horarioEspecificoActionPerformed
 
-    private void botonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBuscarActionPerformed
-        String precio = "precio";
-        String ASC = "ASC";
-        
-        if (Horario.getSelection() == horarioNull.getModel()) {
-            horario = -1;
-        } else {
-            if (Horario.getSelection() == horarioActual.getModel()) {
-                Calendar calendario = new GregorianCalendar();
-                horario = calendario.get(Calendar.HOUR_OF_DAY);
-            } else {
-                horario = horas.getSelectedIndex() + 7;
-            }
-        }
-        
-        r = new ResultadosBusqueda(Servicios.getInstance().
-                buscarProducto(campoBusqueda.getText(), horario, precio, ASC), this);
-        r.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_botonBuscarActionPerformed
-
     private void horasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_horasActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_horasActionPerformed
+    private void inic() {
+        this.setFocusable(true);
+        this.addKeyListener(new KeyListener() {
+            public void keyTyped(KeyEvent e) {
+                //Aqui no funcionara
+            }
 
+            public void keyPressed(KeyEvent e) {
+                if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+                   Busqueda();
+                }
+                if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
+                    System.exit(0);
+                }
+            }
+
+            public void keyReleased(KeyEvent e) {
+                //Aqui tambien puedes insertar el codigo
+            }
+        });
+    }
     private void horarioActualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_horarioActualActionPerformed
         horas.setVisible(false);
         // TODO add your handling code here:
@@ -284,9 +297,45 @@ public class PanelBusqueda extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_horarioNullActionPerformed
 
-    public ResultadosBusqueda getFrameResultados(){
+    private void botonBuscarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_botonBuscarKeyPressed
+
+    }//GEN-LAST:event_botonBuscarKeyPressed
+
+    private void botonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBuscarActionPerformed
+        Busqueda();
+    }//GEN-LAST:event_botonBuscarActionPerformed
+
+    private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            Busqueda();
+        }
+    }//GEN-LAST:event_formKeyPressed
+
+    private void Busqueda() {
+        String precio = "precio";
+        String ASC = "ASC";
+
+        if (Horario.getSelection() == horarioNull.getModel()) {
+            horario = -1;
+        } else {
+            if (Horario.getSelection() == horarioActual.getModel()) {
+                Calendar calendario = new GregorianCalendar();
+                horario = calendario.get(Calendar.HOUR_OF_DAY);
+            } else {
+                horario = horas.getSelectedIndex() + 7;
+            }
+        }
+
+        r = new ResultadosBusqueda(Servicios.getInstance().
+                buscarProducto(campoBusqueda.getText(), horario, precio, ASC), this);
+        r.setVisible(true);
+        this.setVisible(false);
+    }
+
+    public ResultadosBusqueda getFrameResultados() {
         return r;
     }
+
     public JTextField getCampo() {
         return campoBusqueda;
     }

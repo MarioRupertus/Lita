@@ -63,7 +63,7 @@ public class MapaVisual extends javax.swing.JFrame {
                     botones.get(ant).setBackground(new Color(255, 209, 148));
                     } catch (Exception e){}
                 if (botones.get(i).getText().equals(nodoActual.getIdnodo().toString())) { // Busca que boton es el que representa el nodo actual. Comparar el texto del boton con el id (String) del nodo.
-                    botones.get(i).setBackground(new Color(0, 128, 0));
+                    botones.get(i).setBackground(new Color(0, 128, 0)); // verde
                     if (iteracion+1 == r.getRecorridoCompleto().size()){
                         botones.get(i).setBackground(new Color(0, 0, 0));
                         botones.get(i).setForeground(new Color(255, 255, 255));
@@ -236,10 +236,7 @@ public class MapaVisual extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         siguienteBoton = new javax.swing.JButton();
         botonSalir = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        texto1 = new javax.swing.JTextPane();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        sigLugar = new javax.swing.JTextPane();
+        jButton38 = new javax.swing.JButton();
         origen = new javax.swing.JLabel();
         destino = new javax.swing.JLabel();
         costo = new javax.swing.JLabel();
@@ -465,20 +462,7 @@ public class MapaVisual extends javax.swing.JFrame {
             }
         });
 
-        jScrollPane1.setBackground(new java.awt.Color(234, 234, 234));
-        jScrollPane1.setBorder(null);
-
-        texto1.setBackground(new java.awt.Color(234, 234, 234));
-        texto1.setBorder(null);
-        texto1.setText("Proximo lugar:");
-        jScrollPane1.setViewportView(texto1);
-
-        jScrollPane2.setBackground(new java.awt.Color(234, 234, 234));
-        jScrollPane2.setBorder(null);
-
-        sigLugar.setBackground(new java.awt.Color(234, 234, 234));
-        sigLugar.setBorder(null);
-        jScrollPane2.setViewportView(sigLugar);
+        jButton38.setText("Calificar");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -486,14 +470,12 @@ public class MapaVisual extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(siguienteBoton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 212, Short.MAX_VALUE)
-                        .addComponent(botonSalir)))
+                        .addComponent(jButton38, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(botonSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -501,17 +483,11 @@ public class MapaVisual extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(siguienteBoton)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(botonSalir)
-                        .addContainerGap())
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(11, 11, 11)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(20, Short.MAX_VALUE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton38)
+                    .addComponent(botonSalir))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         origen.setText("Origen: #" + r.getOrigen().getIdnodo() + " " + r.getOrigen().getNombre());
@@ -544,7 +520,7 @@ public class MapaVisual extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 379, Short.MAX_VALUE))
+                    .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -589,10 +565,7 @@ public class MapaVisual extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    private void verInfoNodo(int i) {
-        info = new InfoNodo(r.getMapa().getMapa().get(i - 1));
-        info.setVisible(true);
-    }
+
     private void botonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSalirActionPerformed
         System.out.println(iteracion);
         this.dispose();
@@ -601,7 +574,10 @@ public class MapaVisual extends javax.swing.JFrame {
     private void sigRecorrerMapa(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sigRecorrerMapa
         recorrerMapa();
     }//GEN-LAST:event_sigRecorrerMapa
-    private void verInfoNodo(java.awt.event.ActionEvent evt) {
+    private void verInfoNodo(int i) {
+        info = new InfoNodo(r.getMapa().getMapa().get(i - 1));
+        info.setVisible(true);
+    }    private void verInfoNodo(java.awt.event.ActionEvent evt) {
         JButton a = (JButton) evt.getSource();
         verInfoNodo(Integer.parseInt(a.getText()));
     }
@@ -644,6 +620,7 @@ public class MapaVisual extends javax.swing.JFrame {
     private javax.swing.JButton jButton35;
     private javax.swing.JButton jButton36;
     private javax.swing.JButton jButton37;
+    private javax.swing.JButton jButton38;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
@@ -654,16 +631,12 @@ public class MapaVisual extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JLabel lugVisitar;
     private javax.swing.JLabel medioTransporte;
     private javax.swing.JLabel origen;
     private javax.swing.JList<String> recorridoList;
-    private javax.swing.JTextPane sigLugar;
     private javax.swing.JButton siguienteBoton;
-    private javax.swing.JTextPane texto1;
     // End of variables declaration//GEN-END:variables
 }
