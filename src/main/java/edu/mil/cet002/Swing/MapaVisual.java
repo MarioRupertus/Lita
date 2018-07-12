@@ -48,6 +48,30 @@ public class MapaVisual extends javax.swing.JFrame {
         iniciarRecorridoList();
     }
 
+    private void recorrerMapa() {
+
+        if (iteracion < r.getRecorridoCompleto().size()) { // El boton siguien invoca este metodo, si todas las iteracion estan realizadas no hacen nada. Si falta va a pintar la siguiente.
+
+            boolean encontrado = false; //condicional para iterar while
+            int i = 0; //indice para recorrer lista de botones
+            Nodo nodoActual = r.getRecorridoCompleto().get(iteracion); // nodo a recorrer
+
+            while (!encontrado) {
+                if (botones.get(i).getText() == nodoActual.getIdnodo().toString()) { // Busca que boton es el que representa el nodo actual. Comparar el texto del boton con el id (String) del nodo.
+                    botones.get(i).setBackground(new Color(0, 128, 0));
+                    encontrado = true;
+                    iteracion++;
+                } else {
+                    i++; // ver excepcion si no lo encuentra y sigue aumentando la i --> NULL POINTER EXCEPTION
+                }
+            }
+
+        } else {
+
+        }
+
+    }
+
     private void iniciarBotones() {
         botones = new ArrayList();
         botones.add(jButton1);
