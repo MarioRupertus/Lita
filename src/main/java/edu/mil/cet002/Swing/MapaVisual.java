@@ -9,6 +9,7 @@ import edu.mil.cet002.compraslita.*;
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 
 /**
@@ -23,21 +24,26 @@ public class MapaVisual extends javax.swing.JFrame {
     Carrito c;
     InfoNodo info;
     int iteracion = 0;
+    String medio;
+    DefaultListModel destinos = new DefaultListModel();
 
     /**
      * Creates new form MapaVisual
      */
     public MapaVisual() {
-        initComponents();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
     }
 
     public MapaVisual(Recorrido r, Carrito carro) {
         this();
         this.r = r;
+        medio = (r.getAuto() == 0 ? "Caminando" : "Automovil");
         this.c = carro;
+        initComponents();
         iniciarBotones();
         iniciarRecorrido();
+        iniciarDestinos();
     }
 
     private void iniciarBotones() {
@@ -122,6 +128,13 @@ public class MapaVisual extends javax.swing.JFrame {
         }
     }
 
+    private void iniciarDestinos() {
+        for (Nodo d : r.getDestinoIntermedio()) {
+            destinos.addElement("#"+d.getIdnodo() + " " + d.getNombre());
+        }
+        destinosList.setModel(destinos);
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -177,9 +190,17 @@ public class MapaVisual extends javax.swing.JFrame {
         texto1 = new javax.swing.JTextPane();
         jScrollPane2 = new javax.swing.JScrollPane();
         sigLugar = new javax.swing.JTextPane();
+        origen = new javax.swing.JLabel();
+        destino = new javax.swing.JLabel();
+        costo = new javax.swing.JLabel();
+        medioTransporte = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        destinosList = new javax.swing.JList<>();
+        lugVisitar = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Mapa");
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jPanel2.setLayout(null);
 
@@ -440,6 +461,19 @@ public class MapaVisual extends javax.swing.JFrame {
                 .addContainerGap(20, Short.MAX_VALUE))
         );
 
+        origen.setText("Origen: #" + r.getOrigen().getIdnodo() + " " + r.getOrigen().getNombre());
+
+        destino.setText("Final: #" + r.getDestinoFinal().getIdnodo() + " " + r.getDestinoFinal().getNombre());
+
+        costo.setText(String.valueOf("Distancia total (mts): " + r.getCostoTotal()));
+
+        medioTransporte.setText("Medio de transporte: " + medio);
+
+        destinosList.setBackground(new java.awt.Color(240, 240, 240));
+        jScrollPane3.setViewportView(destinosList);
+
+        lugVisitar.setText("Lugares a visitar:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -448,7 +482,22 @@ public class MapaVisual extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 379, Short.MAX_VALUE))
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lugVisitar)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(origen)
+                            .addComponent(medioTransporte)
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                        .addContainerGap())
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(costo)
+                            .addComponent(destino))
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -456,6 +505,20 @@ public class MapaVisual extends javax.swing.JFrame {
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 586, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(medioTransporte)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(origen)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(destino)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(costo)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lugVisitar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -495,6 +558,9 @@ public class MapaVisual extends javax.swing.JFrame {
      */
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonSalir;
+    private javax.swing.JLabel costo;
+    private javax.swing.JLabel destino;
+    private javax.swing.JList<String> destinosList;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
@@ -537,6 +603,10 @@ public class MapaVisual extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JLabel lugVisitar;
+    private javax.swing.JLabel medioTransporte;
+    private javax.swing.JLabel origen;
     private javax.swing.JTextPane sigLugar;
     private javax.swing.JButton siguienteBoton;
     private javax.swing.JTextPane texto1;
