@@ -47,6 +47,7 @@ public class MapaVisual extends javax.swing.JFrame {
         //iniciarRecorrido();
         iniciarDestinos(); // utilizado por jList de lugares a vistiar 
         iniciarRecorridoList(); // utilizado por jList de recorrido completo
+        recorrerMapa();// arranca en el constructor para marcar el primer punto
     }
 
     private void recorrerMapa() {
@@ -63,6 +64,10 @@ public class MapaVisual extends javax.swing.JFrame {
                     } catch (Exception e){}
                 if (botones.get(i).getText().equals(nodoActual.getIdnodo().toString())) { // Busca que boton es el que representa el nodo actual. Comparar el texto del boton con el id (String) del nodo.
                     botones.get(i).setBackground(new Color(0, 128, 0));
+                    if (iteracion+1 == r.getRecorridoCompleto().size()){
+                        botones.get(i).setBackground(new Color(0, 0, 0));
+                        botones.get(i).setForeground(new Color(255, 255, 255));
+                    }
                     ant = i; // guarda el boton visitado para utilizarlo luego como antecesor del siguiente
                     encontrado = true;
                     iteracion++;    
