@@ -229,4 +229,26 @@ public class Recorrido {
         return mapa.getMapa().get(aux);
     }
 
+    public Nodo getOrigen() {
+        return origen;
+    }
+
+    public Nodo getDestinoFinal() {
+        return destinoFinal;
+    }
+
+    public List<Nodo> getDestinoIntermedio() {
+        return destinoIntermedio;
+    }
+
+    public int getAuto() {
+        return auto;
+    }
+
+    public int getCostoTotal() {
+        return costoTotal;
+    }
+
+    
+    
 }
