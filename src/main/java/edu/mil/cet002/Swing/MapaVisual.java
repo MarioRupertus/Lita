@@ -569,6 +569,7 @@ public class MapaVisual extends javax.swing.JFrame {
     private void botonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSalirActionPerformed
         System.out.println(iteracion);
         this.dispose();
+        System.exit(0);
     }//GEN-LAST:event_botonSalirActionPerformed
 
     private void sigRecorrerMapa(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sigRecorrerMapa
