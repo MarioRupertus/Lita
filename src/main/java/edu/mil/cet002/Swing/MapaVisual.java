@@ -27,6 +27,7 @@ public class MapaVisual extends javax.swing.JFrame {
     String medio;
     DefaultListModel destinos = new DefaultListModel();
     DefaultListModel recorrido = new DefaultListModel();
+    int ant = -1; // auxiliar utilizado en metodo recorrerMapa();
 
     /**
      * Creates new form MapaVisual
@@ -39,28 +40,32 @@ public class MapaVisual extends javax.swing.JFrame {
     public MapaVisual(Recorrido r, Carrito carro) {
         this();
         this.r = r;
-        medio = (r.getAuto() == 0 ? "Caminando" : "Automovil");
+        medio = (r.getAuto() == 0 ? "Caminando" : "Automovil"); // utilizado por label de medio de transporte
         this.c = carro;
         initComponents();
         iniciarBotones();
-        iniciarRecorrido();
-        iniciarDestinos();
-        iniciarRecorridoList();
+        //iniciarRecorrido();
+        iniciarDestinos(); // utilizado por jList de lugares a vistiar 
+        iniciarRecorridoList(); // utilizado por jList de recorrido completo
     }
 
     private void recorrerMapa() {
 
-        if (iteracion < r.getRecorridoCompleto().size()) { // El boton siguien invoca este metodo, si todas las iteracion estan realizadas no hacen nada. Si falta va a pintar la siguiente.
+        if (iteracion < r.getRecorridoCompleto().size()) { // El boton siguiente invoca este metodo, si todas las iteracion estan realizadas no hace nada. Si faltan lugares por recorrer va a pintar la siguiente.
 
             boolean encontrado = false; //condicional para iterar while
             int i = 0; //indice para recorrer lista de botones
             Nodo nodoActual = r.getRecorridoCompleto().get(iteracion); // nodo a recorrer
 
             while (!encontrado) {
-                if (botones.get(i).getText() == nodoActual.getIdnodo().toString()) { // Busca que boton es el que representa el nodo actual. Comparar el texto del boton con el id (String) del nodo.
+                try { // Este try intenta cambiar el color del boton anterior. Se hace la excepcion porque el primer lugar no tiene antecesor y se romperia.
+                    botones.get(ant).setBackground(new Color(255, 209, 148));
+                    } catch (Exception e){}
+                if (botones.get(i).getText().equals(nodoActual.getIdnodo().toString())) { // Busca que boton es el que representa el nodo actual. Comparar el texto del boton con el id (String) del nodo.
                     botones.get(i).setBackground(new Color(0, 128, 0));
+                    ant = i; // guarda el boton visitado para utilizarlo luego como antecesor del siguiente
                     encontrado = true;
-                    iteracion++;
+                    iteracion++;    
                 } else {
                     i++; // ver excepcion si no lo encuentra y sigue aumentando la i --> NULL POINTER EXCEPTION
                 }
@@ -120,22 +125,26 @@ public class MapaVisual extends javax.swing.JFrame {
         }
         defaultCol = jButton1.getBackground();
     }
-
+    
+    /**
     private void iniciarRecorrido() {
         ubicarNodo(0);
         siguienteLugar();
-    }
+    }*/
 
+    /**
     private void limpiarBotones() {
         for (int a = 0; a < botones.size(); a++) {
             botones.get(a).setBackground(defaultCol);
         }
-    }
+    }*/
 
+    /**
     private void siguienteLugar() {
         sigLugar.setText(r.getRecorridoCompleto().get(iteracion + 1).getIdnodo().toString());
-    }
+    }*/
 
+    /**
     private void ubicarNodo(int i) {
         boolean com = false;//Booleano para ubicar si hay un comercio en ese nodo
         for (int a = 0; a < botones.size(); a++) {
@@ -152,7 +161,8 @@ public class MapaVisual extends javax.swing.JFrame {
                 }
             }
         }
-    }
+    } 
+    */
 
     private void iniciarDestinos() {
         for (Nodo d : r.getDestinoIntermedio()) {
@@ -439,7 +449,7 @@ public class MapaVisual extends javax.swing.JFrame {
         siguienteBoton.setText("Siguiente lugar");
         siguienteBoton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                siguienteBotonActionPerformed(evt);
+                sigRecorrerMapa(evt);
             }
         });
 
@@ -472,31 +482,31 @@ public class MapaVisual extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(siguienteBoton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(botonSalir))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(siguienteBoton)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 212, Short.MAX_VALUE)
+                        .addComponent(botonSalir)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(botonSalir)
-                .addContainerGap())
-            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(siguienteBoton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(20, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(botonSalir)
+                        .addContainerGap())
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(11, 11, 11)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(20, Short.MAX_VALUE))))
         );
 
         origen.setText("Origen: #" + r.getOrigen().getIdnodo() + " " + r.getOrigen().getNombre());
@@ -574,24 +584,6 @@ public class MapaVisual extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void siguienteBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_siguienteBotonActionPerformed
-        if (siguienteBoton.isEnabled()) {
-            iteracion = iteracion + 1;
-            if (iteracion < r.getRecorridoCompleto().size()) {
-                limpiarBotones();
-                ubicarNodo(iteracion);
-            } else {
-                siguienteBoton.setText("Ya no hay movimientos disponibles");
-                siguienteBoton.disable();
-            }
-            if (iteracion + 1 < r.getRecorridoCompleto().size()) {
-                siguienteLugar();
-            } else {
-                sigLugar.setText("X");
-            }
-        }
-    }//GEN-LAST:event_siguienteBotonActionPerformed
     private void verInfoNodo(int i) {
         info = new InfoNodo(r.getMapa().getMapa().get(i - 1));
         info.setVisible(true);
@@ -600,6 +592,10 @@ public class MapaVisual extends javax.swing.JFrame {
         System.out.println(iteracion);
         this.dispose();
     }//GEN-LAST:event_botonSalirActionPerformed
+
+    private void sigRecorrerMapa(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sigRecorrerMapa
+        recorrerMapa();
+    }//GEN-LAST:event_sigRecorrerMapa
     private void verInfoNodo(java.awt.event.ActionEvent evt) {
         JButton a = (JButton) evt.getSource();
         verInfoNodo(Integer.parseInt(a.getText()));
