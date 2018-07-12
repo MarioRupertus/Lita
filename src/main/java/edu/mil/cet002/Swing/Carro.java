@@ -24,6 +24,7 @@ public class Carro extends javax.swing.JFrame {
     private DefaultComboBoxModel<String> dlmIni = new DefaultComboBoxModel<>();
     private DefaultComboBoxModel<String> dlmFin = new DefaultComboBoxModel<>();
     private Carrito carro;
+    private ResultadosBusqueda a;
 
     /**
      * Creates new form
@@ -34,9 +35,10 @@ public class Carro extends javax.swing.JFrame {
 
     }
 
-    public Carro(Carrito carro) {
+    public Carro(Carrito carro, ResultadosBusqueda a) {
         this();
         this.carro = carro;
+        this.a = a;
         precio.setText(calcularPrecio());
         iniciarLista();
         listaProductos.setModel(dlm);
@@ -322,6 +324,7 @@ public class Carro extends javax.swing.JFrame {
         return nodos;
     }
     private void mostrarRecorridoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mostrarRecorridoActionPerformed
+        a.dispose();
         Nodo origen = Servicios.getInstance().getMapa().getMapa().get(comboInici.getSelectedIndex());
         Nodo Final = Servicios.getInstance().getMapa().getMapa().get(comboFinal.getSelectedIndex());
         List<Nodo> destinoIntermedio = convertirProductosANodos();

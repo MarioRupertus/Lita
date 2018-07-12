@@ -105,18 +105,18 @@ public class MapaVisual extends javax.swing.JFrame {
     }
 
     private void ubicarNodo(int i) {
-        boolean com=false;//Booleano para ubicar si hay un comercio en ese nodo
+        boolean com = false;//Booleano para ubicar si hay un comercio en ese nodo
         for (int a = 0; a < botones.size(); a++) {
             if (r.getRecorridoCompleto().get(i).getIdnodo() == Integer.parseInt(botones.get(a).getText())) {
                 for (int b = 0; b < c.getListaDeProductos().size(); b++) {
                     if (c.getListaDeProductos().get(b).getComercio().getUbicacion().getIdnodo() == Integer.parseInt(botones.get(a).getText())) {
                         System.out.println(c.getListaDeProductos().get(b).getComercio().getUbicacion().getIdnodo());
                         botones.get(i).setBackground(new Color(0, 128, 0));
-                        com=true;
+                        com = true;
                     }
                 }
-                if(!com){
-                botones.get(i).setBackground(new Color(255,0, 0));
+                if (!com) {
+                    botones.get(i).setBackground(new Color(255, 0, 0));
                 }
             }
         }

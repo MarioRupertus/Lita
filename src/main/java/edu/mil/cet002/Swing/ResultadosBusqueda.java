@@ -379,7 +379,7 @@ public class ResultadosBusqueda extends javax.swing.JFrame {
     }//GEN-LAST:event_botonAgregarCarroActionPerformed
 
     private void botonIrCarritoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonIrCarritoActionPerformed
-        Carro c = new Carro(panelBusqueda.getCarro());
+        Carro c = new Carro(panelBusqueda.getCarro(), this);
         c.setVisible(true);
     }//GEN-LAST:event_botonIrCarritoActionPerformed
 
