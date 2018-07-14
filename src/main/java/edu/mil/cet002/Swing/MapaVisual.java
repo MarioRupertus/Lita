@@ -67,6 +67,7 @@ public class MapaVisual extends javax.swing.JFrame {
                     if (iteracion+1 == r.getRecorridoCompleto().size()){
                         botones.get(i).setBackground(new Color(0, 0, 0));
                         botones.get(i).setForeground(new Color(255, 255, 255));
+                        siguienteBoton.setContentAreaFilled(false);
                     }
                     ant = i; // guarda el boton visitado para utilizarlo luego como antecesor del siguiente
                     encontrado = true;
@@ -236,7 +237,7 @@ public class MapaVisual extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         siguienteBoton = new javax.swing.JButton();
         botonSalir = new javax.swing.JButton();
-        jButton38 = new javax.swing.JButton();
+        botonCalificar = new javax.swing.JButton();
         origen = new javax.swing.JLabel();
         destino = new javax.swing.JLabel();
         costo = new javax.swing.JLabel();
@@ -462,7 +463,12 @@ public class MapaVisual extends javax.swing.JFrame {
             }
         });
 
-        jButton38.setText("Calificar");
+        botonCalificar.setText("Calificar");
+        botonCalificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonCalificarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -473,7 +479,7 @@ public class MapaVisual extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(siguienteBoton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton38, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(botonCalificar, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(botonSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
@@ -485,7 +491,7 @@ public class MapaVisual extends javax.swing.JFrame {
                 .addComponent(siguienteBoton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton38)
+                    .addComponent(botonCalificar)
                     .addComponent(botonSalir))
                 .addContainerGap(18, Short.MAX_VALUE))
         );
@@ -575,6 +581,12 @@ public class MapaVisual extends javax.swing.JFrame {
     private void sigRecorrerMapa(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sigRecorrerMapa
         recorrerMapa();
     }//GEN-LAST:event_sigRecorrerMapa
+
+    private void botonCalificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCalificarActionPerformed
+        Calificacion n=new Calificacion(Servicios.getInstance().convertirProductosAComercios(c.getListaDeProductos()));
+        n.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_botonCalificarActionPerformed
     private void verInfoNodo(int i) {
         info = new InfoNodo(r.getMapa().getMapa().get(i - 1));
         info.setVisible(true);
@@ -586,6 +598,7 @@ public class MapaVisual extends javax.swing.JFrame {
      * @param args the command line arguments 1
      */
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton botonCalificar;
     private javax.swing.JButton botonSalir;
     private javax.swing.JLabel costo;
     private javax.swing.JLabel destino;
@@ -621,7 +634,6 @@ public class MapaVisual extends javax.swing.JFrame {
     private javax.swing.JButton jButton35;
     private javax.swing.JButton jButton36;
     private javax.swing.JButton jButton37;
-    private javax.swing.JButton jButton38;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;

@@ -609,7 +609,7 @@
                   <Group type="103" groupAlignment="1" attributes="0">
                       <Component id="siguienteBoton" max="32767" attributes="0"/>
                       <Group type="102" attributes="0">
-                          <Component id="jButton38" min="-2" pref="177" max="-2" attributes="0"/>
+                          <Component id="botonCalificar" min="-2" pref="177" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="botonSalir" min="-2" pref="176" max="-2" attributes="0"/>
                       </Group>
@@ -625,7 +625,7 @@
                   <Component id="siguienteBoton" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jButton38" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="botonCalificar" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="botonSalir" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="18" max="32767" attributes="0"/>
@@ -650,10 +650,13 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonSalirActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton38">
+        <Component class="javax.swing.JButton" name="botonCalificar">
           <Properties>
             <Property name="text" type="java.lang.String" value="Calificar"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonCalificarActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

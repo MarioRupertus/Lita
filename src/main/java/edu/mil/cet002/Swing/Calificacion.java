@@ -7,6 +7,8 @@ package edu.mil.cet002.Swing;
 
 import edu.mil.cet002.compraslita.*;
 import java.util.List;
+import javax.swing.DefaultListModel;
+import javax.swing.ListModel;
 
 /**
  *
@@ -15,6 +17,7 @@ import java.util.List;
 public class Calificacion extends javax.swing.JFrame {
 
     List<Comercio> listaC;
+    DefaultListModel dft = new DefaultListModel();
 
     public Calificacion() {
         initComponents();
@@ -22,7 +25,15 @@ public class Calificacion extends javax.swing.JFrame {
     }
 
     Calificacion(List<Comercio> listaC) {
+        this();
+        this.listaC = listaC;
+        iniciar();
+    }
 
+    private void iniciar() {
+        for (int i = 0; i < listaC.size(); i++) {
+            dft.addElement(listaC.get(i).getNombre());
+        }
     }
 
     /**
@@ -41,8 +52,6 @@ public class Calificacion extends javax.swing.JFrame {
         listaComercios = new javax.swing.JList<>();
         botonFinalizar = new javax.swing.JButton();
         botonEnviar = new javax.swing.JButton();
-        botonPositiva = new javax.swing.JRadioButton();
-        botonNegativa = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -56,12 +65,7 @@ public class Calificacion extends javax.swing.JFrame {
         textoCalificacion.setFocusable(false);
 
         listaComercios.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        listaComercios.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Comercio 1", "Comercio 2", "Comercio 3", "Comercio 4", "Comercio 5", "Comercio 6", "Comercio 7" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        listaComercios.setSelectedIndex(0);
+        listaComercios.setModel(dft);
         panelComercios.setViewportView(listaComercios);
 
         botonFinalizar.setText("Finalizar");
@@ -78,17 +82,6 @@ public class Calificacion extends javax.swing.JFrame {
             }
         });
 
-        botonPositiva.setBackground(new java.awt.Color(255, 255, 255));
-        calificaciones.add(botonPositiva);
-        botonPositiva.setSelected(true);
-        botonPositiva.setText("Positiva");
-        botonPositiva.setFocusable(false);
-
-        botonNegativa.setBackground(new java.awt.Color(255, 255, 255));
-        calificaciones.add(botonNegativa);
-        botonNegativa.setText("Negativa");
-        botonNegativa.setFocusable(false);
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -104,9 +97,7 @@ public class Calificacion extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(botonFinalizar, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(botonEnviar)
-                            .addComponent(botonPositiva, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(botonNegativa, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(botonEnviar))))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -114,19 +105,13 @@ public class Calificacion extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(textoCalificacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(28, 28, 28)
-                        .addComponent(botonPositiva)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(botonNegativa)
-                        .addGap(18, 18, 18)
                         .addComponent(botonEnviar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(botonFinalizar))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(panelComercios, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(panelComercios, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -145,26 +130,23 @@ public class Calificacion extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botonEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEnviarActionPerformed
-        int i = listaComercios.getSelectedIndex();
-        if (calificaciones.isSelected(botonPositiva.getModel())) {
-            listaC.get(i).sumarVotoPositivo();
-            System.out.println("+1");
-        } else {
-            listaC.get(i).sumarVotoNegativo();
-            System.out.println("-1");
+        if (listaComercios.getSelectedIndex() != -1) {
+            InfoComercio n = new InfoComercio(listaC.get(listaComercios.getSelectedIndex()), this);
+            n.setVisible(true);
+            dft.remove(listaComercios.getSelectedIndex());
+            this.setVisible(false);
         }
     }//GEN-LAST:event_botonEnviarActionPerformed
 
     private void botonFinalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonFinalizarActionPerformed
         this.dispose();
+        System.exit(0);
     }//GEN-LAST:event_botonFinalizarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonEnviar;
     private javax.swing.JButton botonFinalizar;
-    private javax.swing.JRadioButton botonNegativa;
-    private javax.swing.JRadioButton botonPositiva;
     private javax.swing.ButtonGroup calificaciones;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JList<String> listaComercios;

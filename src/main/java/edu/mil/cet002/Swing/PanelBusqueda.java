@@ -8,6 +8,7 @@ package edu.mil.cet002.Swing;
 import edu.mil.cet002.compraslita.Servicios;
 import edu.mil.cet002.compraslita.Carrito;
 import edu.mil.cet002.compraslita.Producto;
+import java.awt.Component;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.Calendar;
@@ -267,15 +268,22 @@ public class PanelBusqueda extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_horasActionPerformed
     private void inic() {
-        this.setFocusable(true);
-        this.addKeyListener(new KeyListener() {
+        KeyListen(horarioActual);
+        KeyListen(horarioEspecifico);
+        KeyListen(horarioNull);
+        KeyListen(horas);
+        KeyListen(campoBusqueda);
+    }
+
+    private void KeyListen(Component o) {
+        o.addKeyListener(new KeyListener() {
             public void keyTyped(KeyEvent e) {
                 //Aqui no funcionara
             }
 
             public void keyPressed(KeyEvent e) {
                 if (e.getKeyCode() == KeyEvent.VK_ENTER) {
-                   Busqueda();
+                    Busqueda();
                 }
                 if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
                     System.exit(0);

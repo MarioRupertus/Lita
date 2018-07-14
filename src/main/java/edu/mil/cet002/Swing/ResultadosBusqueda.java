@@ -357,7 +357,7 @@ public class ResultadosBusqueda extends javax.swing.JFrame {
     private void botonInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonInfoActionPerformed
 
         //Comercio c = new Comercio();
-        if (!resultado.isEmpty()) {
+        if (!resultado.isEmpty() & !(tablaProductos.getSelectedRow() >= resultado.size())) {
             Producto p = resultado.get(tablaProductos.getSelectedRow());
             InfoComercio a = new InfoComercio(p.getComercio(), this);
             a.setVisible(true);
@@ -372,7 +372,7 @@ public class ResultadosBusqueda extends javax.swing.JFrame {
     }//GEN-LAST:event_botonSalirActionPerformed
 
     private void botonAgregarCarroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAgregarCarroActionPerformed
-        if (!resultado.isEmpty()) {
+        if (!resultado.isEmpty() & !(tablaProductos.getSelectedRow() >= resultado.size())) {
             Producto producto = resultado.get(tablaProductos.getSelectedRow());
             Servicios.getInstance().agregarProductoCarro(panelBusqueda.getCarro(), producto);
         }
