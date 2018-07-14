@@ -7,6 +7,7 @@ package edu.mil.cet002.Swing;
 
 import edu.mil.cet002.compraslita.*;
 import java.awt.Color;
+import java.awt.Graphics;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.DefaultListModel;
@@ -61,17 +62,22 @@ public class MapaVisual extends javax.swing.JFrame {
             while (!encontrado) {
                 try { // Este try intenta cambiar el color del boton anterior. Se hace la excepcion porque el primer lugar no tiene antecesor y se romperia.
                     botones.get(ant).setBackground(new Color(255, 209, 148));
-                    } catch (Exception e){}
+                } catch (Exception e) {
+                }
                 if (botones.get(i).getText().equals(nodoActual.getIdnodo().toString())) { // Busca que boton es el que representa el nodo actual. Comparar el texto del boton con el id (String) del nodo.
                     botones.get(i).setBackground(new Color(0, 128, 0)); // verde
-                    if (iteracion+1 == r.getRecorridoCompleto().size()){
+                    if (ant != -1) {
+                        drawArrow(botones.get(ant).getX(), botones.get(ant).getY(),
+                                botones.get(i).getX(), botones.get(i).getY());
+                    }
+                    if (iteracion + 1 == r.getRecorridoCompleto().size()) {
                         botones.get(i).setBackground(new Color(0, 0, 0));
                         botones.get(i).setForeground(new Color(255, 255, 255));
                         siguienteBoton.setContentAreaFilled(false);
                     }
                     ant = i; // guarda el boton visitado para utilizarlo luego como antecesor del siguiente
                     encontrado = true;
-                    iteracion++;    
+                    iteracion++;
                 } else {
                     i++; // ver excepcion si no lo encuentra y sigue aumentando la i --> NULL POINTER EXCEPTION
                 }
@@ -131,45 +137,31 @@ public class MapaVisual extends javax.swing.JFrame {
         }
         defaultCol = jButton1.getBackground();
     }
-    
-    /**
-    private void iniciarRecorrido() {
-        ubicarNodo(0);
-        siguienteLugar();
-    }*/
 
     /**
-    private void limpiarBotones() {
-        for (int a = 0; a < botones.size(); a++) {
-            botones.get(a).setBackground(defaultCol);
-        }
-    }*/
-
+     * private void iniciarRecorrido() { ubicarNodo(0); siguienteLugar(); }
+     */
     /**
-    private void siguienteLugar() {
-        sigLugar.setText(r.getRecorridoCompleto().get(iteracion + 1).getIdnodo().toString());
-    }*/
-
+     * private void limpiarBotones() { for (int a = 0; a < botones.size(); a++)
+     * { botones.get(a).setBackground(defaultCol); } }
+     */
     /**
-    private void ubicarNodo(int i) {
-        boolean com = false;//Booleano para ubicar si hay un comercio en ese nodo
-        for (int a = 0; a < botones.size(); a++) {
-            if (r.getRecorridoCompleto().get(i).getIdnodo() == Integer.parseInt(botones.get(a).getText())) {
-                for (int b = 0; b < c.getListaDeProductos().size(); b++) {
-                    if (c.getListaDeProductos().get(b).getComercio().getUbicacion().getIdnodo() == Integer.parseInt(botones.get(a).getText())) {
-                        System.out.println(c.getListaDeProductos().get(b).getComercio().getUbicacion().getIdnodo());
-                        botones.get(i).setBackground(new Color(0, 128, 0));
-                        com = true;
-                    }
-                }
-                if (!com) {
-                    botones.get(i).setBackground(new Color(255, 0, 0));
-                }
-            }
-        }
-    } 
-    */
-
+     * private void siguienteLugar() {
+     * sigLugar.setText(r.getRecorridoCompleto().get(iteracion +
+     * 1).getIdnodo().toString()); }
+     */
+    /**
+     * private void ubicarNodo(int i) { boolean com = false;//Booleano para
+     * ubicar si hay un comercio en ese nodo for (int a = 0; a < botones.size();
+     * a++) { if (r.getRecorridoCompleto().get(i).getIdnodo() ==
+     * Integer.parseInt(botones.get(a).getText())) { for (int b = 0; b <
+     * c.getListaDeProductos().size(); b++) { if
+     * (c.getListaDeProductos().get(b).getComercio().getUbicacion().getIdnodo()
+     * == Integer.parseInt(botones.get(a).getText())) {
+     * System.out.println(c.getListaDeProductos().get(b).getComercio().getUbicacion().getIdnodo());
+     * botones.get(i).setBackground(new Color(0, 128, 0)); com = true; } } if
+     * (!com) { botones.get(i).setBackground(new Color(255, 0, 0)); } } } }
+     */
     private void iniciarDestinos() {
         for (Nodo d : r.getDestinoIntermedio()) {
             destinos.addElement("#" + d.getIdnodo() + " " + d.getNombre());
@@ -583,14 +575,16 @@ public class MapaVisual extends javax.swing.JFrame {
     }//GEN-LAST:event_sigRecorrerMapa
 
     private void botonCalificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCalificarActionPerformed
-        Calificacion n=new Calificacion(Servicios.getInstance().convertirProductosAComercios(c.getListaDeProductos()));
+        Calificacion n = new Calificacion(Servicios.getInstance().convertirProductosAComercios(c.getListaDeProductos()));
         n.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_botonCalificarActionPerformed
     private void verInfoNodo(int i) {
         info = new InfoNodo(r.getMapa().getMapa().get(i - 1));
         info.setVisible(true);
-    }    private void verInfoNodo(java.awt.event.ActionEvent evt) {
+    }
+
+    private void verInfoNodo(java.awt.event.ActionEvent evt) {
         JButton a = (JButton) evt.getSource();
         verInfoNodo(Integer.parseInt(a.getText()));
     }
@@ -652,4 +646,19 @@ public class MapaVisual extends javax.swing.JFrame {
     private javax.swing.JList<String> recorridoList;
     private javax.swing.JButton siguienteBoton;
     // End of variables declaration//GEN-END:variables
+public void drawArrow(int x0, int y0, int x1, int y1) {
+        Graphics g = getGraphics();
+        g.create();
+        double alfa = Math.atan2(y1 - y0, x1 - x0);
+        g.drawLine(x0, y0, x1, y1);
+        int k = 5;
+        int xa = (int) (x1 - k * Math.cos(alfa + 1));
+        int ya = (int) (y1 - k * Math.sin(alfa + 1));
+// Se dibuja un extremo de la dirección de la flecha.
+        g.drawLine(xa, ya, x1, y1);
+        xa = (int) (x1 - k * Math.cos(alfa - 1));
+        ya = (int) (y1 - k * Math.sin(alfa - 1));
+// Se dibuja el otro extremo de la dirección de la flecha.
+        g.drawLine(xa, ya, x1, y1);
+    }
 }
