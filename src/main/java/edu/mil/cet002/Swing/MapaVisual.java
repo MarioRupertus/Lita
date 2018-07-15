@@ -58,7 +58,9 @@ public class MapaVisual extends javax.swing.JFrame {
             boolean encontrado = false; //condicional para iterar while
             int i = 0; //indice para recorrer lista de botones
             Nodo nodoActual = r.getRecorridoCompleto().get(iteracion); // nodo a recorrer
-
+            for (Nodo d : r.getDestinoIntermedio()) {
+                botones.get(d.getIdnodo() - 1).setBackground(new Color(255, 0, 0));
+            }
             while (!encontrado) {
                 try { // Este try intenta cambiar el color del boton anterior. Se hace la excepcion porque el primer lugar no tiene antecesor y se romperia.
                     botones.get(ant).setBackground(new Color(255, 209, 148));
@@ -164,7 +166,17 @@ public class MapaVisual extends javax.swing.JFrame {
      */
     private void iniciarDestinos() {
         for (Nodo d : r.getDestinoIntermedio()) {
-            destinos.addElement("#" + d.getIdnodo() + " " + d.getNombre());
+            if (!destinos.contains("#" + d.getIdnodo() + " " + d.getNombre())) {
+                destinos.addElement("#" + d.getIdnodo() + " " + d.getNombre());
+            }
+            for (Producto p : c.getListaDeProductos()) {
+                if (p.getComercio().getUbicacion().getIdnodo().equals(d.getIdnodo())) {
+                    String nombreComercio = p.getComercio().getNombre();
+                    if (!destinos.contains(p.getComercio().getNombre())) {
+                        destinos.addElement(nombreComercio);
+                    }
+                }
+            }
         }
         destinosList.setModel(destinos);
     }
@@ -255,12 +267,12 @@ public class MapaVisual extends javax.swing.JFrame {
         jButton2.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
         jButton2.setText("2");
         jPanel2.add(jButton2);
-        jButton2.setBounds(90, 10, 40, 19);
+        jButton2.setBounds(100, 10, 40, 19);
 
         jButton3.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jButton3.setText("3");
         jPanel2.add(jButton3);
-        jButton3.setBounds(160, 10, 40, 21);
+        jButton3.setBounds(170, 10, 40, 21);
 
         jButton4.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jButton4.setText("4");
@@ -270,32 +282,32 @@ public class MapaVisual extends javax.swing.JFrame {
         jButton5.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jButton5.setText("5");
         jPanel2.add(jButton5);
-        jButton5.setBounds(320, 10, 40, 21);
+        jButton5.setBounds(330, 10, 40, 21);
 
         jButton6.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jButton6.setText("6");
         jPanel2.add(jButton6);
-        jButton6.setBounds(320, 100, 40, 21);
+        jButton6.setBounds(330, 100, 40, 21);
 
         jButton7.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jButton7.setText("7");
         jPanel2.add(jButton7);
-        jButton7.setBounds(240, 100, 40, 21);
+        jButton7.setBounds(250, 100, 40, 21);
 
         jButton8.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jButton8.setText("8");
         jPanel2.add(jButton8);
-        jButton8.setBounds(200, 100, 40, 20);
+        jButton8.setBounds(210, 100, 40, 20);
 
         jButton9.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jButton9.setText("9");
         jPanel2.add(jButton9);
-        jButton9.setBounds(140, 100, 50, 21);
+        jButton9.setBounds(170, 100, 40, 21);
 
         jButton10.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
         jButton10.setText("10");
         jPanel2.add(jButton10);
-        jButton10.setBounds(80, 100, 50, 19);
+        jButton10.setBounds(100, 100, 50, 19);
 
         jButton11.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
         jButton11.setText("11");
@@ -311,29 +323,29 @@ public class MapaVisual extends javax.swing.JFrame {
         jButton13.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
         jButton13.setText("13");
         jPanel2.add(jButton13);
-        jButton13.setBounds(80, 190, 50, 19);
+        jButton13.setBounds(100, 190, 40, 19);
 
         jButton14.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
         jButton14.setText("14");
         jPanel2.add(jButton14);
-        jButton14.setBounds(150, 190, 41, 19);
+        jButton14.setBounds(160, 190, 41, 19);
 
         jButton15.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
         jButton15.setText("15");
         jButton15.setMargin(new java.awt.Insets(0, 0, 0, 0));
         jButton15.setPreferredSize(new java.awt.Dimension(13, 19));
         jPanel2.add(jButton15);
-        jButton15.setBounds(190, 190, 40, 19);
+        jButton15.setBounds(200, 190, 40, 19);
 
         jButton16.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
         jButton16.setText("16");
         jPanel2.add(jButton16);
-        jButton16.setBounds(230, 190, 50, 19);
+        jButton16.setBounds(250, 190, 50, 19);
 
         jButton17.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
         jButton17.setText("17");
         jPanel2.add(jButton17);
-        jButton17.setBounds(310, 190, 50, 19);
+        jButton17.setBounds(330, 190, 40, 19);
 
         jButton18.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
         jButton18.setText("18");
@@ -342,18 +354,23 @@ public class MapaVisual extends javax.swing.JFrame {
 
         jButton19.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
         jButton19.setText("19");
+        jButton19.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton19ActionPerformed(evt);
+            }
+        });
         jPanel2.add(jButton19);
-        jButton19.setBounds(230, 280, 50, 19);
+        jButton19.setBounds(250, 280, 50, 19);
 
         jButton20.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
         jButton20.setText("20");
         jPanel2.add(jButton20);
-        jButton20.setBounds(150, 280, 50, 19);
+        jButton20.setBounds(160, 280, 50, 19);
 
         jButton21.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
         jButton21.setText("21");
         jPanel2.add(jButton21);
-        jButton21.setBounds(80, 280, 50, 19);
+        jButton21.setBounds(100, 280, 50, 19);
 
         jButton22.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
         jButton22.setText("22");
@@ -368,37 +385,37 @@ public class MapaVisual extends javax.swing.JFrame {
         jButton24.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
         jButton24.setText("24");
         jPanel2.add(jButton24);
-        jButton24.setBounds(70, 370, 50, 19);
+        jButton24.setBounds(100, 370, 40, 19);
 
         jButton25.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
         jButton25.setText("25");
         jPanel2.add(jButton25);
-        jButton25.setBounds(120, 370, 50, 19);
+        jButton25.setBounds(140, 370, 40, 19);
 
         jButton26.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
         jButton26.setText("26");
         jPanel2.add(jButton26);
-        jButton26.setBounds(180, 380, 50, 19);
+        jButton26.setBounds(190, 370, 40, 19);
 
         jButton27.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
         jButton27.setText("27");
         jPanel2.add(jButton27);
-        jButton27.setBounds(240, 370, 50, 19);
+        jButton27.setBounds(250, 370, 41, 19);
 
         jButton28.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
         jButton28.setText("28");
         jPanel2.add(jButton28);
-        jButton28.setBounds(310, 370, 50, 19);
+        jButton28.setBounds(330, 370, 41, 19);
 
         jButton29.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
         jButton29.setText("29");
         jPanel2.add(jButton29);
-        jButton29.setBounds(320, 460, 40, 19);
+        jButton29.setBounds(330, 460, 40, 19);
 
         jButton30.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
         jButton30.setText("30");
         jPanel2.add(jButton30);
-        jButton30.setBounds(250, 460, 50, 19);
+        jButton30.setBounds(240, 460, 50, 19);
 
         jButton31.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
         jButton31.setText("31");
@@ -408,7 +425,7 @@ public class MapaVisual extends javax.swing.JFrame {
         jButton32.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
         jButton32.setText("32");
         jPanel2.add(jButton32);
-        jButton32.setBounds(90, 460, 50, 19);
+        jButton32.setBounds(100, 460, 50, 19);
 
         jButton33.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
         jButton33.setText("33");
@@ -418,22 +435,22 @@ public class MapaVisual extends javax.swing.JFrame {
         jButton34.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
         jButton34.setText("34");
         jPanel2.add(jButton34);
-        jButton34.setBounds(150, 539, 50, 20);
+        jButton34.setBounds(170, 540, 50, 20);
 
         jButton35.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
         jButton35.setText("35");
         jPanel2.add(jButton35);
-        jButton35.setBounds(260, 540, 50, 19);
+        jButton35.setBounds(280, 550, 50, 19);
 
         jButton36.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
         jButton36.setText("36");
         jPanel2.add(jButton36);
-        jButton36.setBounds(320, 540, 41, 19);
+        jButton36.setBounds(330, 550, 41, 19);
 
         jButton37.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
         jButton37.setText("37");
         jPanel2.add(jButton37);
-        jButton37.setBounds(150, 240, 50, 19);
+        jButton37.setBounds(160, 240, 50, 19);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectoswing/imagenes/Mapa.jpg"))); // NOI18N
         jPanel2.add(jLabel2);
@@ -579,6 +596,10 @@ public class MapaVisual extends javax.swing.JFrame {
         n.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_botonCalificarActionPerformed
+
+    private void jButton19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton19ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton19ActionPerformed
     private void verInfoNodo(int i) {
         info = new InfoNodo(r.getMapa().getMapa().get(i - 1));
         info.setVisible(true);
@@ -650,15 +671,23 @@ public void drawArrow(int x0, int y0, int x1, int y1) {
         Graphics g = getGraphics();
         g.create();
         double alfa = Math.atan2(y1 - y0, x1 - x0);
+        x0 = x0 + 20;
+        x1 = x1 + 20;
+        y0 = y0 + 40;
+        y1 = y1 + 40;
         g.drawLine(x0, y0, x1, y1);
         int k = 5;
-        int xa = (int) (x1 - k * Math.cos(alfa + 1));
-        int ya = (int) (y1 - k * Math.sin(alfa + 1));
+        int mediox = x0 + (int) ((x1 - x0) / 2);
+        int medioy = y0 + (int) ((y1 - y0) / 2);
+        int xa = (int) (mediox - k * Math.cos(alfa + 1));
+        int ya = (int) (medioy - k * Math.sin(alfa + 1));
+
 // Se dibuja un extremo de la dirección de la flecha.
-        g.drawLine(xa, ya, x1, y1);
-        xa = (int) (x1 - k * Math.cos(alfa - 1));
-        ya = (int) (y1 - k * Math.sin(alfa - 1));
+        g.drawLine(xa, ya, mediox, medioy);
+        xa = (int) (mediox - k * Math.cos(alfa - 1));
+        ya = (int) (medioy - k * Math.sin(alfa - 1));
 // Se dibuja el otro extremo de la dirección de la flecha.
-        g.drawLine(xa, ya, x1, y1);
+
+        g.drawLine(xa, ya, mediox, medioy);
     }
 }
