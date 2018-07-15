@@ -75,7 +75,7 @@ public class Calificacion extends javax.swing.JFrame {
             }
         });
 
-        botonEnviar.setText("Enviar calificación");
+        botonEnviar.setText("Calificar Comercio");
         botonEnviar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonEnviarActionPerformed(evt);
