@@ -315,7 +315,7 @@ public class MapaVisual extends javax.swing.JFrame {
         jButton8.setText("8");
         jButton8.setMargin(new java.awt.Insets(0, 0, 0, 0));
         jPanel2.add(jButton8);
-        jButton8.setBounds(210, 100, 20, 20);
+        jButton8.setBounds(220, 100, 20, 20);
 
         jButton9.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jButton9.setText("9");
@@ -359,7 +359,7 @@ public class MapaVisual extends javax.swing.JFrame {
         jButton15.setMargin(new java.awt.Insets(0, 0, 0, 0));
         jButton15.setPreferredSize(new java.awt.Dimension(13, 19));
         jPanel2.add(jButton15);
-        jButton15.setBounds(200, 190, 20, 20);
+        jButton15.setBounds(190, 190, 20, 20);
 
         jButton16.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jButton16.setText("16");
@@ -377,7 +377,7 @@ public class MapaVisual extends javax.swing.JFrame {
         jButton18.setText("18");
         jButton18.setMargin(new java.awt.Insets(0, 0, 0, 0));
         jPanel2.add(jButton18);
-        jButton18.setBounds(320, 280, 20, 20);
+        jButton18.setBounds(330, 280, 20, 20);
 
         jButton19.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jButton19.setText("19");
@@ -454,13 +454,13 @@ public class MapaVisual extends javax.swing.JFrame {
         jButton30.setText("30");
         jButton30.setMargin(new java.awt.Insets(0, 0, 0, 0));
         jPanel2.add(jButton30);
-        jButton30.setBounds(240, 460, 20, 20);
+        jButton30.setBounds(250, 460, 20, 20);
 
         jButton31.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jButton31.setText("31");
         jButton31.setMargin(new java.awt.Insets(0, 0, 0, 0));
         jPanel2.add(jButton31);
-        jButton31.setBounds(170, 460, 20, 20);
+        jButton31.setBounds(180, 460, 20, 20);
 
         jButton32.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jButton32.setText("32");
@@ -472,31 +472,31 @@ public class MapaVisual extends javax.swing.JFrame {
         jButton33.setText("33");
         jButton33.setMargin(new java.awt.Insets(0, 0, 0, 0));
         jPanel2.add(jButton33);
-        jButton33.setBounds(10, 450, 20, 20);
+        jButton33.setBounds(10, 460, 20, 20);
 
         jButton34.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jButton34.setText("34");
         jButton34.setMargin(new java.awt.Insets(0, 0, 0, 0));
         jPanel2.add(jButton34);
-        jButton34.setBounds(170, 540, 20, 20);
+        jButton34.setBounds(180, 540, 20, 20);
 
         jButton35.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jButton35.setText("35");
         jButton35.setMargin(new java.awt.Insets(0, 0, 0, 0));
         jPanel2.add(jButton35);
-        jButton35.setBounds(280, 550, 20, 20);
+        jButton35.setBounds(280, 540, 20, 20);
 
         jButton36.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jButton36.setText("36");
         jButton36.setMargin(new java.awt.Insets(0, 0, 0, 0));
         jPanel2.add(jButton36);
-        jButton36.setBounds(330, 550, 20, 20);
+        jButton36.setBounds(330, 540, 20, 20);
 
         jButton37.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jButton37.setText("37");
         jButton37.setMargin(new java.awt.Insets(0, 0, 0, 0));
         jPanel2.add(jButton37);
-        jButton37.setBounds(160, 240, 20, 20);
+        jButton37.setBounds(170, 240, 20, 20);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectoswing/imagenes/Mapa.jpg"))); // NOI18N
         jPanel2.add(jLabel2);
