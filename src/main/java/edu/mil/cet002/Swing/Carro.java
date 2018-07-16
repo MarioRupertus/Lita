@@ -292,21 +292,25 @@ public class Carro extends javax.swing.JFrame {
     }//GEN-LAST:event_botonVolverActionPerformed
 
     private void mostrarRecorridoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mostrarRecorridoActionPerformed
-        a.dispose();
-        Nodo origen = Servicios.getInstance().getMapa().getMapa().get(comboInici.getSelectedIndex());
-        Nodo Final = Servicios.getInstance().getMapa().getMapa().get(comboFinal.getSelectedIndex());
-        List<Nodo> destinoIntermedio = convertirProductosANodos();
-        Mapa mapa = Servicios.getInstance().getMapa();
-        int camino;
-        if (buttonGroup1.isSelected(botonAuto.getModel())) {
-            camino = 1;
-        } else {
-            camino = 0;
+        try {
+            a.dispose();
+            Nodo origen = Servicios.getInstance().getMapa().getMapa().get(comboInici.getSelectedIndex());
+            Nodo Final = Servicios.getInstance().getMapa().getMapa().get(comboFinal.getSelectedIndex());
+            List<Nodo> destinoIntermedio = convertirProductosANodos();
+            Mapa mapa = Servicios.getInstance().getMapa();
+            int camino;
+            if (buttonGroup1.isSelected(botonAuto.getModel())) {
+                camino = 1;
+            } else {
+                camino = 0;
+            }
+            MapaVisual m = new MapaVisual(Servicios.getInstance().calcularRecorrido(origen, Final, destinoIntermedio, mapa, camino), carro);
+            m.setVisible(true);
+            this.dispose();
+        } catch (Exception e) {
+            new PanelBusqueda().setVisible(true); // Crea y muestra panel de busqueda
+            this.dispose();
         }
-        MapaVisual m = new MapaVisual(Servicios.getInstance().calcularRecorrido(origen, Final, destinoIntermedio, mapa, camino), carro);
-        m.setVisible(true);
-        this.dispose();
-
     }//GEN-LAST:event_mostrarRecorridoActionPerformed
 
     private void botonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEliminarActionPerformed
