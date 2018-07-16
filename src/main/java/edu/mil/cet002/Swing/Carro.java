@@ -45,7 +45,10 @@ public class Carro extends javax.swing.JFrame {
         listaProductos.setModel(dlm);
         listaProductos.setSelectedIndex(0);
         this.setVisible(true);
-
+        mostrarRecorrido.setEnabled(false);
+        if (!carro.getListaDeProductos().isEmpty()) {
+            mostrarRecorrido.setEnabled(true);
+        }
     }
 
     /**
@@ -319,6 +322,13 @@ public class Carro extends javax.swing.JFrame {
             dlm.remove(i);
             carro.eliminarProducto(i);
             precio.setText(calcularPrecio());//Se actualiza el precio total del carrito
+            if (!carro.getListaDeProductos().isEmpty()) {
+                if (!mostrarRecorrido.isEnabled()) {
+                    mostrarRecorrido.setEnabled(true);
+                }
+            } else {
+                mostrarRecorrido.setEnabled(false);
+            }
         }
     }//GEN-LAST:event_botonEliminarActionPerformed
 
