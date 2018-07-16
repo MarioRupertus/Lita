@@ -33,7 +33,9 @@ public class Calificacion extends javax.swing.JFrame {
 
     private void iniciar() {
         for (int i = 0; i < listaC.size(); i++) {
+            if (!dft.contains(listaC.get(i))){
             dft.addElement(listaC.get(i).getNombre());
+            }
         }
     }
 

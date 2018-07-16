@@ -84,6 +84,7 @@ public class MapaVisual extends javax.swing.JFrame {
                         botones.get(i).setBackground(new Color(0, 0, 0)); // fondo negro
                         botones.get(i).setForeground(new Color(255, 255, 255)); // letra blanca
                         siguienteBoton.setContentAreaFilled(false); // anula boton siguiente
+                        botonCalificar.setEnabled(true);
                     }
                     ant = i; // guarda el boton visitado para utilizarlo luego como antecesor del siguiente
                     encontrado = true;
@@ -519,6 +520,7 @@ public class MapaVisual extends javax.swing.JFrame {
         });
 
         botonCalificar.setText("Calificar");
+        botonCalificar.setEnabled(false);
         botonCalificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonCalificarActionPerformed(evt);
