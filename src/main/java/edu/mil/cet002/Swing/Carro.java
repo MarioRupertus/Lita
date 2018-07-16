@@ -117,7 +117,7 @@ public class Carro extends javax.swing.JFrame {
         textoCarro.setBorder(null);
         textoCarro.setFocusable(false);
 
-        listaProductos.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        listaProductos.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         listaProductos.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4" };
             public int getSize() { return strings.length; }
@@ -232,18 +232,15 @@ public class Carro extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                 .addContainerGap()
                                 .addComponent(botonEliminar)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 180, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addComponent(textoTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(precio, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(mostrarRecorrido, javax.swing.GroupLayout.Alignment.TRAILING))))
                 .addGap(10, 10, 10))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(mostrarRecorrido)
-                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -257,72 +254,42 @@ public class Carro extends javax.swing.JFrame {
                     .addComponent(botonEliminar)
                     .addComponent(textoTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(precio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
                         .addComponent(textoTransporte, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(botonAuto)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(botonCaminar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                        .addComponent(botonCaminar))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(mostrarRecorrido)
-                    .addComponent(botonVolver))
-                .addContainerGap())
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(mostrarRecorrido)
+                            .addComponent(botonVolver))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 653, Short.MAX_VALUE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 827, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 491, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 459, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    private String calcularPrecio() {
-        double precio = 0;
-        for (int d = 0; d != carro.getListaDeProductos().size(); d++) {
-            precio = precio + carro.getListaDeProductos().get(d).getPrecio();
-        }
-
-        return String.valueOf(precio);
-    }
-    private void botonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEliminarActionPerformed
-        if (!listaProductos.isSelectionEmpty()) {
-            int i = listaProductos.getSelectedIndex();
-            dlm.remove(i);
-            carro.eliminarProducto(i);
-            precio.setText(calcularPrecio());//Se actualiza el precio total del carrito
-        }
-    }//GEN-LAST:event_botonEliminarActionPerformed
-
-    private void botonCaminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCaminarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_botonCaminarActionPerformed
 
     private void botonVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonVolverActionPerformed
         this.dispose();
-// TODO add your handling code here:
+        // TODO add your handling code here:
     }//GEN-LAST:event_botonVolverActionPerformed
-    private List<Nodo> convertirProductosANodos() {
-        List<Nodo> nodos = new ArrayList();
-        for (int i = 0; i < carro.getListaDeProductos().size(); i++) {
-            nodos.add(carro.getListaDeProductos().get(i).getComercio().getUbicacion());
-        }
-        return nodos;
-    }
+
     private void mostrarRecorridoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mostrarRecorridoActionPerformed
         a.dispose();
         Nodo origen = Servicios.getInstance().getMapa().getMapa().get(comboInici.getSelectedIndex());
@@ -339,11 +306,36 @@ public class Carro extends javax.swing.JFrame {
         m.setVisible(true);
         this.dispose();
 
-
     }//GEN-LAST:event_mostrarRecorridoActionPerformed
-    private void iniciarLista() {
+
+    private void botonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEliminarActionPerformed
+        if (!listaProductos.isSelectionEmpty()) {
+            int i = listaProductos.getSelectedIndex();
+            dlm.remove(i);
+            carro.eliminarProducto(i);
+            precio.setText(calcularPrecio());//Se actualiza el precio total del carrito
+        }
+    }//GEN-LAST:event_botonEliminarActionPerformed
+
+    private void botonCaminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCaminarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_botonCaminarActionPerformed
+    private String calcularPrecio() {
+        double precio = 0;
+        for (int d = 0; d != carro.getListaDeProductos().size(); d++) {
+            precio = precio + carro.getListaDeProductos().get(d).getPrecio();
+        }
+
+        return String.valueOf(precio);
+    }    private List<Nodo> convertirProductosANodos() {
+        List<Nodo> nodos = new ArrayList();
+        for (int i = 0; i < carro.getListaDeProductos().size(); i++) {
+            nodos.add(carro.getListaDeProductos().get(i).getComercio().getUbicacion());
+        }
+        return nodos;
+    }    private void iniciarLista() {
         for (int i = 0; i != carro.getListaDeProductos().size(); i++) {
-            dlm.addElement(carro.getListaDeProductos().get(i).getNombre());
+            dlm.addElement(carro.getListaDeProductos().get(i).getNombre()+" | "+carro.getListaDeProductos().get(i).getComercio().getNombre()+" | $"+carro.getListaDeProductos().get(i).getPrecio());
         }
         Mapa m = Servicios.getInstance().getMapa();
         for (int d = 0; d != m.getMapa().size(); d++) {

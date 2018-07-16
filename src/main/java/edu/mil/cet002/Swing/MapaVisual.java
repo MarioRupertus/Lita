@@ -63,19 +63,19 @@ public class MapaVisual extends javax.swing.JFrame {
             }
             while (!encontrado) {
                 try { // Este try intenta cambiar el color del boton anterior. Se hace la excepcion porque el primer lugar no tiene antecesor y se romperia.
-                    botones.get(ant).setBackground(new Color(255, 209, 148));
+                    botones.get(ant).setBackground(new Color(255, 209, 148)); // amarillo
                 } catch (Exception e) {
                 }
                 if (botones.get(i).getText().equals(nodoActual.getIdnodo().toString())) { // Busca que boton es el que representa el nodo actual. Comparar el texto del boton con el id (String) del nodo.
                     botones.get(i).setBackground(new Color(0, 128, 0)); // verde
-                    if (ant != -1) {
+                    if (ant != -1) { // dibuja flechas
                         drawArrow(botones.get(ant).getX(), botones.get(ant).getY(),
                                 botones.get(i).getX(), botones.get(i).getY());
                     }
-                    if (iteracion + 1 == r.getRecorridoCompleto().size()) {
-                        botones.get(i).setBackground(new Color(0, 0, 0));
-                        botones.get(i).setForeground(new Color(255, 255, 255));
-                        siguienteBoton.setContentAreaFilled(false);
+                    if (iteracion + 1 == r.getRecorridoCompleto().size()) { // para la ultima iteracion pinta de negro y letras blancas
+                        botones.get(i).setBackground(new Color(0, 0, 0)); // fondo negro
+                        botones.get(i).setForeground(new Color(255, 255, 255)); // letra blanca
+                        siguienteBoton.setContentAreaFilled(false); // anula boton siguiente
                     }
                     ant = i; // guarda el boton visitado para utilizarlo luego como antecesor del siguiente
                     encontrado = true;
