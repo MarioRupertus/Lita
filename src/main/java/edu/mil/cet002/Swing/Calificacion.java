@@ -29,6 +29,7 @@ public class Calificacion extends javax.swing.JFrame {
         this();
         this.listaC = listaC;
         iniciar();
+        this.setLocationRelativeTo(null); //Centrado en pantalla
     }
 
     private void iniciar() {
@@ -137,6 +138,7 @@ public class Calificacion extends javax.swing.JFrame {
             InfoComercio n = new InfoComercio(listaC.get(listaComercios.getSelectedIndex()), this);
             n.setVisible(true);
             dft.remove(listaComercios.getSelectedIndex());
+            listaC.remove(n); // FIX
             this.setVisible(false);
         }
     }//GEN-LAST:event_botonEnviarActionPerformed

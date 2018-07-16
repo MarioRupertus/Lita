@@ -38,6 +38,7 @@ public class InfoComercio extends javax.swing.JFrame {
         textoUbicacion.setText("Dirección: " + c.getUbicacion().getNombre());
         textoCalifPosit.setText("Calificaciones Positivas: " + String.valueOf(c.getCalificacionPositiva()));
         textoCalifNegat.setText("Calificaciones Negativas: " + String.valueOf(c.getCalificacionNegativa()));
+        this.setLocationRelativeTo(null); //Centrado en pantalla
     }
 
     public InfoComercio() {
