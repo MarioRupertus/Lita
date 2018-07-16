@@ -8,10 +8,8 @@ import edu.mil.cet002.compraslita.Servicios;
  */
 public class MainSwing {
     
-    Cargando cargando;
-
     public MainSwing() {
-        cargando = new Cargando(); // Crea pantalla
+        Cargando cargando = new Cargando(); // Crea pantalla
         cargando.setVisible(true); // Muestra pantalla
         Servicios.getInstance(); // Conecta con la base
         cargando.setVisible(false); // Oculta pantalla
