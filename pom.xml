@@ -29,7 +29,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>edu.mil.cet002.Swing.PanelBusqueda</mainClass>
+                            <mainClass>edu.mil.cet002.Swing.MainSwing</mainClass>
                         </manifest>
                     </archive>
                     <descriptorRefs>
