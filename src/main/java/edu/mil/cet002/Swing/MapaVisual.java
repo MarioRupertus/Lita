@@ -269,198 +269,234 @@ public class MapaVisual extends javax.swing.JFrame {
 
         jPanel2.setLayout(null);
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jButton1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jButton1.setText("1");
+        jButton1.setMargin(new java.awt.Insets(0, 0, 0, 0));
         jPanel2.add(jButton1);
-        jButton1.setBounds(10, 10, 40, 21);
+        jButton1.setBounds(10, 10, 20, 20);
 
-        jButton2.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
+        jButton2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jButton2.setText("2");
+        jButton2.setMargin(new java.awt.Insets(0, 0, 0, 0));
         jPanel2.add(jButton2);
-        jButton2.setBounds(100, 10, 40, 19);
+        jButton2.setBounds(100, 10, 20, 20);
 
-        jButton3.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jButton3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jButton3.setText("3");
+        jButton3.setMargin(new java.awt.Insets(0, 0, 0, 0));
         jPanel2.add(jButton3);
-        jButton3.setBounds(170, 10, 40, 21);
+        jButton3.setBounds(170, 10, 20, 20);
 
-        jButton4.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jButton4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jButton4.setText("4");
+        jButton4.setMargin(new java.awt.Insets(0, 0, 0, 0));
         jPanel2.add(jButton4);
-        jButton4.setBounds(240, 10, 40, 21);
+        jButton4.setBounds(240, 10, 20, 20);
 
-        jButton5.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jButton5.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jButton5.setText("5");
+        jButton5.setMargin(new java.awt.Insets(0, 0, 0, 0));
         jPanel2.add(jButton5);
-        jButton5.setBounds(330, 10, 40, 21);
+        jButton5.setBounds(330, 10, 20, 20);
 
-        jButton6.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jButton6.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jButton6.setText("6");
+        jButton6.setMargin(new java.awt.Insets(0, 0, 0, 0));
         jPanel2.add(jButton6);
-        jButton6.setBounds(330, 100, 40, 21);
+        jButton6.setBounds(330, 100, 20, 20);
 
-        jButton7.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jButton7.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jButton7.setText("7");
+        jButton7.setMargin(new java.awt.Insets(0, 0, 0, 0));
         jPanel2.add(jButton7);
-        jButton7.setBounds(250, 100, 40, 21);
+        jButton7.setBounds(250, 100, 20, 20);
 
-        jButton8.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jButton8.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jButton8.setText("8");
+        jButton8.setMargin(new java.awt.Insets(0, 0, 0, 0));
         jPanel2.add(jButton8);
-        jButton8.setBounds(210, 100, 40, 20);
+        jButton8.setBounds(210, 100, 20, 20);
 
-        jButton9.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jButton9.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jButton9.setText("9");
+        jButton9.setMargin(new java.awt.Insets(0, 0, 0, 0));
         jPanel2.add(jButton9);
-        jButton9.setBounds(170, 100, 40, 21);
+        jButton9.setBounds(170, 100, 20, 20);
 
-        jButton10.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
+        jButton10.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jButton10.setText("10");
+        jButton10.setMargin(new java.awt.Insets(0, 0, 0, 0));
         jPanel2.add(jButton10);
-        jButton10.setBounds(100, 100, 50, 19);
+        jButton10.setBounds(100, 100, 20, 20);
 
-        jButton11.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
+        jButton11.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jButton11.setText("11");
+        jButton11.setMargin(new java.awt.Insets(0, 0, 0, 0));
         jPanel2.add(jButton11);
-        jButton11.setBounds(10, 100, 40, 20);
+        jButton11.setBounds(10, 100, 20, 20);
 
-        jButton12.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
+        jButton12.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jButton12.setText("12");
+        jButton12.setMargin(new java.awt.Insets(0, 0, 0, 0));
         jButton12.setPreferredSize(new java.awt.Dimension(25, 13));
         jPanel2.add(jButton12);
-        jButton12.setBounds(10, 190, 40, 20);
+        jButton12.setBounds(10, 190, 20, 20);
 
-        jButton13.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
+        jButton13.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jButton13.setText("13");
+        jButton13.setMargin(new java.awt.Insets(0, 0, 0, 0));
         jPanel2.add(jButton13);
-        jButton13.setBounds(100, 190, 40, 19);
+        jButton13.setBounds(100, 190, 20, 20);
 
-        jButton14.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
+        jButton14.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jButton14.setText("14");
+        jButton14.setMargin(new java.awt.Insets(0, 0, 0, 0));
         jPanel2.add(jButton14);
-        jButton14.setBounds(160, 190, 41, 19);
+        jButton14.setBounds(160, 190, 20, 20);
 
-        jButton15.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
+        jButton15.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jButton15.setText("15");
         jButton15.setMargin(new java.awt.Insets(0, 0, 0, 0));
         jButton15.setPreferredSize(new java.awt.Dimension(13, 19));
         jPanel2.add(jButton15);
-        jButton15.setBounds(200, 190, 40, 19);
+        jButton15.setBounds(200, 190, 20, 20);
 
-        jButton16.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
+        jButton16.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jButton16.setText("16");
+        jButton16.setMargin(new java.awt.Insets(0, 0, 0, 0));
         jPanel2.add(jButton16);
-        jButton16.setBounds(250, 190, 50, 19);
+        jButton16.setBounds(250, 190, 20, 20);
 
-        jButton17.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
+        jButton17.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jButton17.setText("17");
+        jButton17.setMargin(new java.awt.Insets(0, 0, 0, 0));
         jPanel2.add(jButton17);
-        jButton17.setBounds(330, 190, 40, 19);
+        jButton17.setBounds(330, 190, 20, 20);
 
-        jButton18.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
+        jButton18.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jButton18.setText("18");
+        jButton18.setMargin(new java.awt.Insets(0, 0, 0, 0));
         jPanel2.add(jButton18);
-        jButton18.setBounds(320, 280, 40, 20);
+        jButton18.setBounds(320, 280, 20, 20);
 
-        jButton19.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
+        jButton19.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jButton19.setText("19");
+        jButton19.setMargin(new java.awt.Insets(0, 0, 0, 0));
         jButton19.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton19ActionPerformed(evt);
             }
         });
         jPanel2.add(jButton19);
-        jButton19.setBounds(250, 280, 50, 19);
+        jButton19.setBounds(250, 280, 20, 20);
 
-        jButton20.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
+        jButton20.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jButton20.setText("20");
+        jButton20.setMargin(new java.awt.Insets(0, 0, 0, 0));
         jPanel2.add(jButton20);
-        jButton20.setBounds(160, 280, 50, 19);
+        jButton20.setBounds(160, 280, 20, 20);
 
-        jButton21.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
+        jButton21.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jButton21.setText("21");
+        jButton21.setMargin(new java.awt.Insets(0, 0, 0, 0));
         jPanel2.add(jButton21);
-        jButton21.setBounds(100, 280, 50, 19);
+        jButton21.setBounds(100, 280, 20, 20);
 
-        jButton22.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
+        jButton22.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jButton22.setText("22");
+        jButton22.setMargin(new java.awt.Insets(0, 0, 0, 0));
         jPanel2.add(jButton22);
-        jButton22.setBounds(10, 280, 40, 19);
+        jButton22.setBounds(10, 280, 20, 20);
 
-        jButton23.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
+        jButton23.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jButton23.setText("23");
+        jButton23.setMargin(new java.awt.Insets(0, 0, 0, 0));
         jPanel2.add(jButton23);
-        jButton23.setBounds(10, 370, 40, 19);
+        jButton23.setBounds(10, 370, 20, 20);
 
-        jButton24.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
+        jButton24.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jButton24.setText("24");
+        jButton24.setMargin(new java.awt.Insets(0, 0, 0, 0));
         jPanel2.add(jButton24);
-        jButton24.setBounds(100, 370, 40, 19);
+        jButton24.setBounds(100, 370, 20, 20);
 
-        jButton25.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
+        jButton25.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jButton25.setText("25");
+        jButton25.setMargin(new java.awt.Insets(0, 0, 0, 0));
         jPanel2.add(jButton25);
-        jButton25.setBounds(140, 370, 40, 19);
+        jButton25.setBounds(140, 370, 20, 20);
 
-        jButton26.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
+        jButton26.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jButton26.setText("26");
+        jButton26.setMargin(new java.awt.Insets(0, 0, 0, 0));
         jPanel2.add(jButton26);
-        jButton26.setBounds(190, 370, 40, 19);
+        jButton26.setBounds(190, 370, 20, 20);
 
-        jButton27.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
+        jButton27.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jButton27.setText("27");
+        jButton27.setMargin(new java.awt.Insets(0, 0, 0, 0));
         jPanel2.add(jButton27);
-        jButton27.setBounds(250, 370, 41, 19);
+        jButton27.setBounds(250, 370, 20, 20);
 
-        jButton28.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
+        jButton28.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jButton28.setText("28");
+        jButton28.setMargin(new java.awt.Insets(0, 0, 0, 0));
         jPanel2.add(jButton28);
-        jButton28.setBounds(330, 370, 41, 19);
+        jButton28.setBounds(330, 370, 20, 20);
 
-        jButton29.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
+        jButton29.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jButton29.setText("29");
+        jButton29.setMargin(new java.awt.Insets(0, 0, 0, 0));
         jPanel2.add(jButton29);
-        jButton29.setBounds(330, 460, 40, 19);
+        jButton29.setBounds(330, 460, 20, 20);
 
-        jButton30.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
+        jButton30.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jButton30.setText("30");
+        jButton30.setMargin(new java.awt.Insets(0, 0, 0, 0));
         jPanel2.add(jButton30);
-        jButton30.setBounds(240, 460, 50, 19);
+        jButton30.setBounds(240, 460, 20, 20);
 
-        jButton31.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
+        jButton31.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jButton31.setText("31");
+        jButton31.setMargin(new java.awt.Insets(0, 0, 0, 0));
         jPanel2.add(jButton31);
-        jButton31.setBounds(170, 460, 50, 19);
+        jButton31.setBounds(170, 460, 20, 20);
 
-        jButton32.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
+        jButton32.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jButton32.setText("32");
+        jButton32.setMargin(new java.awt.Insets(0, 0, 0, 0));
         jPanel2.add(jButton32);
-        jButton32.setBounds(100, 460, 50, 19);
+        jButton32.setBounds(100, 460, 20, 20);
 
-        jButton33.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
+        jButton33.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jButton33.setText("33");
+        jButton33.setMargin(new java.awt.Insets(0, 0, 0, 0));
         jPanel2.add(jButton33);
-        jButton33.setBounds(10, 450, 40, 19);
+        jButton33.setBounds(10, 450, 20, 20);
 
-        jButton34.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
+        jButton34.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jButton34.setText("34");
+        jButton34.setMargin(new java.awt.Insets(0, 0, 0, 0));
         jPanel2.add(jButton34);
-        jButton34.setBounds(170, 540, 50, 20);
+        jButton34.setBounds(170, 540, 20, 20);
 
-        jButton35.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
+        jButton35.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jButton35.setText("35");
+        jButton35.setMargin(new java.awt.Insets(0, 0, 0, 0));
         jPanel2.add(jButton35);
-        jButton35.setBounds(280, 550, 50, 19);
+        jButton35.setBounds(280, 550, 20, 20);
 
-        jButton36.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
+        jButton36.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jButton36.setText("36");
+        jButton36.setMargin(new java.awt.Insets(0, 0, 0, 0));
         jPanel2.add(jButton36);
-        jButton36.setBounds(330, 550, 41, 19);
+        jButton36.setBounds(330, 550, 20, 20);
 
-        jButton37.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
+        jButton37.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jButton37.setText("37");
+        jButton37.setMargin(new java.awt.Insets(0, 0, 0, 0));
         jPanel2.add(jButton37);
-        jButton37.setBounds(160, 240, 50, 19);
+        jButton37.setBounds(160, 240, 20, 20);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectoswing/imagenes/Mapa.jpg"))); // NOI18N
         jPanel2.add(jLabel2);
