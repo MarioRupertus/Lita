@@ -32,6 +32,7 @@ public class Carro extends javax.swing.JFrame {
     public Carro() {
         initComponents();
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        this.setLocationRelativeTo(null); //Centrado en pantalla
 
     }
 

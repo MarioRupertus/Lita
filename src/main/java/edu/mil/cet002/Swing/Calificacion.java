@@ -22,6 +22,7 @@ public class Calificacion extends javax.swing.JFrame {
     public Calificacion() {
         initComponents();
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        this.setLocationRelativeTo(null); //Centrado en pantalla
     }
 
     Calificacion(List<Comercio> listaC) {

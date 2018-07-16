@@ -25,6 +25,7 @@ public class ResultadosBusqueda extends javax.swing.JFrame {
     public ResultadosBusqueda() {
         initComponents();
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        this.setLocationRelativeTo(null); //Centrado en pantalla
 
     }
 

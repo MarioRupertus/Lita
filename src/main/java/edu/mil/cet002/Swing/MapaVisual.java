@@ -49,6 +49,7 @@ public class MapaVisual extends javax.swing.JFrame {
         iniciarDestinos(); // utilizado por jList de lugares a vistiar 
         iniciarRecorridoList(); // utilizado por jList de recorrido completo
         recorrerMapa();// arranca en el constructor para marcar el primer punto
+        this.setLocationRelativeTo(null); //Centrado en pantalla
     }
 
     private void recorrerMapa() {
@@ -58,8 +59,6 @@ public class MapaVisual extends javax.swing.JFrame {
             boolean encontrado = false; //condicional para iterar while
             int i = 0; //indice para recorrer lista de botones
             Nodo nodoActual = r.getRecorridoCompleto().get(iteracion); // nodo a recorrer
-
-            
 
             while (!encontrado) {
                 try { // Este try intenta cambiar el color del boton anterior. Se hace la excepcion porque el primer lugar no tiene antecesor y se romperia.

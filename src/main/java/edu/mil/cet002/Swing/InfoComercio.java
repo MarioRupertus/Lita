@@ -24,6 +24,7 @@ public class InfoComercio extends javax.swing.JFrame {
         textoCalifPosit.setText("Calificaciones Positivas: " + String.valueOf(c.getCalificacionPositiva()));
         textoCalifNegat.setText("Calificaciones Negativas: " + String.valueOf(c.getCalificacionNegativa()));
         jPanel2.setVisible(false);
+        this.setLocationRelativeTo(null); //Centrado en pantalla
     }
 
     public InfoComercio(Comercio c, Calificacion ca) {

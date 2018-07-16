@@ -24,6 +24,7 @@ public class InfoNodo extends javax.swing.JFrame {
     this();
     nombre1.setText(n.getNombre());
     idNodo1.setText(n.getIdnodo().toString());
+    this.setLocationRelativeTo(null); //Centrado en pantalla
     }
 
     /**

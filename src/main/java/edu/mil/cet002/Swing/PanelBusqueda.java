@@ -35,6 +35,7 @@ public class PanelBusqueda extends javax.swing.JFrame {
         inic();
         setdefault();
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        this.setLocationRelativeTo(null); //Centrado en pantalla
 
     }
 
