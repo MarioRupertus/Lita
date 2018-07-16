@@ -58,14 +58,23 @@ public class MapaVisual extends javax.swing.JFrame {
             boolean encontrado = false; //condicional para iterar while
             int i = 0; //indice para recorrer lista de botones
             Nodo nodoActual = r.getRecorridoCompleto().get(iteracion); // nodo a recorrer
-            for (Nodo d : r.getDestinoIntermedio()) {
-                botones.get(d.getIdnodo() - 1).setBackground(new Color(255, 0, 0));
-            }
+
+            
+
             while (!encontrado) {
                 try { // Este try intenta cambiar el color del boton anterior. Se hace la excepcion porque el primer lugar no tiene antecesor y se romperia.
                     botones.get(ant).setBackground(new Color(255, 209, 148)); // amarillo
                 } catch (Exception e) {
                 }
+
+                // SE RESTABLECE COLOR DE ORIGEN, DESTINOS Y FINAL
+                for (Nodo d : r.getDestinoIntermedio()) { // pinta destinos intermedios
+                    botones.get(d.getIdnodo() - 1).setBackground(new Color(255, 0, 0)); //rojo
+                }
+                botones.get(r.getOrigen().getIdnodo() - 1).setBackground(new Color(147, 222, 255)); // pinta celeste destino inicial
+                botones.get(r.getDestinoFinal().getIdnodo() - 1).setBackground(new Color(147, 222, 255)); // pinta celeste destino final
+                // FIN SETEO COLOR
+
                 if (botones.get(i).getText().equals(nodoActual.getIdnodo().toString())) { // Busca que boton es el que representa el nodo actual. Comparar el texto del boton con el id (String) del nodo.
                     botones.get(i).setBackground(new Color(0, 128, 0)); // verde
                     if (ant != -1) { // dibuja flechas
@@ -83,6 +92,8 @@ public class MapaVisual extends javax.swing.JFrame {
                 } else {
                     i++; // ver excepcion si no lo encuentra y sigue aumentando la i --> NULL POINTER EXCEPTION
                 }
+                //botones.get(r.getOrigen().getIdnodo() - 1).setBackground(new Color(147, 222, 255)); // pinta celeste destino inicial
+                //botones.get(r.getDestinoFinal().getIdnodo() - 1).setBackground(new Color(147, 222, 255)); // pinta celeste destino final
             }
 
         } else {
