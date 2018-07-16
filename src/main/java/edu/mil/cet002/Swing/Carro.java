@@ -45,7 +45,10 @@ public class Carro extends javax.swing.JFrame {
         listaProductos.setModel(dlm);
         listaProductos.setSelectedIndex(0);
         this.setVisible(true);
-
+        mostrarRecorrido.setEnabled(false);
+        if (!carro.getListaDeProductos().isEmpty()) {
+            mostrarRecorrido.setEnabled(true);
+        }
     }
 
     /**
