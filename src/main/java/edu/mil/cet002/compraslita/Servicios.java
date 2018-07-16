@@ -49,11 +49,7 @@ public class Servicios {
     public void eliminarProductoCarro(Carrito c, Producto p) {
         c.eliminarProducto(p);
     }
-
-    public void calcularRecorrido(Recorrido recorrido) {
-
-    }
-
+    
     public Carrito crearCarrito() {
         return new Carrito();
     }

@@ -9,6 +9,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
+import java.util.Objects;
 
 /**
  *
@@ -117,6 +118,20 @@ public class Comercio {
     public void setHorario(Date horario) {
         this.horario = horario;
     }*/
+
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        Comercio otro = (Comercio) obj;
+        return this.idcomercio == otro.idcomercio;
+    }
+    
+    
 
     public int getCalificacionPositiva() {
         return calificacionPositiva;
