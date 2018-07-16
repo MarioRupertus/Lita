@@ -11,11 +11,11 @@ public class MainSwing {
     Cargando cargando;
 
     public MainSwing() {
-        cargando = new Cargando();
-        cargando.setVisible(true);
-        Servicios.getInstance();
-        cargando.setVisible(false);
-        new PanelBusqueda().setVisible(true);
+        cargando = new Cargando(); // Crea pantalla
+        cargando.setVisible(true); // Muestra pantalla
+        Servicios.getInstance(); // Conecta con la base
+        cargando.setVisible(false); // Oculta pantalla
+        new PanelBusqueda().setVisible(true); // Crea y muestra panel de busqueda
     }
     
     public static void main(String[] args) {

@@ -11,7 +11,7 @@ public class Cargando extends javax.swing.JFrame {
      */
     public Cargando() {
         initComponents();
-        this.setLocationRelativeTo(null);
+        this.setLocationRelativeTo(null); //Centrado en pantalla
     }
     
     /**
