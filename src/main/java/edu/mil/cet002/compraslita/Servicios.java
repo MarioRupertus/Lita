@@ -31,6 +31,7 @@ public class Servicios {
         return litaDB.buscarProductoPorNombre(nombre, horario, criterioOrden, orden);
     }
 
+    /* NO UTILIZADO, ree
     public void calificarPositivo(Comercio comercio) {
         comercio.sumarVotoPositivo();
         litaDB.actualizarComercio(comercio);
@@ -39,7 +40,7 @@ public class Servicios {
     public void calificarNegativo(Comercio comercio) {
         comercio.sumarVotoNegativo();
         litaDB.actualizarComercio(comercio);
-    }
+    }*/ 
 
     public void agregarProductoCarro(Carrito c, Producto p) {
         c.agregarAlCarrito(p);
@@ -125,9 +126,11 @@ public class Servicios {
         }
         return comercios;
     }
+    
+    public void actualizarComercio(Comercio c){
+        litaDB.actualizarComercio(c);
+    }   
 }
-
-
 /*
 PANEL BÚSQUEDA
 buscarProducto(String nombre, int horario, String criterioOrden, String ordenSentido): list<> productos

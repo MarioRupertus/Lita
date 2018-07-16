@@ -271,14 +271,16 @@ public class InfoComercio extends javax.swing.JFrame {
     }//GEN-LAST:event_botonVolverActionPerformed
 
     private void botonEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEnviarActionPerformed
-        LitaDB lita = new LitaDB();
+        //LitaDB lita = new LitaDB();
         
         if (calificaciones.isSelected(botonPositiva.getModel())) {
             c.sumarVotoPositivo();
-            lita.actualizarComercio(c);   
+            Servicios.getInstance().actualizarComercio(c);
+            //lita.actualizarComercio(c);   
         } else {
             c.sumarVotoNegativo();
-            lita.actualizarComercio(c);
+            Servicios.getInstance().actualizarComercio(c);
+            //lita.actualizarComercio(c);
         }
         this.dispose();
         if (r != null) {
@@ -286,7 +288,7 @@ public class InfoComercio extends javax.swing.JFrame {
         } else if (ca != null) {
             ca.setVisible(true);
         }
-        lita.cerrarSesion();
+        //lita.cerrarSesion();
     }//GEN-LAST:event_botonEnviarActionPerformed
 
     private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
