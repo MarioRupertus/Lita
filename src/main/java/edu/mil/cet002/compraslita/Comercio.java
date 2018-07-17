@@ -3,6 +3,7 @@ package edu.mil.cet002.compraslita;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.List;
+import java.util.Objects;
 
 public class Comercio {
 
@@ -135,7 +136,20 @@ public class Comercio {
 
     @Override
     public boolean equals(Object obj) {
-        Comercio otro = (Comercio) obj;
-        return this.idcomercio == otro.idcomercio;
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Comercio other = (Comercio) obj;
+        if (!Objects.equals(this.idcomercio, other.idcomercio)) {
+            return false;
+        }
+        return true;
     }
+
 }
