@@ -18,11 +18,6 @@ public class Nodo {
     public Nodo() {
     }
 
-    @Override
-    public String toString() {
-        return "Nodo{" + "nombre=" + nombre + ", idnodo=" + idnodo + ", antecesor=" + antecesor + ", pesoAcumulado=" + pesoAcumulado + ", vecinos=" + vecinos + ", visitado=" + visitado + '}';
-    }
-
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
@@ -39,28 +34,8 @@ public class Nodo {
         this.idnodo = idnodo;
     }
 
-    public Nodo(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public boolean isVisitado() {
-        return visitado;
-    }
-
     public void setVisitado(boolean visitado) {
         this.visitado = visitado;
-    }
-
-    public void agregarVecino(Proximos vecino) {
-        vecinos.add(vecino);
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public List<Proximos> getVecinos() {
-        return vecinos;
     }
 
     public Nodo getAntecesor() {
@@ -77,6 +52,31 @@ public class Nodo {
 
     public void setPesoAcumulado(int pesoAcumulado) {
         this.pesoAcumulado = pesoAcumulado;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    @Override
+    public String toString() {
+        return "Nodo{" + "nombre=" + nombre + ", idnodo=" + idnodo + ", antecesor=" + antecesor + ", pesoAcumulado=" + pesoAcumulado + ", vecinos=" + vecinos + ", visitado=" + visitado + '}';
+    }
+
+    public Nodo(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public boolean isVisitado() {
+        return visitado;
+    }
+
+    public void agregarVecino(Proximos vecino) {
+        vecinos.add(vecino);
+    }
+
+    public List<Proximos> getVecinos() {
+        return vecinos;
     }
 
     @Override

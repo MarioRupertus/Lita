@@ -9,6 +9,20 @@ public class Proximos implements Serializable {
     private int costo;
     private int sentido;
 
+    public Proximos() {
+    }
+
+    public Proximos(Nodo vecino, int costo) {
+        this.nodoVecino = vecino;
+        this.costo = costo;
+    }
+
+    public Proximos(Nodo nodoVecino, int costo, int sentido) {
+        this.nodoVecino = nodoVecino;
+        this.costo = costo;
+        this.sentido = sentido;
+    }
+
     public Nodo getNodoVecino() {
         return nodoVecino;
     }
@@ -23,20 +37,6 @@ public class Proximos implements Serializable {
 
     public void setNodoOrigen(Nodo nodoOrigen) {
         this.nodoOrigen = nodoOrigen;
-    }
-
-    public Proximos() {
-    }
-
-    public Proximos(Nodo vecino, int costo) {
-        this.nodoVecino = vecino;
-        this.costo = costo;
-    }
-
-    public Proximos(Nodo nodoVecino, int costo, int sentido) {
-        this.nodoVecino = nodoVecino;
-        this.costo = costo;
-        this.sentido = sentido;
     }
 
     public Nodo getnodoVecino() {

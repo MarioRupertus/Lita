@@ -11,6 +11,14 @@ public class Carrito {
         listaDeProductos = new ArrayList<>();
     }
 
+    public List<Producto> getListaDeProductos() {
+        return listaDeProductos;
+    }
+
+    public void setListaDeProductos(List<Producto> listaDeProductos) {
+        this.listaDeProductos = listaDeProductos;
+    }
+
     public void agregarAlCarrito(Producto producto) {
         listaDeProductos.add(producto);
     }
@@ -26,13 +34,4 @@ public class Carrito {
     public void eliminarCarrito() {
         listaDeProductos.clear();
     }
-
-    public List<Producto> getListaDeProductos() {
-        return listaDeProductos;
-    }
-
-    public void setListaDeProductos(List<Producto> listaDeProductos) {
-        this.listaDeProductos = listaDeProductos;
-    }
-
 }

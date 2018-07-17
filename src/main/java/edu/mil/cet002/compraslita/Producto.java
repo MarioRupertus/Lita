@@ -10,6 +10,12 @@ public class Producto {
     public Producto() {
     }
 
+    public Producto(String nombre, double precio, Comercio comercio) {
+        this.nombre = nombre;
+        this.precio = precio;
+        this.comercio = comercio;
+    }
+
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
@@ -28,12 +34,6 @@ public class Producto {
 
     public void setIdproducto(Integer idproducto) {
         this.idproducto = idproducto;
-    }
-
-    public Producto(String nombre, double precio, Comercio comercio) {
-        this.nombre = nombre;
-        this.precio = precio;
-        this.comercio = comercio;
     }
 
     public String getNombre() {

@@ -11,12 +11,11 @@ public class Mapa {
         return mapa;
     }
 
-    public void agregarNodo(Nodo nodo) {
-        mapa.add(nodo);
-    }
-
     public void setMapa(List<Nodo> mapa) {
         this.mapa = mapa;
     }
 
+    public void agregarNodo(Nodo nodo) {
+        mapa.add(nodo);
+    }
 }

@@ -12,12 +12,16 @@ public class Servicios {
 
     private static final Servicios servicios = new Servicios();
 
-    public static Servicios getInstance() {
-        return servicios;
-    }
-
     private Servicios() {
         litaDB = new LitaDB();
+    }
+
+    public Mapa getMapa() {
+        return litaDB.getMapa();
+    }
+
+    public static Servicios getInstance() {
+        return servicios;
     }
 
     public void cerrarSesion() {
@@ -54,10 +58,6 @@ public class Servicios {
 
     public List<Producto> mostrarCarrito(Carrito carrito) {
         return carrito.getListaDeProductos();
-    }
-
-    public Mapa getMapa() {
-        return litaDB.getMapa();
     }
 
     public Recorrido calcularRecorrido(Nodo origen, Nodo destinoFinal, List<Nodo> destinoIntermedio, Mapa mapa, int auto) {

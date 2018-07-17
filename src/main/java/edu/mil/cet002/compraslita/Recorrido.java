@@ -16,10 +16,6 @@ public class Recorrido {
     private List<Nodo> recorridoCompleto = new ArrayList<>();
     private int costoTotal;
 
-    public void setDestinoIntermedio(List<Nodo> destinoIntermedio) {
-        this.destinoIntermedio = destinoIntermedio;
-    }
-
     public Recorrido(Nodo origen, Nodo destinoFinal, List<Nodo> destinoIntermedio, Mapa mapa, int auto) {
         this.origen = origen;
         this.destinoFinal = destinoFinal;
@@ -28,13 +24,17 @@ public class Recorrido {
         this.auto = auto;
     }
 
-    public List<Nodo> getRecorridoCompleto() {
-        return recorridoCompleto;
-    }
-
     public Recorrido(Mapa mapa) {
         this.mapa = mapa;
         destinoIntermedio = new ArrayList<>();
+    }
+
+    public void setDestinoIntermedio(List<Nodo> destinoIntermedio) {
+        this.destinoIntermedio = destinoIntermedio;
+    }
+
+    public List<Nodo> getRecorridoCompleto() {
+        return recorridoCompleto;
     }
 
     public void setOrigen(Nodo origen) {
@@ -47,6 +47,26 @@ public class Recorrido {
 
     public void setDestinoFinal(Nodo destinoFinal) {
         this.destinoFinal = destinoFinal;
+    }
+
+    public Nodo getOrigen() {
+        return origen;
+    }
+
+    public Nodo getDestinoFinal() {
+        return destinoFinal;
+    }
+
+    public int getAuto() {
+        return auto;
+    }
+
+    public int getCostoTotal() {
+        return costoTotal;
+    }
+
+    public List<Nodo> getDestinoIntermedio() {
+        return destinoIntermedio;
     }
 
     public void agregarDestino(Nodo nodo) {
@@ -212,7 +232,6 @@ public class Recorrido {
         for (Nodo nodo : recorridoCompleto) {
             System.out.print(nodo.getNombre() + " -> ");
         }
-
     }
 
     private Nodo parcheInstanciaNodo(Nodo nodo) {
@@ -220,25 +239,4 @@ public class Recorrido {
         int aux = mapa.getMapa().indexOf(nodo);
         return mapa.getMapa().get(aux);
     }
-
-    public Nodo getOrigen() {
-        return origen;
-    }
-
-    public Nodo getDestinoFinal() {
-        return destinoFinal;
-    }
-
-    public List<Nodo> getDestinoIntermedio() {
-        return destinoIntermedio;
-    }
-
-    public int getAuto() {
-        return auto;
-    }
-
-    public int getCostoTotal() {
-        return costoTotal;
-    }
-
 }
