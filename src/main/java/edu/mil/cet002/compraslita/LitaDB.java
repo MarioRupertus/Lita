@@ -1,13 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package edu.mil.cet002.compraslita;
 
 import java.util.ArrayList;
 import java.util.List;
-import javax.persistence.criteria.CriteriaQuery;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.MetadataSources;
@@ -15,21 +9,18 @@ import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.query.Query;
 
-/**
- *
- * @author User
- */
 public class LitaDB {
 
     SessionFactory sessionFactory = null;
     StandardServiceRegistry registry = null;
 
     public void cerrarSesion() {
-        try{
-        sessionFactory.close();        
-        if (registry!=null)
-            StandardServiceRegistryBuilder.destroy(registry);
-        }catch(Exception e){
+        try {
+            sessionFactory.close();
+            if (registry != null) {
+                StandardServiceRegistryBuilder.destroy(registry);
+            }
+        } catch (Exception e) {
         }
     }
 
@@ -58,50 +49,50 @@ public class LitaDB {
         if (horario != -1) {
             q.setParameter("horario", horario);
         }
-        List<Producto> l = q.list();
+        List<Producto> productos = q.list();
         session.close();
-        return l;
+        return productos;
     }
 
     public Comercio getComercio(int id) {
         Session session = sessionFactory.openSession();
-        Comercio c = session.get(Comercio.class, id);
+        Comercio comercio = session.get(Comercio.class, id);
         session.close();
-        return c;
+        return comercio;
     }
 
-    public void actualizarComercio(Comercio c) {
+    public void actualizarComercio(Comercio comercio) {
         Session session = sessionFactory.openSession();
         session.beginTransaction();
-        session.update(c);
+        session.update(comercio);
         session.getTransaction().commit();
         session.close();
     }
 
     public Mapa getMapa() {
         Session session = sessionFactory.openSession();
-        Mapa m = new Mapa();
+        Mapa mapa = new Mapa();
         Query q = session.createQuery("from Nodo", Nodo.class);
-        m.setMapa(q.list());
+        mapa.setMapa(q.list());
         session.close();
-        return m;
+        return mapa;
     }
 
     public List<Proximos> getProximos() {
         Session session = sessionFactory.openSession();
-        List<Proximos> p = new ArrayList<>();
+        List<Proximos> proximo = new ArrayList<>();
         Query q = session.createQuery("from Proximos", Proximos.class);
-        p = q.list();
+        proximo = q.list();
         session.close();
-        return p;
+        return proximo;
     }
 
     public List<Producto> getProductos() {
         Session session = sessionFactory.openSession();
-        List<Producto> p = new ArrayList<>();
+        List<Producto> productos = new ArrayList<>();
         Query q = session.createQuery("from Producto", Producto.class);
-        p = q.list();
+        productos = q.list();
         session.close();
-        return p;
+        return productos;
     }
 }

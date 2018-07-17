@@ -1,14 +1,10 @@
 package edu.mil.cet002.compraslita;
 
-/**
- *
- * @author Maxi
- */
-public class Dijkstra { // CONVIENE HACERLO STATIC?
+public class Dijkstra {
 
     private int[] distancia; // Se usará para almacenar la distancia del origen hasta todos los restantes puntos. Las posiciones son iguales a la lista de mapa
     private boolean[] flag; // Se usará para almacenar si los nodos fueron visitados
-    
+
     public int[] calcularDistTodos(Nodo origen, Mapa mapa) {
         System.out.println("COMENZANDO DIJKSTRA");
         reiniciarPesoAcumulado(mapa); // pone en cero los pesos acumulados porque si antes se habia ejecutado otro dijkstra, los nodos van a tener los valores de la consulta anterior
@@ -34,11 +30,11 @@ public class Dijkstra { // CONVIENE HACERLO STATIC?
             System.out.println("Primero sin visitar " + posMin);
 
             // La primera posicion sin visitar nos dará el valor con el cual empezamos a comparar (posMin)
-            for (int i = 0; i < distancia.length; i++) { // Buscar el nodo mas cercano para dirigirnos y que no haya visitado
-                System.out.println("Comparando distancia[" + i + "]=" + distancia[i] + " VS posMin[" + posMin + "] = " + distancia[posMin]);
-                if (!flag[i] && distancia[i] < distancia[posMin]) {
+            for (int indiceNodo = 0; indiceNodo < distancia.length; indiceNodo++) { // Buscar el nodo mas cercano para dirigirnos y que no haya visitado
+                System.out.println("Comparando distancia[" + indiceNodo + "]=" + distancia[indiceNodo] + " VS posMin[" + posMin + "] = " + distancia[posMin]);
+                if (!flag[indiceNodo] && distancia[indiceNodo] < distancia[posMin]) {
                     System.out.println("Nuevo minimo encontrado");
-                    posMin = i;
+                    posMin = indiceNodo;
                 }
 
             }
@@ -49,22 +45,22 @@ public class Dijkstra { // CONVIENE HACERLO STATIC?
             flag[posMin] = true; // lo marco como visitado
 
             // Tengo que recorrer los vecinos del nodo actual y comparar (peso acum nodo actual + distancia al vecino) con peso acumulado del vector distancia
-            int k;
-            for (Proximos p : nodoActual.getVecinos()) {
-                k = 0; //para cada vecino reinicio el indice para comenzar a buscarlo desde la primera posicion del mapa
+            int indiceNodo;
+            for (Proximos proximo : nodoActual.getVecinos()) {
+                indiceNodo = 0; //para cada vecino reinicio el indice para comenzar a buscarlo desde la primera posicion del mapa
                 // Busco en que posicion de DISTANCIA se encuentra el vecino
-                while (!mapa.getMapa().get(k).equals(p.getnodoVecino())) { // mapa y distancia tienen el mismo orden por lo tanto recorro mapa para buscar en que posicion esta el nodo actual
-                    k++;
+                while (!mapa.getMapa().get(indiceNodo).equals(proximo.getnodoVecino())) { // mapa y distancia tienen el mismo orden por lo tanto recorro mapa para buscar en que posicion esta el nodo actual
+                    indiceNodo++;
                 }
-                System.out.print("El vecino " + mapa.getMapa().get(k).getNombre() + " se encuentra en la posicion " + k + "... ");
+                System.out.print("El vecino " + mapa.getMapa().get(indiceNodo).getNombre() + " se encuentra en la posicion " + indiceNodo + "... ");
 
                 // Comparo DISTANCIA con nuevo recorrido
-                System.out.print("Comparo peso acumulado nodo actual " + nodoActual.getPesoAcumulado() +" + costo al vecino " + p.getCosto() + " vs distancia temporal al vecino " + distancia[k] + "... ");
-                if ((nodoActual.getPesoAcumulado() + p.getCosto()) <= distancia[k]) { //si la nueva distancia es menor VERSION DOS AGREGO MENOR O IGUAL
+                System.out.print("Comparo peso acumulado nodo actual " + nodoActual.getPesoAcumulado() + " + costo al vecino " + proximo.getCosto() + " vs distancia temporal al vecino " + distancia[indiceNodo] + "... ");
+                if ((nodoActual.getPesoAcumulado() + proximo.getCosto()) <= distancia[indiceNodo]) { //si la nueva distancia es menor VERSION DOS AGREGO MENOR O IGUAL
                     System.out.print("Menor o igual distancia encontrada --> Se guarda en vector distancia y en atributo pesoAcumulado");
-                    distancia[k] = (nodoActual.getPesoAcumulado() + p.getCosto()); // guarda la nueva distancia
-                    p.getnodoVecino().setAntecesor(nodoActual); //en el nuevo destino guardo el antecesor
-                    p.getnodoVecino().setPesoAcumulado(distancia[k]);
+                    distancia[indiceNodo] = (nodoActual.getPesoAcumulado() + proximo.getCosto()); // guarda la nueva distancia
+                    proximo.getnodoVecino().setAntecesor(nodoActual); //en el nuevo destino guardo el antecesor
+                    proximo.getnodoVecino().setPesoAcumulado(distancia[indiceNodo]);
                 }
                 System.out.println("");
             }
@@ -78,18 +74,18 @@ public class Dijkstra { // CONVIENE HACERLO STATIC?
         return distancia;
     }
 
-    private void reiniciarPesoAcumulado(Mapa mapa){
-        for (Nodo n : mapa.getMapa()){
-            n.setPesoAcumulado(0);
+    private void reiniciarPesoAcumulado(Mapa mapa) {
+        for (Nodo nodo : mapa.getMapa()) {
+            nodo.setPesoAcumulado(0);
         }
     }
-    
+
     private void iniciarFlag(Mapa mapa) {
         System.out.println("");
         System.out.println("INICIANDO FLAG");
         int cantNodos = mapa.getMapa().size(); // variable auxiliar para acortar consulta al tamaño de mapa
-        for (int i = 0; i < cantNodos; i++) { // Este for completa todo el vector FLAG con false (al inicio son todos nos visitados)
-            flag[i] = false;
+        for (int indiceNodo = 0; indiceNodo < cantNodos; indiceNodo++) { // Este for completa todo el vector FLAG con false (al inicio son todos nodos visitados)
+            flag[indiceNodo] = false;
         }
         imprimirFlag();
     }
@@ -102,39 +98,38 @@ public class Dijkstra { // CONVIENE HACERLO STATIC?
         int auxCosto = 9999;
 
         int cantNodos = mapa.getMapa().size(); // variable auxiliar para acortar consulta al tamaño de mapa
-        for (int i = 0; i < cantNodos; i++) { // Este for completa el vector DISTANCIA con el costo inicial desde el origen al resto de los puntos
-            System.out.print("Distancia[" + i + "] ");
-            auxVecino = mapa.getMapa().get(i); // variable para acortar
+        for (int indiceNodo = 0; indiceNodo < cantNodos; indiceNodo++) { // Este for completa el vector DISTANCIA con el costo inicial desde el origen al resto de los puntos
+            System.out.print("Distancia[" + indiceNodo + "] ");
+            auxVecino = mapa.getMapa().get(indiceNodo); // variable para acortar
             System.out.print("Buscando si " + auxVecino.getNombre() + " es vecino de " + origen.getNombre() + "... ");
             auxVecinoEncontrado = false; // auxiliar utilizado en el siguiente for. Cuando encuentro un vecino se vuelve true
 
-            for (int j = 0; j < origen.getVecinos().size(); j++) { // para cada punto del mapa, se fija si se encuentra en los vecinos del nodo origen. Es mejor cambiarlo por WHILE
-                if (origen.getVecinos().get(j).getnodoVecino().equals(auxVecino)) {
+            for (int indiceVecino = 0; indiceVecino < origen.getVecinos().size(); indiceVecino++) { // para cada punto del mapa, se fija si se encuentra en los vecinos del nodo origen. Es mejor cambiarlo por WHILE
+                if (origen.getVecinos().get(indiceVecino).getnodoVecino().equals(auxVecino)) {
                     auxVecinoEncontrado = true;
-                    auxCosto = origen.getVecinos().get(j).getCosto();
+                    auxCosto = origen.getVecinos().get(indiceVecino).getCosto();
                 }
             }
 
-            if (auxVecinoEncontrado) { // Si el nodo mapa[i] está dentro de los vecinos del nodo origen:
-                distancia[i] = auxCosto; // Seteo que la distancia en la pos i es igual al costo de ir hasta el vecino mapa[i]  de la lista vecinos
-                System.out.println("Vecino costo " + distancia[i]);
-            } else if (origen.equals(auxVecino)) { // Si mapa[i] es igual al nodo de origen la distancia será 0
-                distancia[i] = 0;
-                System.out.println("Igual a origen costo " + distancia[i]);
+            if (auxVecinoEncontrado) { // Si el nodo mapa[indiceNodo] está dentro de los vecinos del nodo origen:
+                distancia[indiceNodo] = auxCosto; // Seteo que la distancia en la pos i es igual al costo de ir hasta el vecino mapa[i]  de la lista vecinos
+                System.out.println("Vecino costo " + distancia[indiceNodo]);
+            } else if (origen.equals(auxVecino)) { // Si mapa[indiceNodo] es igual al nodo de origen la distancia será 0
+                distancia[indiceNodo] = 0;
+                System.out.println("Igual a origen costo " + distancia[indiceNodo]);
             } else {
-                distancia[i] = 9999; // Si mapa[i] no es vecino del origen, seteamos en distancia[i] un valor alto para luego comparar con los costos que vayamos encontrando
-                System.out.println("No es vecino costo " + distancia[i]);
+                distancia[indiceNodo] = 9999; // Si mapa[indiceNodo] no es vecino del origen, seteamos en distancia[i] un valor alto para luego comparar con los costos que vayamos encontrando
+                System.out.println("No es vecino costo " + distancia[indiceNodo]);
             }
         }
         imprimirDistancia();
     }
-    
+
     private boolean isTodosVisitados() {
         System.out.println("");
         System.out.print("Chequeando si estan todos los nodos visitados... resultado: ");
-        boolean visitados; // valor default true --> se cambiara a false si encuentra un lugar no visitado
-        for (int i = 0; i < flag.length; i++) {
-            if (!flag[i]) { // si alguna posicion del flag es false, retorna false
+        for (int indiceNodo = 0; indiceNodo < flag.length; indiceNodo++) {
+            if (!flag[indiceNodo]) { // si alguna posicion del flag es false, retorna false
                 System.out.println("FALSO");
                 return false;
             }
@@ -144,17 +139,16 @@ public class Dijkstra { // CONVIENE HACERLO STATIC?
     }
 
     private void imprimirDistancias(Mapa mapa, Nodo origen) {
-        for (int i = 0; i < mapa.getMapa().size(); i++) {
-            //System.out.println("Desde " + origen.getNombre() + " hasta " + mapa.getMapa().get(i).getNombre() + " la distancia minima es " + distancia[i]);
-            System.out.println("Desde " + origen.getNombre() + " hasta " + mapa.getMapa().get(i).getNombre() + " la distancia minima es " + mapa.getMapa().get(i).getPesoAcumulado());
-
+        for (int indiceNodo = 0; indiceNodo < mapa.getMapa().size(); indiceNodo++) {
+            //System.out.println("Desde " + origen.getNombre() + " hasta " + mapa.getMapa().get(indiceNodo).getNombre() + " la distancia minima es " + distancia[indiceNodo]);
+            System.out.println("Desde " + origen.getNombre() + " hasta " + mapa.getMapa().get(indiceNodo).getNombre() + " la distancia minima es " + mapa.getMapa().get(indiceNodo).getPesoAcumulado());
         }
     }
 
     private void imprimirFlag() {
         System.out.print("Flag = ");
-        for (boolean f : flag) {
-            if (f) {
+        for (boolean visitado : flag) {
+            if (visitado) {
                 System.out.print("| T ");
             } else {
                 System.out.print("| F ");
@@ -165,19 +159,19 @@ public class Dijkstra { // CONVIENE HACERLO STATIC?
 
     private void imprimirDistancia() {
         System.out.print("Distancia = ");
-        for (int d : distancia) {
-            System.out.print("| " + d + " ");
+        for (int valorDistancia : distancia) {
+            System.out.print("| " + valorDistancia + " ");
         }
         System.out.println("");
     }
-    
-    private void imprimirPesoAcumulado(Mapa mapa){
+
+    private void imprimirPesoAcumulado(Mapa mapa) {
         System.out.print("Peso acumulado ");
-        for (Nodo n : mapa.getMapa()){
-            System.out.print("| "+n.getPesoAcumulado());
+        for (Nodo nodo : mapa.getMapa()) {
+            System.out.print("| " + nodo.getPesoAcumulado());
         }
     }
-    
+
     public int[] getDistancia() {
         return distancia;
     }

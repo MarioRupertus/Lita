@@ -1,13 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package edu.mil.cet002.test;
 
 import edu.mil.cet002.compraslita.Producto;
 import java.util.List;
-import javax.management.Query;
 import javax.persistence.criteria.CriteriaQuery;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -46,9 +40,6 @@ public class TestServicios {
             session.close();
             sessionFactory.close();
 
-            
-            
-            
         } catch (Exception e) {
             System.out.println("");
             System.out.println("");

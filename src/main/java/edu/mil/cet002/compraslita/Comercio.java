@@ -1,57 +1,30 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package edu.mil.cet002.compraslita;
 
 import java.util.Calendar;
-import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
-import java.util.Objects;
 
-/**
- *
- * @author User
- */
 public class Comercio {
 
     private List<Producto> listaDeProductos;
     private Nodo ubicacion;
     private String duenio;
-    // Atributo Date reemplazado por int Apertura e Int Cierre // private Date horario;
+    // Atributo Date reemplazado por int Apertura e Int Cierre 
+    // private Date horario;
     private int horarioApertura;
     private int horarioCierre;
     private int calificacionPositiva;
     private int calificacionNegativa;
     private Integer idcomercio;
     private String nombre;
-    
-    public Comercio(){}
 
     //CONSTRUCTORES
+    public Comercio() {
+    }
+
     public Comercio(int horarioApertura, int horarioCierre) {
         this.horarioApertura = horarioApertura;
         this.horarioCierre = horarioCierre;
-    }
-
-    // OTROS METODOS
-    public void saberSiEstaAbierto(int horaApertura, int horaCierre) {
-        Calendar fecha = new GregorianCalendar();
-        int horaActual = fecha.get(Calendar.HOUR_OF_DAY);
-
-        if ((horaActual) >= (horaApertura) && (horaActual) <= (horaCierre)) {
-            System.out.println("Abierto");
-        } else {
-            System.out.println("Cerrado");
-        }
-    }
-    public void sumarVotoPositivo(){
-        calificacionPositiva ++;
-    }
-    public void sumarVotoNegativo(){
-        calificacionNegativa ++;
     }
 
     // GETTER Y SETTER
@@ -111,28 +84,13 @@ public class Comercio {
         this.duenio = duenio;
     }
 
-   /* public Date getHorario() {
+    /* public Date getHorario() {
         return horario;
     }
 
     public void setHorario(Date horario) {
         this.horario = horario;
     }*/
-
-    @Override
-    public int hashCode() {
-        int hash = 5;
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        Comercio otro = (Comercio) obj;
-        return this.idcomercio == otro.idcomercio;
-    }
-    
-    
-
     public int getCalificacionPositiva() {
         return calificacionPositiva;
     }
@@ -147,5 +105,37 @@ public class Comercio {
 
     public void setCalificacionNegativa(int calificacionNegativa) {
         this.calificacionNegativa = calificacionNegativa;
+    }
+
+    // OTROS METODOS
+    public void saberSiEstaAbierto(int horaApertura, int horaCierre) {
+        Calendar fecha = new GregorianCalendar();
+        int horaActual = fecha.get(Calendar.HOUR_OF_DAY);
+
+        if ((horaActual) >= (horaApertura) && (horaActual) <= (horaCierre)) {
+            System.out.println("Abierto");
+        } else {
+            System.out.println("Cerrado");
+        }
+    }
+
+    public void sumarVotoPositivo() {
+        calificacionPositiva++;
+    }
+
+    public void sumarVotoNegativo() {
+        calificacionNegativa++;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        Comercio otro = (Comercio) obj;
+        return this.idcomercio == otro.idcomercio;
     }
 }

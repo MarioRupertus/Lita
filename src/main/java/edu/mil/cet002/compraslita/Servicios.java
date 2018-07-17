@@ -19,19 +19,18 @@ public class Servicios {
     private Servicios() {
         litaDB = new LitaDB();
     }
-    
-    public void cerrarSesion(){
-        if (litaDB!=null)
+
+    public void cerrarSesion() {
+        if (litaDB != null) {
             litaDB.cerrarSesion();
+        }
     }
-    
-    
 
     public List<Producto> buscarProducto(String nombre, int horario, String criterioOrden, String orden) {
         return litaDB.buscarProductoPorNombre(nombre, horario, criterioOrden, orden);
     }
 
-    /* NO UTILIZADO, ree
+    /*
     public void calificarPositivo(Comercio comercio) {
         comercio.sumarVotoPositivo();
         litaDB.actualizarComercio(comercio);
@@ -40,22 +39,21 @@ public class Servicios {
     public void calificarNegativo(Comercio comercio) {
         comercio.sumarVotoNegativo();
         litaDB.actualizarComercio(comercio);
-    }*/ 
-
-    public void agregarProductoCarro(Carrito c, Producto p) {
-        c.agregarAlCarrito(p);
+    }*/
+    public void agregarProductoCarro(Carrito carrito, Producto producto) {
+        carrito.agregarAlCarrito(producto);
     }
 
-    public void eliminarProductoCarro(Carrito c, Producto p) {
-        c.eliminarProducto(p);
+    public void eliminarProductoCarro(Carrito carrito, Producto producto) {
+        carrito.eliminarProducto(producto);
     }
-    
+
     public Carrito crearCarrito() {
         return new Carrito();
     }
 
-    public List<Producto> mostrarCarrito(Carrito c) {
-        return c.getListaDeProductos();
+    public List<Producto> mostrarCarrito(Carrito carrito) {
+        return carrito.getListaDeProductos();
     }
 
     public Mapa getMapa() {
@@ -63,69 +61,68 @@ public class Servicios {
     }
 
     public Recorrido calcularRecorrido(Nodo origen, Nodo destinoFinal, List<Nodo> destinoIntermedio, Mapa mapa, int auto) {
-        
+
         // IMPORTANTE: HACER ESTO PARA TRANSFORMAR LOS DESTINOS INTERMEDIOS (LISTA) EN DESTINOS DEL MAPA
         List<Nodo> ubiAux = new ArrayList<>();
-        for (Nodo n:destinoIntermedio){
-            int i=mapa.getMapa().indexOf(n);
-            if (i!=-1){
-                ubiAux.add(mapa.getMapa().get(i));
+        for (Nodo nodo : destinoIntermedio) {
+            int indiceNodo = mapa.getMapa().indexOf(nodo);
+            if (indiceNodo != -1) {
+                ubiAux.add(mapa.getMapa().get(indiceNodo));
             }
-        
+
         }
-        
-        
-        Recorrido r = new Recorrido(origen, destinoFinal, ubiAux, mapa, auto); //Instancio un recorrido con el origen, destino, lista nodos de lugares a visiar y auto(0/1)
+
+        Recorrido recorrido = new Recorrido(origen, destinoFinal, ubiAux, mapa, auto); //Instancio un recorrido con el origen, destino, lista nodos de lugares a visiar y auto(0/1)
 
         if (auto == 0) {
-            r.calcularRecorrido();//si auto es 0 (false) se calcula caminando
+            recorrido.calcularRecorrido();//si auto es 0 (false) se calcula caminando
         } else if (auto == 1) {
-            r.calcularRecorridoAuto();//si auto es 1 (true) se calcula en auto
+            recorrido.calcularRecorridoAuto();//si auto es 1 (true) se calcula en auto
         }
 
-        return r;
+        return recorrido;
     }
 
-    public List<Nodo> convertirComerciosAUbicaciones(List<Comercio> com) {
+    public List<Nodo> convertirComerciosAUbicaciones(List<Comercio> comercios) {
         List<Nodo> ubicaciones = new ArrayList<>();
 
-        for (Comercio c : com) {
-            if (!ubicaciones.contains(c.getUbicacion())) {
-                ubicaciones.add(c.getUbicacion());
+        for (Comercio comercio : comercios) {
+            if (!ubicaciones.contains(comercio.getUbicacion())) {
+                ubicaciones.add(comercio.getUbicacion());
             }
         }
         return ubicaciones;
     }
 
-    public List<Nodo> convertirProductosAUbicaciones(List<Producto> prod) {
+    public List<Nodo> convertirProductosAUbicaciones(List<Producto> productos) {
 
         List<Nodo> ubicaciones = new ArrayList<>();
-        Comercio c = new Comercio();
+        Comercio comercio = new Comercio();
 
-        for (Producto p : prod) {
-            c = p.getComercio();
-            if (!ubicaciones.contains(c.getUbicacion())) {
-                ubicaciones.add(c.getUbicacion());
+        for (Producto producto : productos) {
+            comercio = producto.getComercio();
+            if (!ubicaciones.contains(comercio.getUbicacion())) {
+                ubicaciones.add(comercio.getUbicacion());
             }
         }
         return ubicaciones;
     }
 
-    public List<Comercio> convertirProductosAComercios(List<Producto> prod) {
+    public List<Comercio> convertirProductosAComercios(List<Producto> productos) {
 
         List<Comercio> comercios = new ArrayList<>();
 
-        for (Producto p : prod) {
-            if (!comercios.contains(p.getComercio())) {
-                comercios.add(p.getComercio());
+        for (Producto producto : productos) {
+            if (!comercios.contains(producto.getComercio())) {
+                comercios.add(producto.getComercio());
             }
         }
         return comercios;
     }
-    
-    public void actualizarComercio(Comercio c){
-        litaDB.actualizarComercio(c);
-    }   
+
+    public void actualizarComercio(Comercio comercio) {
+        litaDB.actualizarComercio(comercio);
+    }
 }
 /*
 PANEL BÚSQUEDA

@@ -1,16 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package edu.mil.cet002.compraslita;
 
-/**
- *
- * @author User
- */
 public class Usuario {
-    
+
     private String nombre;
     private Nodo ubicacion;
     private Carrito carrito;
@@ -42,7 +33,5 @@ public class Usuario {
     public void setCarrito(Carrito carrito) {
         this.carrito = carrito;
     }
-    
-    
-    
+
 }

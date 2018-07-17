@@ -2,11 +2,7 @@ package edu.mil.cet002.compraslita;
 
 import java.io.Serializable;
 
-/**
- *
- * @author Maxi
- */
-public class Proximos implements Serializable{
+public class Proximos implements Serializable {
 
     private Nodo nodoVecino;
     private Nodo nodoOrigen;
@@ -32,8 +28,6 @@ public class Proximos implements Serializable{
     public Proximos() {
     }
 
-    
-    
     public Proximos(Nodo vecino, int costo) {
         this.nodoVecino = vecino;
         this.costo = costo;
@@ -44,8 +38,8 @@ public class Proximos implements Serializable{
         this.costo = costo;
         this.sentido = sentido;
     }
-    
-     public Nodo getnodoVecino() {
+
+    public Nodo getnodoVecino() {
         return nodoVecino;
     }
 
@@ -74,10 +68,4 @@ public class Proximos implements Serializable{
         return "Proximos{" + "nodoVecino=" + nodoVecino + ", nodoOrigen=" + nodoOrigen + ", costo=" + costo + ", sentido=" + sentido + '}';
     }
 
-    
-    
-    
-
-    
-    
 }

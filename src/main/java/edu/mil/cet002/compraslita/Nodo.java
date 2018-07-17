@@ -4,17 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-/**
- *
- * @author Maxi
- */
 public class Nodo {
 
     private String nombre;
     private Integer idnodo;
-    
+
     private List<Proximos> vecinos = new ArrayList<>();
-    
+
     private Nodo antecesor; // Utilizados y completados por Dijkstra
     private int pesoAcumulado; // Utilizados y completados por Dijkstra
     private boolean visitado; // Utilizados y completados por Dijkstra
@@ -101,6 +97,4 @@ public class Nodo {
         return true;
     }
 
-    
-    
 }

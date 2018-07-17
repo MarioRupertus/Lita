@@ -18,7 +18,7 @@ public class TestCompleto {
 
         LitaDB litaDB = new LitaDB();
         Servicios servicios = Servicios.getInstance();
-        
+
         List<Producto> prod = litaDB.getProductos();
         List<Comercio> com = new ArrayList<>();
         List<Nodo> ubicaciones = new ArrayList<>();
@@ -57,7 +57,7 @@ public class TestCompleto {
         // SE MUESTRA EL CARRITO
         System.out.println("CARRITO:");
         for (Producto p : carrito.getListaDeProductos()) {
-            System.out.println("ID"+p.getIdproducto()+" "+p.getComercio().getNombre() + "\t" + p.getComercio().getUbicacion().getNombre() + "\t" + p.getNombre());
+            System.out.println("ID" + p.getIdproducto() + " " + p.getComercio().getNombre() + "\t" + p.getComercio().getUbicacion().getNombre() + "\t" + p.getNombre());
         }
         System.out.println("");
 
@@ -66,7 +66,7 @@ public class TestCompleto {
         com = servicios.convertirProductosAComercios(carrito.getListaDeProductos());
         System.out.println("Los comercios a visitar son: ");
         for (Comercio c : com) {
-            System.out.println("ID"+c.getIdcomercio()+" "+c.getNombre() + " --> " + c.getUbicacion().getNombre());
+            System.out.println("ID" + c.getIdcomercio() + " " + c.getNombre() + " --> " + c.getUbicacion().getNombre());
         }
         System.out.println("");
 
@@ -75,7 +75,7 @@ public class TestCompleto {
         ubicaciones = servicios.convertirComerciosAUbicaciones(com);
         System.out.println("Las ubicaciones a visitar son: ");
         for (Nodo u : ubicaciones) {
-            System.out.println("ID"+u.getIdnodo()+" "+u.getNombre());
+            System.out.println("ID" + u.getIdnodo() + " " + u.getNombre());
         }
         System.out.println("");
 
@@ -88,19 +88,19 @@ public class TestCompleto {
         }
 
         System.out.print("Ingrese numero de nodo Origen: ");
-        input = scan.nextInt()-1;
+        input = scan.nextInt() - 1;
         nodoInicial = mapa.getMapa().get(input);
-        System.out.println("INICIO: "+mapa.getMapa().get(input).getNombre());
+        System.out.println("INICIO: " + mapa.getMapa().get(input).getNombre());
 
         System.out.print("Ingrese numero de nodo Destino Final: ");
-        input = scan.nextInt()-1;
+        input = scan.nextInt() - 1;
         nodoFinal = mapa.getMapa().get(input);
-        System.out.println("FIN: "+mapa.getMapa().get(input).getNombre());
-        
+        System.out.println("FIN: " + mapa.getMapa().get(input).getNombre());
+
         // SE CALCULA EL RECORRIDO
         System.out.println("Ingrese 0 para caminar // Ingrese 1 para ir en auto: ");
-        input = scan.nextInt(); 
-     
+        input = scan.nextInt();
+
         servicios.calcularRecorrido(nodoInicial, nodoFinal, ubicaciones, mapa, input);
 
         litaDB.cerrarSesion();

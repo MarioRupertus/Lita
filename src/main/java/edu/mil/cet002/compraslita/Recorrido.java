@@ -3,10 +3,6 @@ package edu.mil.cet002.compraslita;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
- * @author Maxi
- */
 public class Recorrido {
 
     //ATRIBUTOS NECESARIOS PARA FUNCIONAR
@@ -83,7 +79,6 @@ public class Recorrido {
             proxNodo = nodoObjetivo;
             camino.add(proxNodo); // el camino se arma desde fin hacia inicio, por lo tanto agrego el nodo objtivo al recorrido
 
-            //PARCHE WORK AROUND
             proxNodo = parcheInstanciaNodo(proxNodo);
 
             while (proxNodo.getIdnodo() != nodoActual.getIdnodo()) { // mientras el proximo nodo a  visitar sea diferente al nodo de inicio
@@ -104,7 +99,6 @@ public class Recorrido {
         proxNodo = nodoObjetivo;
         camino.add(proxNodo);
 
-        //PARCHE WORK AROUND
         proxNodo = parcheInstanciaNodo(proxNodo);
 
         while (proxNodo != nodoActual) {
@@ -135,7 +129,6 @@ public class Recorrido {
             proxNodo = nodoObjetivo;
             camino.add(proxNodo); // el camino se arma desde fin hacia inicio, por lo tanto agrego el nodo objtivo al recorrido
 
-            //PARCHE WORK AROUND
             proxNodo = parcheInstanciaNodo(proxNodo);
 
             while (proxNodo.getIdnodo() != nodoActual.getIdnodo()) { // mientras el proximo nodo a  visitar sea diferente al nodo de inicio
@@ -156,7 +149,6 @@ public class Recorrido {
         proxNodo = nodoObjetivo;
         camino.add(proxNodo);
 
-        //PARCHE WORK AROUND
         proxNodo = parcheInstanciaNodo(proxNodo);
 
         while (proxNodo != nodoActual) {
@@ -174,18 +166,18 @@ public class Recorrido {
     }
 
     private void almacenarRecorrido(List<Nodo> camino) {
-        int i = camino.size() - 1; //en "camino" los nodos se ordenan de final a inicio por lo tanto lo recorremos hacia atras y vamos agregando a la lista de recorrido total
+        int indiceNodo = camino.size() - 1; //en "camino" los nodos se ordenan de final a inicio por lo tanto lo recorremos hacia atras y vamos agregando a la lista de recorrido total
         int ultimo;
 
-        while (i >= 0) {
-            recorridoCompleto.add(camino.get(i));
+        while (indiceNodo >= 0) {
+            recorridoCompleto.add(camino.get(indiceNodo));
             ultimo = recorridoCompleto.size() - 1;
             if (recorridoCompleto.size() > 1) {
                 if (recorridoCompleto.get(ultimo).equals(recorridoCompleto.get(ultimo - 1))) {
                     recorridoCompleto.remove(ultimo);
                 }
             }
-            i--;
+            indiceNodo--;
         }
         camino.clear();
     }
@@ -195,9 +187,9 @@ public class Recorrido {
         while (destinoIntermedio.get(posMin).isVisitado()) {
             posMin++;
         }
-        for (int i = 0; i < destinoIntermedio.size(); i++) {
-            if (!destinoIntermedio.get(i).isVisitado() && destinoIntermedio.get(i).getPesoAcumulado() < destinoIntermedio.get(posMin).getPesoAcumulado()) {
-                posMin = i;
+        for (int indiceNodo = 0; indiceNodo < destinoIntermedio.size(); indiceNodo++) {
+            if (!destinoIntermedio.get(indiceNodo).isVisitado() && destinoIntermedio.get(indiceNodo).getPesoAcumulado() < destinoIntermedio.get(posMin).getPesoAcumulado()) {
+                posMin = indiceNodo;
             }
         }
         destinoIntermedio.get(posMin).setVisitado(true);
@@ -205,8 +197,8 @@ public class Recorrido {
     }
 
     private boolean isTodosVisitados() {
-        for (Nodo d : destinoIntermedio) {
-            if (!d.isVisitado()) {
+        for (Nodo destino : destinoIntermedio) {
+            if (!destino.isVisitado()) {
                 return false;
             }
         }
@@ -217,14 +209,14 @@ public class Recorrido {
         System.out.println("");
         System.out.println("Recorrido desde " + origen.getNombre() + " hasta " + destinoFinal.getNombre());
 
-        for (Nodo n : recorridoCompleto) {
-            System.out.print(n.getNombre() + " -> ");
+        for (Nodo nodo : recorridoCompleto) {
+            System.out.print(nodo.getNombre() + " -> ");
         }
 
     }
 
     private Nodo parcheInstanciaNodo(Nodo nodo) {
-    //PARCHE WORK AROUND: Busca en que posicion del mapa esta el nodo introducido por parametro y devuelve el mismo nodo pero de los instanciados en mapa (Dijkstra graba datos en mapa)
+        //Busca en que posicion del mapa esta el nodo introducido por parametro y devuelve el mismo nodo pero de los instanciados en mapa (Dijkstra graba datos en mapa)
         int aux = mapa.getMapa().indexOf(nodo);
         return mapa.getMapa().get(aux);
     }
@@ -249,6 +241,4 @@ public class Recorrido {
         return costoTotal;
     }
 
-    
-    
 }

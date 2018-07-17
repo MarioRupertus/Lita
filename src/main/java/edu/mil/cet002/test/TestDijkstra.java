@@ -4,12 +4,7 @@ import edu.mil.cet002.compraslita.Mapa;
 import edu.mil.cet002.compraslita.Nodo;
 import edu.mil.cet002.compraslita.Proximos;
 import edu.mil.cet002.compraslita.Recorrido;
-import java.util.Scanner;
 
-/**
- *
- * @author Maxi
- */
 public class TestDijkstra {
 
     public static void main(String args[]) {
@@ -36,8 +31,6 @@ public class TestDijkstra {
         Nodo S = new Nodo("S");
         Nodo T = new Nodo("T");
         Nodo U = new Nodo("U");
-        
-        
 
         // Creo mapa y agrego nodos
         Mapa mapa = new Mapa();
@@ -65,8 +58,7 @@ public class TestDijkstra {
         mapa.agregarNodo(U);
 
         // Defino vecinos de cada nodo
-        
-        // Ver porque se rompe la ejecucion si los vecinos se agregran en orden diferente al que fueron agregados al mapa. En este ejemplo, si no agregamos los vecinos en orden alfabetico, falla la ejecucion.
+        // Ver porque se rompe la ejecucion si los vecinos se agregan en orden diferente al que fueron agregados al mapa. En este ejemplo, si no agregamos los vecinos en orden alfabetico, falla la ejecucion.
         A.agregarVecino(new Proximos(B, 100));
         B.agregarVecino(new Proximos(A, 100));
         A.agregarVecino(new Proximos(D, 100));
@@ -80,7 +72,7 @@ public class TestDijkstra {
         B.agregarVecino(new Proximos(J, 100));
         J.agregarVecino(new Proximos(B, 100));
         D.agregarVecino(new Proximos(M, 100));
-        M.agregarVecino(new Proximos(D, 100));              
+        M.agregarVecino(new Proximos(D, 100));
         J.agregarVecino(new Proximos(E, 100));
         E.agregarVecino(new Proximos(J, 100));
         E.agregarVecino(new Proximos(K, 100));
@@ -89,14 +81,14 @@ public class TestDijkstra {
         C.agregarVecino(new Proximos(N, 100));
         C.agregarVecino(new Proximos(M, 100));
         M.agregarVecino(new Proximos(C, 100));
-               
+
         D.agregarVecino(new Proximos(L, 80));
         L.agregarVecino(new Proximos(D, 80));
         K.agregarVecino(new Proximos(L, 80));
         L.agregarVecino(new Proximos(K, 80));
         L.agregarVecino(new Proximos(G, 80));
         G.agregarVecino(new Proximos(L, 80));
-        
+
         J.agregarVecino(new Proximos(F, 75));
         F.agregarVecino(new Proximos(J, 75));
         F.agregarVecino(new Proximos(A, 75));
@@ -129,7 +121,7 @@ public class TestDijkstra {
         D.agregarVecino(new Proximos(H, 75));
         H.agregarVecino(new Proximos(M, 75));
         M.agregarVecino(new Proximos(H, 75));
-        
+
         S.agregarVecino(new Proximos(J, 60));
         J.agregarVecino(new Proximos(S, 60));
         S.agregarVecino(new Proximos(B, 60));
@@ -172,7 +164,7 @@ public class TestDijkstra {
         G.agregarVecino(new Proximos(U, 60));
         U.agregarVecino(new Proximos(K, 60));
         K.agregarVecino(new Proximos(U, 60));
-                        
+
         Recorrido r = new Recorrido(mapa);
         r.setOrigen(O);
         r.agregarDestino(L);
@@ -186,4 +178,3 @@ public class TestDijkstra {
     }
 
 }
-

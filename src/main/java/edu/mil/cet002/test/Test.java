@@ -7,10 +7,6 @@ import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 
-/**
- *
- * @author User
- */
 public class Test {
 
     public static void main(String[] args) {
@@ -18,12 +14,9 @@ public class Test {
                 .configure() // obtiene los valores de hibernate.cfg.xml
                 .build();
         try {
-            
-            
+
             int a = 40;
-            
-            
-            
+
             SessionFactory sessionFactory = new MetadataSources(registry).buildMetadata().buildSessionFactory();
             Session session = sessionFactory.openSession();
             session.beginTransaction();
