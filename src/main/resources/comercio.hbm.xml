@@ -41,20 +41,28 @@ Contributor(s):
 -->
 <hibernate-mapping>
     <class name="edu.mil.cet002.compraslita.Comercio" table="comercio">
-    <id column="idcomercio" name="idcomercio"/>
-    <property name="nombre"/>
-    <property name="duenio"  column="duenio"/>
-    <property name="horarioApertura" column="horarioapertura"/>
-    <property name="horarioCierre" column="horariocierre"/>
-    <property name="calificacionPositiva" column="calificacionpositiva"/>
-    <property name="calificacionNegativa" column="calificacionnegativa"/>
-    <many-to-one name="ubicacion" class="edu.mil.cet002.compraslita.Nodo" column="fknodo"  lazy="false"/>
+        <id name="idcomercio" column="idcomercio" />
+        <property name="nombre"/>
+        <property name="duenio"  column="duenio"/>
+        <property name="horarioApertura" column="horarioapertura"/>
+        <property name="horarioCierre" column="horariocierre"/>
+        <property name="calificacionPositiva" column="calificacionpositiva"/>
+        <property name="calificacionNegativa" column="calificacionnegativa"/>
+        <many-to-one name="ubicacion" class="edu.mil.cet002.compraslita.Nodo" column="fknodo"  lazy="false"/>
+        
+        <!--
+        <set name="listaDeProductos" inverse="true">
+            <key column="idcomercio"/>
+            <one-to-many class="Producto"/>
+        </set>
+        -->
     
-    <bag name="listaDeProductos" table="producto" inverse="false" fetch="select">
-        <key column="fkcomercio"/>
-        <one-to-many class="edu.mil.cet002.compraslita.Producto"/>
-    </bag>
-    
+        <!--
+            <bag name="listaDeProductos" table="comercio" inverse="true" fetch="select">
+                <key column="fkcomercio"/>
+                <one-to-many class="edu.mil.cet002.compraslita.Producto"/>
+            </bag>
+        -->
      
     </class>
 </hibernate-mapping>

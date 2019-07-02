@@ -54,7 +54,7 @@ public class Carrito {
         }
 
         // Ahora recorremos la lista de comercios y nos fijamos si van teniendo los productos del carro. Si no los tienen, sacamos el comercio de la lista. Al final deberan quedar los comercios que tienen todos los productos del carro.
-        if (comercios != null) {
+        if (comercios.size() != 0) {
             for (String producto : nombreProductos) {
                 for (Comercio com : comercios) {
                     // Dame los objetos producto del comercio
@@ -98,7 +98,7 @@ public class Carrito {
         List<Producto> allProductos = Servicios.getInstance().getAllProductos();
         List<Producto> productoComercio = new ArrayList();
         for (Producto p : allProductos) {
-            if (p.getComercio() == com) {
+            if (p.getComercio().equals(com)) {
                 productoComercio.add(p);
             }
         }
