@@ -56,6 +56,16 @@ public class LitaDB {
         return productos;
     }
 
+    public List<Producto> getProductosPorComercio(Comercio com) {
+        int idComercio = com.getIdcomercio();
+        Session session = sessionFactory.openSession();
+        List<Producto> productos = new ArrayList<>();
+        Query q = session.createQuery("from Producto p where p.comercio like com", Producto.class);
+        productos = q.list();
+        session.close();
+        return productos;
+    }
+
     public void cerrarSesion() {
         try {
             sessionFactory.close();

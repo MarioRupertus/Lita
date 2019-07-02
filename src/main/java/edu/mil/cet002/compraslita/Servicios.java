@@ -29,6 +29,10 @@ public class Servicios {
             litaDB.cerrarSesion();
         }
     }
+    
+    public List<Producto>buscarProductosDelComercio(Comercio comercio){
+        return litaDB.getProductosPorComercio(comercio);
+    }
 
     public List<Producto> buscarProducto(String nombre, int horario, String criterioOrden, String orden) {
         return litaDB.buscarProductoPorNombre(nombre, horario, criterioOrden, orden);
@@ -122,6 +126,10 @@ public class Servicios {
 
     public void actualizarComercio(Comercio comercio) {
         litaDB.actualizarComercio(comercio);
+    }
+    
+    public List<Producto> getAllProductos(){
+        return litaDB.getProductos();
     }
 }
 /*
