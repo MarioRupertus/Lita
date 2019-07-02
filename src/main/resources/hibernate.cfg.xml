@@ -4,11 +4,11 @@
   <session-factory>
     <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
     <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-    <property name="hibernate.connection.url">jdbc:mysql://comprasl.ddns.net:3306/comprasLita?serverTimezone=UTC</property>
+    <property name="hibernate.connection.url">jdbc:mysql://127.0.0.1:3306/comprasLita?serverTimezone=UTC</property>
     <property name="hibernate.show_sql">false</property>
     <!--<property name="hibernate.connection.url">jdbc:mysql://comprasl.ddns.net:3306/comprasLita?zeroDateTimeBehavior=convertToNull&serverTimezone=UTC-3</property>-->
-    <property name="hibernate.connection.username">cet002b</property>
-    <property name="hibernate.connection.password">admin</property>
+    <property name="hibernate.connection.username">root</property>
+    <property name="hibernate.connection.password">root</property>
     <mapping resource="nodo.hbm.xml"/>
     <mapping resource="producto.hbm.xml"/>
     <mapping resource="comercio.hbm.xml"/>

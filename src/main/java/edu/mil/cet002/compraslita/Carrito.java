@@ -6,9 +6,11 @@ import java.util.List;
 public class Carrito {
 
     private List<Producto> listaDeProductos;
+    private double mejorPrecio;
 
     public Carrito() {
         listaDeProductos = new ArrayList<>();
+        mejorPrecio = 0;
     }
 
     public List<Producto> getListaDeProductos() {
@@ -31,7 +33,61 @@ public class Carrito {
         listaDeProductos.remove(posProducto);
     }
 
+    public double getMejorPrecio() {
+        return mejorPrecio;
+    }
+
     public void eliminarCarrito() {
         listaDeProductos.clear();
+    }
+
+    public Comercio calcularCompraOptima() {
+        // Recorro todos los productos del carro para guardar en una lista todos los comercios que aparecen en la lista seleccionada y los nombres los producto
+        List<Comercio> comercios = new ArrayList<>();
+        List<String> nombreProductos = new ArrayList<>();
+
+        for (Producto producto : listaDeProductos) {
+            nombreProductos.add(producto.getNombre());
+            if (!comercios.contains(producto.getComercio())) {
+                comercios.add(producto.getComercio());
+            }
+        }
+
+        // Ahora recorremos la lista de comercios y nos fijamos si van teniendo los productos del carro. Si no los tienen, sacamos el comercio de la lista. Al final deberan quedar los comercios que tienen todos los productos del carro.
+        for (String producto : nombreProductos) {
+            for (Comercio com : comercios) {
+                // Dame los objetos producto del comercio
+                List<Producto> productosDelComercio = new ArrayList<>();
+                productosDelComercio = com.getListaDeProductos(); //VER MAPEO - NO TRAE LA CONSULTA
+                
+                // guardo los nombres de los productos (para poder compararlos)
+                List<String> nombreProdCom = new ArrayList<>();
+                for (Producto prodCom : productosDelComercio) {
+                    nombreProdCom.add(prodCom.getNombre());
+                }
+                // elimino al comercio si no tiene algun producto
+                if (!nombreProdCom.contains(producto)) {
+                    comercios.remove(com);
+                }
+            }
+        }
+
+        // A esta altura ya tenemos la lista de productos y la lista de comercios que tienen todos esos productos. Debemos hacer la cuenta del costo total de esos productos en cada comercio. Nos quedamos con el mas barato.
+        double precioMenor = 99999999;
+        double precioCarro = 0;
+        Comercio comercioElegido = new Comercio();
+
+        for (Comercio com : comercios) {
+            for (Producto prod : listaDeProductos) { // sumo todos los productos para ese comercio
+                precioCarro = +prod.getPrecio();
+            }
+            if (precioCarro < precioMenor) { // comparo el costo de este comercio con el minimo anterior
+                precioMenor = precioCarro;
+                comercioElegido = com;
+            }
+        }
+        mejorPrecio = precioMenor;
+        return comercioElegido;
+
     }
 }

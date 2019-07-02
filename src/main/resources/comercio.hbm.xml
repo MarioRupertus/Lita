@@ -50,10 +50,10 @@ Contributor(s):
     <property name="calificacionNegativa" column="calificacionnegativa"/>
     <many-to-one name="ubicacion" class="edu.mil.cet002.compraslita.Nodo" column="fknodo"  lazy="false"/>
     
-<!--    <bag name="listaDeProductos" table="producto" inverse="false" fetch="select">
+    <bag name="listaDeProductos" table="producto" inverse="false" fetch="select">
         <key column="fkcomercio"/>
         <one-to-many class="edu.mil.cet002.compraslita.Producto"/>
-    </bag>-->
+    </bag>
     
      
     </class>
