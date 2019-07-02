@@ -87,7 +87,7 @@ public class Carro extends javax.swing.JFrame {
         totalMejorCom1 = new javax.swing.JTextField();
         mejorPrecio = new javax.swing.JTextField();
         mejorComNombre = new javax.swing.JTextField();
-        recorrerMejorComercio = new javax.swing.JButton();
+        mostrarRecorrido1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setFocusable(false);
@@ -221,10 +221,11 @@ public class Carro extends javax.swing.JFrame {
             }
         });
 
-        recorrerMejorComercio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectoswing/imagenes/recorrido.png"))); // NOI18N
-        recorrerMejorComercio.addActionListener(new java.awt.event.ActionListener() {
+        mostrarRecorrido1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectoswing/imagenes/recorrido.png"))); // NOI18N
+        mostrarRecorrido1.setEnabled(false);
+        mostrarRecorrido1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                recorrerMejorComercioActionPerformed(evt);
+                mostrarRecorrido1ActionPerformed(evt);
             }
         });
 
@@ -251,7 +252,7 @@ public class Carro extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(mejorComercioBoton)
                         .addGap(2, 2, 2)
-                        .addComponent(recorrerMejorComercio, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(mostrarRecorrido1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(totalMejorCom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(2, 2, 2)
@@ -321,7 +322,7 @@ public class Carro extends javax.swing.JFrame {
                             .addComponent(totalMejorCom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(mejorComNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(recorrerMejorComercio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(mostrarRecorrido1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(58, 58, 58))
         );
 
@@ -333,13 +334,15 @@ public class Carro extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 374, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 374, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void recorrerMejorComercioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_recorrerMejorComercioActionPerformed
+    private void mostrarRecorrido1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mostrarRecorrido1ActionPerformed
         try {
             a.dispose();
             Nodo origen = Servicios.getInstance().getMapa().getMapa().get(comboInici.getSelectedIndex());
@@ -359,7 +362,7 @@ public class Carro extends javax.swing.JFrame {
             new PanelBusqueda().setVisible(true); // Crea y muestra panel de busqueda
             this.dispose();
         }
-    }//GEN-LAST:event_recorrerMejorComercioActionPerformed
+    }//GEN-LAST:event_mostrarRecorrido1ActionPerformed
 
     private void mejorComNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mejorComNombreActionPerformed
         // TODO add your handling code here:
@@ -375,6 +378,7 @@ public class Carro extends javax.swing.JFrame {
         if (mejorComercio != null) {
             totalMejorCom.setForeground(Color.BLACK);
             totalMejorCom1.setForeground(Color.BLACK);
+            mostrarRecorrido1.setEnabled(true);
             mejorComNombre.setText(mejorComercio.getNombre());
             mejorPrecio.setText(String.valueOf(carro.getMejorPrecio()));
             this.mejorComercio = mejorComercio;
@@ -487,9 +491,9 @@ public class Carro extends javax.swing.JFrame {
     private javax.swing.JButton mejorComercioBoton;
     private javax.swing.JTextField mejorPrecio;
     private javax.swing.JButton mostrarRecorrido;
+    private javax.swing.JButton mostrarRecorrido1;
     private javax.swing.JScrollPane panelItems;
     private javax.swing.JTextField precio;
-    private javax.swing.JButton recorrerMejorComercio;
     private javax.swing.JTextField textoCarro;
     private javax.swing.JTextField textoTotal;
     private javax.swing.JTextField textoTransporte;
