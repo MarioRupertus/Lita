@@ -79,7 +79,7 @@ public class Carrito {
 
             for (Comercio com : comercios) {
                 for (Producto prod : listaDeProductos) { // sumo todos los productos para ese comercio
-                    precioCarro = +prod.getPrecio();
+                    precioCarro += prod.getPrecio();
                 }
                 if (precioCarro < precioMenor) { // comparo el costo de este comercio con el minimo anterior
                     precioMenor = precioCarro;
