@@ -27,6 +27,7 @@ public class Carro extends javax.swing.JFrame {
     private DefaultComboBoxModel<String> dlmFin = new DefaultComboBoxModel<>();
     private Carrito carro;
     private ResultadosBusqueda a;
+    private Comercio mejorComercio;
 
     /**
      * Creates new form
@@ -86,6 +87,7 @@ public class Carro extends javax.swing.JFrame {
         totalMejorCom1 = new javax.swing.JTextField();
         mejorPrecio = new javax.swing.JTextField();
         mejorComNombre = new javax.swing.JTextField();
+        recorrerMejorComercio = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setFocusable(false);
@@ -139,7 +141,7 @@ public class Carro extends javax.swing.JFrame {
 
         botonEliminar.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         botonEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectoswing/imagenes/elimina3.png"))); // NOI18N
-        botonEliminar.setText("Eliminar producto del carro");
+        botonEliminar.setText("Quitar producto");
         botonEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonEliminarActionPerformed(evt);
@@ -219,6 +221,13 @@ public class Carro extends javax.swing.JFrame {
             }
         });
 
+        recorrerMejorComercio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectoswing/imagenes/recorrido.png"))); // NOI18N
+        recorrerMejorComercio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                recorrerMejorComercioActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -240,7 +249,9 @@ public class Carro extends javax.swing.JFrame {
                         .addComponent(textoCarro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(mejorComercioBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(mejorComercioBoton)
+                        .addGap(2, 2, 2)
+                        .addComponent(recorrerMejorComercio, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(totalMejorCom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(2, 2, 2)
@@ -303,12 +314,15 @@ public class Carro extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(mejorPrecio, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(mejorComercioBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(totalMejorCom1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(totalMejorCom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(mejorComNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(45, 45, 45))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(mejorComercioBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(totalMejorCom1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(totalMejorCom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(mejorComNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(recorrerMejorComercio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(58, 58, 58))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -319,13 +333,33 @@ public class Carro extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 374, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 374, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void recorrerMejorComercioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_recorrerMejorComercioActionPerformed
+        try {
+            a.dispose();
+            Nodo origen = Servicios.getInstance().getMapa().getMapa().get(comboInici.getSelectedIndex());
+            Nodo Final = Servicios.getInstance().getMapa().getMapa().get(comboFinal.getSelectedIndex());
+            List<Nodo> destinoIntermedio = buscarNodoMejorComercio();
+            Mapa mapa = Servicios.getInstance().getMapa();
+            int camino;
+            if (buttonGroup1.isSelected(botonAuto.getModel())) {
+                camino = 1;
+            } else {
+                camino = 0;
+            }
+            MapaVisual m = new MapaVisual(Servicios.getInstance().calcularRecorrido(origen, Final, destinoIntermedio, mapa, camino), carro);
+            m.setVisible(true);
+            this.dispose();
+        } catch (Exception e) {
+            new PanelBusqueda().setVisible(true); // Crea y muestra panel de busqueda
+            this.dispose();
+        }
+    }//GEN-LAST:event_recorrerMejorComercioActionPerformed
 
     private void mejorComNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mejorComNombreActionPerformed
         // TODO add your handling code here:
@@ -343,6 +377,7 @@ public class Carro extends javax.swing.JFrame {
             totalMejorCom1.setForeground(Color.BLACK);
             mejorComNombre.setText(mejorComercio.getNombre());
             mejorPrecio.setText(String.valueOf(carro.getMejorPrecio()));
+            this.mejorComercio = mejorComercio;
         } else {
             totalMejorCom1.setForeground(Color.BLACK);
             mejorComNombre.setText("Ningún comercio contiene todos sus productos.");
@@ -413,6 +448,12 @@ public class Carro extends javax.swing.JFrame {
         return nodos;
     }
 
+    private List<Nodo> buscarNodoMejorComercio() {
+        List<Nodo> nodos = new ArrayList();
+        nodos.add(this.mejorComercio.getUbicacion());
+        return nodos;
+    }
+
     private void iniciarLista() {
         for (int i = 0; i != carro.getListaDeProductos().size(); i++) {
             dlm.addElement(carro.getListaDeProductos().get(i).getNombre() + " | " + carro.getListaDeProductos().get(i).getComercio().getNombre() + " | $" + carro.getListaDeProductos().get(i).getPrecio());
@@ -448,6 +489,7 @@ public class Carro extends javax.swing.JFrame {
     private javax.swing.JButton mostrarRecorrido;
     private javax.swing.JScrollPane panelItems;
     private javax.swing.JTextField precio;
+    private javax.swing.JButton recorrerMejorComercio;
     private javax.swing.JTextField textoCarro;
     private javax.swing.JTextField textoTotal;
     private javax.swing.JTextField textoTransporte;
