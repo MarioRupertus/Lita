@@ -11,6 +11,7 @@ import edu.mil.cet002.compraslita.Mapa;
 import edu.mil.cet002.compraslita.Nodo;
 import edu.mil.cet002.compraslita.Producto;
 import edu.mil.cet002.compraslita.Servicios;
+import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.*;
@@ -185,7 +186,7 @@ public class Carro extends javax.swing.JFrame {
             }
         });
 
-        mejorComercioBoton.setText("Buscar comercio mas económico");
+        mejorComercioBoton.setText("Buscar Mejor Comercio");
         mejorComercioBoton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 mejorComercioBotonActionPerformed(evt);
@@ -193,11 +194,13 @@ public class Carro extends javax.swing.JFrame {
         });
 
         totalMejorCom.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        totalMejorCom.setForeground(new java.awt.Color(255, 255, 255));
         totalMejorCom.setText("Mejor Precio: $");
         totalMejorCom.setToolTipText("");
         totalMejorCom.setBorder(null);
 
         totalMejorCom1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        totalMejorCom1.setForeground(new java.awt.Color(255, 255, 255));
         totalMejorCom1.setText("Comercio");
         totalMejorCom1.setToolTipText("");
         totalMejorCom1.setBorder(null);
@@ -259,12 +262,12 @@ public class Carro extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(botonCaminar))
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(totalMejorCom1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(mejorComNombre)))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(totalMejorCom1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(mejorComNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -298,13 +301,14 @@ public class Carro extends javax.swing.JFrame {
                     .addComponent(precio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(botonEliminar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(mejorComercioBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(totalMejorCom1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(mejorComNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(mejorPrecio)
-                    .addComponent(totalMejorCom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(41, 41, 41))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(mejorPrecio, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(mejorComercioBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(totalMejorCom1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(totalMejorCom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(mejorComNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(45, 45, 45))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -323,17 +327,27 @@ public class Carro extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void mejorComNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mejorComNombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mejorComNombreActionPerformed
+
+    private void mejorPrecioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mejorPrecioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mejorPrecioActionPerformed
+
     private void mejorComercioBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mejorComercioBotonActionPerformed
 
         Comercio mejorComercio = carro.calcularCompraOptima();
         if (mejorComercio != null) {
+            totalMejorCom.setForeground(Color.BLACK);
+            totalMejorCom1.setForeground(Color.BLACK);
             mejorComNombre.setText(mejorComercio.getNombre());
             mejorPrecio.setText(String.valueOf(carro.getMejorPrecio()));
         } else {
-            mejorComNombre.setText("No se encontraron comercio que tengan todos los productos del carro.");
+            totalMejorCom1.setForeground(Color.BLACK);
+            mejorComNombre.setText("Ningún comercio contiene todos sus productos.");
             mejorPrecio.setText(String.valueOf(""));
         }
-
     }//GEN-LAST:event_mejorComercioBotonActionPerformed
 
     private void botonVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonVolverActionPerformed
@@ -382,14 +396,6 @@ public class Carro extends javax.swing.JFrame {
     private void botonCaminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCaminarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_botonCaminarActionPerformed
-
-    private void mejorComNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mejorComNombreActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_mejorComNombreActionPerformed
-
-    private void mejorPrecioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mejorPrecioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_mejorPrecioActionPerformed
     private String calcularPrecio() {
         double precio = 0;
         for (int d = 0; d != carro.getListaDeProductos().size(); d++) {
