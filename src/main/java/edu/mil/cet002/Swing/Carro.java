@@ -94,25 +94,27 @@ public class Carro extends javax.swing.JFrame {
         setResizable(false);
         setSize(new java.awt.Dimension(500, 450));
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(0, 153, 153));
+        jPanel1.setForeground(new java.awt.Color(0, 153, 153));
         jPanel1.setFocusable(false);
         jPanel1.setPreferredSize(new java.awt.Dimension(500, 450));
 
         textoTransporte.setEditable(false);
-        textoTransporte.setBackground(new java.awt.Color(255, 255, 255));
+        textoTransporte.setBackground(new java.awt.Color(0, 153, 153));
         textoTransporte.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         textoTransporte.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         textoTransporte.setText(" Medio de transporte:");
         textoTransporte.setBorder(null);
         textoTransporte.setFocusable(false);
 
-        botonAuto.setBackground(new java.awt.Color(255, 255, 255));
+        botonAuto.setBackground(new java.awt.Color(0, 153, 153));
         buttonGroup1.add(botonAuto);
         botonAuto.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         botonAuto.setSelected(true);
         botonAuto.setText("Auto");
+        botonAuto.setAutoscrolls(true);
 
-        botonCaminar.setBackground(new java.awt.Color(255, 255, 255));
+        botonCaminar.setBackground(new java.awt.Color(0, 153, 153));
         buttonGroup1.add(botonCaminar);
         botonCaminar.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         botonCaminar.setText("Caminar");
@@ -123,12 +125,13 @@ public class Carro extends javax.swing.JFrame {
         });
 
         textoCarro.setEditable(false);
-        textoCarro.setBackground(new java.awt.Color(255, 255, 255));
+        textoCarro.setBackground(new java.awt.Color(0, 153, 153));
         textoCarro.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         textoCarro.setText("Carro de compras:");
         textoCarro.setBorder(null);
         textoCarro.setFocusable(false);
 
+        listaProductos.setBackground(new java.awt.Color(192, 102, 34));
         listaProductos.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         listaProductos.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4" };
@@ -139,6 +142,7 @@ public class Carro extends javax.swing.JFrame {
         listaProductos.setSelectedIndex(0);
         panelItems.setViewportView(listaProductos);
 
+        botonEliminar.setBackground(new java.awt.Color(192, 102, 34));
         botonEliminar.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         botonEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectoswing/imagenes/elimina3.png"))); // NOI18N
         botonEliminar.setText("Quitar producto");
@@ -148,17 +152,20 @@ public class Carro extends javax.swing.JFrame {
             }
         });
 
+        textoTotal.setBackground(new java.awt.Color(0, 153, 153));
         textoTotal.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         textoTotal.setText("Total a pagar: $");
         textoTotal.setToolTipText("");
         textoTotal.setBorder(null);
 
+        precio.setBackground(new java.awt.Color(0, 153, 153));
         precio.setFont(new java.awt.Font("Tahoma", 2, 14)); // NOI18N
         precio.setBorder(null);
 
         jScrollPane2.setBackground(new java.awt.Color(255, 255, 255));
         jScrollPane2.setBorder(null);
 
+        jTextPane2.setBackground(new java.awt.Color(0, 153, 153));
         jTextPane2.setText("Punto de partida:");
         jScrollPane2.setViewportView(jTextPane2);
 
@@ -166,12 +173,14 @@ public class Carro extends javax.swing.JFrame {
 
         jScrollPane1.setBorder(null);
 
+        jTextPane1.setBackground(new java.awt.Color(0, 153, 153));
         jTextPane1.setBorder(null);
         jTextPane1.setText("Punto final:");
         jScrollPane1.setViewportView(jTextPane1);
 
         comboFinal.setModel(dlmFin);
 
+        mostrarRecorrido.setBackground(new java.awt.Color(192, 102, 34));
         mostrarRecorrido.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectoswing/imagenes/recorrido.png"))); // NOI18N
         mostrarRecorrido.setText("Mostrar recorrido");
         mostrarRecorrido.addActionListener(new java.awt.event.ActionListener() {
@@ -180,6 +189,7 @@ public class Carro extends javax.swing.JFrame {
             }
         });
 
+        botonVolver.setBackground(new java.awt.Color(192, 102, 34));
         botonVolver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectoswing/imagenes/volver2.png"))); // NOI18N
         botonVolver.setLabel("Volver");
         botonVolver.addActionListener(new java.awt.event.ActionListener() {
@@ -188,25 +198,31 @@ public class Carro extends javax.swing.JFrame {
             }
         });
 
+        mejorComercioBoton.setBackground(new java.awt.Color(192, 102, 34));
         mejorComercioBoton.setText("Buscar Mejor Comercio");
+        mejorComercioBoton.setAutoscrolls(true);
         mejorComercioBoton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 mejorComercioBotonActionPerformed(evt);
             }
         });
 
+        totalMejorCom.setBackground(new java.awt.Color(0, 153, 153));
         totalMejorCom.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        totalMejorCom.setForeground(new java.awt.Color(255, 255, 255));
+        totalMejorCom.setForeground(new java.awt.Color(0, 153, 153));
         totalMejorCom.setText("Mejor Precio: $");
         totalMejorCom.setToolTipText("");
         totalMejorCom.setBorder(null);
 
+        totalMejorCom1.setBackground(new java.awt.Color(0, 153, 153));
         totalMejorCom1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        totalMejorCom1.setForeground(new java.awt.Color(255, 255, 255));
+        totalMejorCom1.setForeground(new java.awt.Color(0, 153, 153));
         totalMejorCom1.setText("Comercio");
         totalMejorCom1.setToolTipText("");
+        totalMejorCom1.setAutoscrolls(false);
         totalMejorCom1.setBorder(null);
 
+        mejorPrecio.setBackground(new java.awt.Color(0, 153, 153));
         mejorPrecio.setBorder(null);
         mejorPrecio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -214,6 +230,7 @@ public class Carro extends javax.swing.JFrame {
             }
         });
 
+        mejorComNombre.setBackground(new java.awt.Color(0, 153, 153));
         mejorComNombre.setBorder(null);
         mejorComNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -221,6 +238,7 @@ public class Carro extends javax.swing.JFrame {
             }
         });
 
+        mostrarRecorrido1.setBackground(new java.awt.Color(192, 102, 34));
         mostrarRecorrido1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectoswing/imagenes/recorrido.png"))); // NOI18N
         mostrarRecorrido1.setEnabled(false);
         mostrarRecorrido1.addActionListener(new java.awt.event.ActionListener() {

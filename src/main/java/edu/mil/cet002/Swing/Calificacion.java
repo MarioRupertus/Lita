@@ -59,19 +59,21 @@ public class Calificacion extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(0, 153, 153));
 
         textoCalificacion.setEditable(false);
-        textoCalificacion.setBackground(new java.awt.Color(255, 255, 255));
+        textoCalificacion.setBackground(new java.awt.Color(0, 153, 153));
         textoCalificacion.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         textoCalificacion.setText("Calificación de comercios:");
         textoCalificacion.setBorder(null);
         textoCalificacion.setFocusable(false);
 
+        listaComercios.setBackground(new java.awt.Color(192, 102, 34));
         listaComercios.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         listaComercios.setModel(dft);
         panelComercios.setViewportView(listaComercios);
 
+        botonFinalizar.setBackground(new java.awt.Color(192, 102, 34));
         botonFinalizar.setText("Finalizar");
         botonFinalizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -79,6 +81,7 @@ public class Calificacion extends javax.swing.JFrame {
             }
         });
 
+        botonEnviar.setBackground(new java.awt.Color(192, 102, 34));
         botonEnviar.setText("Calificar Comercio");
         botonEnviar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

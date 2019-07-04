@@ -72,10 +72,10 @@ public class InfoComercio extends javax.swing.JFrame {
             }
         });
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(0, 153, 153));
 
         nombreComercio.setEditable(false);
-        nombreComercio.setBackground(new java.awt.Color(255, 255, 255));
+        nombreComercio.setBackground(new java.awt.Color(0, 153, 153));
         nombreComercio.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         nombreComercio.setText("Nombre del Comercio");
         nombreComercio.setBorder(null);
@@ -87,21 +87,22 @@ public class InfoComercio extends javax.swing.JFrame {
         });
 
         textoUbicacion.setEditable(false);
-        textoUbicacion.setBackground(new java.awt.Color(255, 255, 255));
+        textoUbicacion.setBackground(new java.awt.Color(0, 153, 153));
         textoUbicacion.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         textoUbicacion.setText("Ubicacion");
         textoUbicacion.setBorder(null);
         textoUbicacion.setFocusable(false);
 
         textoDueño.setEditable(false);
-        textoDueño.setBackground(new java.awt.Color(255, 255, 255));
+        textoDueño.setBackground(new java.awt.Color(0, 153, 153));
         textoDueño.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         textoDueño.setText("Dueño");
+        textoDueño.setAutoscrolls(false);
         textoDueño.setBorder(null);
         textoDueño.setFocusable(false);
 
         textoHorario.setEditable(false);
-        textoHorario.setBackground(new java.awt.Color(255, 255, 255));
+        textoHorario.setBackground(new java.awt.Color(0, 153, 153));
         textoHorario.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         textoHorario.setText("Horario");
         textoHorario.setBorder(null);
@@ -113,19 +114,21 @@ public class InfoComercio extends javax.swing.JFrame {
         });
 
         textoCalifPosit.setEditable(false);
-        textoCalifPosit.setBackground(new java.awt.Color(255, 255, 255));
+        textoCalifPosit.setBackground(new java.awt.Color(0, 153, 153));
         textoCalifPosit.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         textoCalifPosit.setText("Calificaciones Positivas: ##");
         textoCalifPosit.setBorder(null);
         textoCalifPosit.setFocusable(false);
 
         textoCalifNegat.setEditable(false);
-        textoCalifNegat.setBackground(new java.awt.Color(255, 255, 255));
+        textoCalifNegat.setBackground(new java.awt.Color(0, 153, 153));
         textoCalifNegat.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         textoCalifNegat.setText("Calificaciones Negativas: ##");
         textoCalifNegat.setBorder(null);
         textoCalifNegat.setFocusable(false);
 
+        botonVolver.setBackground(new java.awt.Color(192, 102, 34));
+        botonVolver.setAutoscrolls(true);
         botonVolver.setLabel("Volver");
         botonVolver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -133,13 +136,16 @@ public class InfoComercio extends javax.swing.JFrame {
             }
         });
 
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         textoCalificacion.setEditable(false);
+        textoCalificacion.setBackground(new java.awt.Color(255, 255, 255));
         textoCalificacion.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         textoCalificacion.setText("Calificacion:");
         textoCalificacion.setBorder(null);
 
+        botonPositiva.setBackground(new java.awt.Color(255, 255, 255));
         calificaciones.add(botonPositiva);
         botonPositiva.setSelected(true);
         botonPositiva.setText("Positiva");
@@ -150,10 +156,12 @@ public class InfoComercio extends javax.swing.JFrame {
             }
         });
 
+        botonNegativa.setBackground(new java.awt.Color(255, 255, 255));
         calificaciones.add(botonNegativa);
         botonNegativa.setText("Negativa");
         botonNegativa.setFocusable(false);
 
+        botonEnviar.setBackground(new java.awt.Color(192, 102, 34));
         botonEnviar.setText("Enviar calificación");
         botonEnviar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -243,13 +251,14 @@ public class InfoComercio extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 

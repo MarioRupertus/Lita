@@ -68,11 +68,11 @@ public class ResultadosBusqueda extends javax.swing.JFrame {
         setBounds(new java.awt.Rectangle(0, 0, 0, 0));
         setResizable(false);
 
-        jPanel1.setBackground(new java.awt.Color(234, 234, 234));
+        jPanel1.setBackground(new java.awt.Color(0, 153, 153));
 
         textoResultados.setEditable(false);
-        textoResultados.setBackground(new java.awt.Color(234, 234, 234));
-        textoResultados.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        textoResultados.setBackground(new java.awt.Color(0, 153, 153));
+        textoResultados.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         textoResultados.setText("Resultados de la búsqueda:");
         textoResultados.setBorder(null);
         textoResultados.setCaretColor(new java.awt.Color(255, 255, 255));
@@ -91,8 +91,8 @@ public class ResultadosBusqueda extends javax.swing.JFrame {
         textoProducto.setFocusable(false);
 
         textoOrdenar.setEditable(false);
-        textoOrdenar.setBackground(new java.awt.Color(234, 234, 234));
-        textoOrdenar.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        textoOrdenar.setBackground(new java.awt.Color(0, 153, 153));
+        textoOrdenar.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         textoOrdenar.setText("Ordenar por:");
         textoOrdenar.setBorder(null);
         textoOrdenar.setFocusable(false);
@@ -106,6 +106,7 @@ public class ResultadosBusqueda extends javax.swing.JFrame {
             }
         });
 
+        botonNuevaBusqueda.setBackground(new java.awt.Color(192, 102, 34));
         botonNuevaBusqueda.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         botonNuevaBusqueda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectoswing/imagenes/buscar png.png"))); // NOI18N
         botonNuevaBusqueda.setText("Nueva Búsqueda");
@@ -116,6 +117,7 @@ public class ResultadosBusqueda extends javax.swing.JFrame {
             }
         });
 
+        botonIrCarrito.setBackground(new java.awt.Color(192, 102, 34));
         botonIrCarrito.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         botonIrCarrito.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectoswing/imagenes/carrito png.png"))); // NOI18N
         botonIrCarrito.setText("Ir al carrito");
@@ -126,8 +128,9 @@ public class ResultadosBusqueda extends javax.swing.JFrame {
             }
         });
 
+        botonAgregarCarro.setBackground(new java.awt.Color(192, 102, 34));
         botonAgregarCarro.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        botonAgregarCarro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectoswing/imagenes/agregar al carrito.png"))); // NOI18N
+        botonAgregarCarro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectoswing/imagenes/agregar al carro_2.png"))); // NOI18N
         botonAgregarCarro.setText("Agregar producto al carro");
         botonAgregarCarro.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         botonAgregarCarro.addActionListener(new java.awt.event.ActionListener() {
@@ -136,6 +139,7 @@ public class ResultadosBusqueda extends javax.swing.JFrame {
             }
         });
 
+        botonSalir.setBackground(new java.awt.Color(192, 102, 34));
         botonSalir.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         botonSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectoswing/imagenes/salir png.png"))); // NOI18N
         botonSalir.setText("Salir");
@@ -146,6 +150,7 @@ public class ResultadosBusqueda extends javax.swing.JFrame {
             }
         });
 
+        botonInfo.setBackground(new java.awt.Color(192, 102, 34));
         botonInfo.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         botonInfo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectoswing/imagenes/info.png"))); // NOI18N
         botonInfo.setText("Ver informacion del comercio");
@@ -292,31 +297,36 @@ public class ResultadosBusqueda extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(textoOrdenar, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(comboOrden, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(botonNuevaBusqueda)
-                .addGap(374, 374, 374))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(textoResultados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(22, 22, 22)
+                        .addComponent(textoOrdenar, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(textoProducto))
+                        .addComponent(comboOrden, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(botonNuevaBusqueda)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(botonSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addContainerGap()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(botonInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(85, 85, 85)
+                                .addComponent(textoResultados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(textoProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 421, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
                                 .addComponent(botonAgregarCarro)
-                                .addGap(18, 18, 18)
-                                .addComponent(botonIrCarrito, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 707, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(botonSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                                .addGap(27, 27, 27)
+                                .addComponent(botonIrCarrito, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(botonInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 707, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addGap(0, 9, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -345,7 +355,9 @@ public class ResultadosBusqueda extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 738, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
