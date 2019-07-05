@@ -64,74 +64,88 @@ public class Carro extends javax.swing.JFrame {
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
-        jPanel1 = new javax.swing.JPanel();
-        textoTransporte = new javax.swing.JTextField();
-        botonAuto = new javax.swing.JRadioButton();
-        botonCaminar = new javax.swing.JRadioButton();
+        jToggleButton1 = new javax.swing.JToggleButton();
+        all = new javax.swing.JPanel();
+        panelTitulo = new javax.swing.JPanel();
+        tituloPagina = new javax.swing.JButton();
+        panelCarro = new javax.swing.JPanel();
         textoCarro = new javax.swing.JTextField();
         panelItems = new javax.swing.JScrollPane();
         listaProductos = new javax.swing.JList<>();
         botonEliminar = new javax.swing.JButton();
+        botonVolver = new javax.swing.JButton();
+        textoTransporte = new javax.swing.JTextField();
+        botonCaminar = new javax.swing.JRadioButton();
+        botonAuto = new javax.swing.JRadioButton();
+        panelLita = new javax.swing.JPanel();
+        tituloLita = new javax.swing.JButton();
+        mostrarRecorrido = new javax.swing.JButton();
         textoTotal = new javax.swing.JTextField();
         precio = new javax.swing.JTextField();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTextPane2 = new javax.swing.JTextPane();
-        comboInici = new javax.swing.JComboBox<>();
+        panelUnComerio = new javax.swing.JPanel();
+        botonBuscarMejorComercio = new javax.swing.JButton();
+        totalMejorCom = new javax.swing.JTextField();
+        mejorComNombre = new javax.swing.JTextField();
+        totalMejorCom1 = new javax.swing.JTextField();
+        botonRecorrerMejorComercio = new javax.swing.JButton();
+        textoNombreMejorComercio = new javax.swing.JTextField();
+        panelOpciones = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextPane1 = new javax.swing.JTextPane();
         comboFinal = new javax.swing.JComboBox<>();
-        mostrarRecorrido = new javax.swing.JButton();
-        botonVolver = new javax.swing.JButton();
-        mejorComercioBoton = new javax.swing.JButton();
-        totalMejorCom = new javax.swing.JTextField();
-        totalMejorCom1 = new javax.swing.JTextField();
-        mejorPrecio = new javax.swing.JTextField();
-        mejorComNombre = new javax.swing.JTextField();
-        mostrarRecorrido1 = new javax.swing.JButton();
+        comboInici = new javax.swing.JComboBox<>();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTextPane2 = new javax.swing.JTextPane();
+
+        jToggleButton1.setText("jToggleButton1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setFocusable(false);
         setResizable(false);
         setSize(new java.awt.Dimension(500, 450));
 
-        jPanel1.setBackground(new java.awt.Color(0, 153, 153));
-        jPanel1.setForeground(new java.awt.Color(0, 153, 153));
-        jPanel1.setFocusable(false);
-        jPanel1.setPreferredSize(new java.awt.Dimension(500, 450));
+        all.setBackground(new java.awt.Color(255, 255, 255));
+        all.setFocusable(false);
+        all.setPreferredSize(new java.awt.Dimension(500, 450));
 
-        textoTransporte.setEditable(false);
-        textoTransporte.setBackground(new java.awt.Color(0, 153, 153));
-        textoTransporte.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        textoTransporte.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        textoTransporte.setText(" Medio de transporte:");
-        textoTransporte.setBorder(null);
-        textoTransporte.setFocusable(false);
+        panelTitulo.setBackground(new java.awt.Color(255, 255, 255));
 
-        botonAuto.setBackground(new java.awt.Color(0, 153, 153));
-        buttonGroup1.add(botonAuto);
-        botonAuto.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        botonAuto.setSelected(true);
-        botonAuto.setText("Auto");
-        botonAuto.setAutoscrolls(true);
-
-        botonCaminar.setBackground(new java.awt.Color(0, 153, 153));
-        buttonGroup1.add(botonCaminar);
-        botonCaminar.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        botonCaminar.setText("Caminar");
-        botonCaminar.addActionListener(new java.awt.event.ActionListener() {
+        tituloPagina.setBackground(new java.awt.Color(0, 204, 153));
+        tituloPagina.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        tituloPagina.setForeground(new java.awt.Color(255, 255, 255));
+        tituloPagina.setText("No pagué de más con Las Compras de Lita");
+        tituloPagina.setBorderPainted(false);
+        tituloPagina.setFocusPainted(false);
+        tituloPagina.setFocusable(false);
+        tituloPagina.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonCaminarActionPerformed(evt);
+                tituloPaginaActionPerformed(evt);
             }
         });
 
+        javax.swing.GroupLayout panelTituloLayout = new javax.swing.GroupLayout(panelTitulo);
+        panelTitulo.setLayout(panelTituloLayout);
+        panelTituloLayout.setHorizontalGroup(
+            panelTituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelTituloLayout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addComponent(tituloPagina, javax.swing.GroupLayout.PREFERRED_SIZE, 761, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(22, Short.MAX_VALUE))
+        );
+        panelTituloLayout.setVerticalGroup(
+            panelTituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(tituloPagina)
+        );
+
+        panelCarro.setBackground(new java.awt.Color(255, 255, 255));
+
         textoCarro.setEditable(false);
-        textoCarro.setBackground(new java.awt.Color(0, 153, 153));
-        textoCarro.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        textoCarro.setBackground(new java.awt.Color(255, 255, 255));
+        textoCarro.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         textoCarro.setText("Carro de compras:");
         textoCarro.setBorder(null);
         textoCarro.setFocusable(false);
 
-        listaProductos.setBackground(new java.awt.Color(192, 102, 34));
         listaProductos.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         listaProductos.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4" };
@@ -142,55 +156,20 @@ public class Carro extends javax.swing.JFrame {
         listaProductos.setSelectedIndex(0);
         panelItems.setViewportView(listaProductos);
 
-        botonEliminar.setBackground(new java.awt.Color(192, 102, 34));
+        botonEliminar.setBackground(new java.awt.Color(226, 226, 226));
         botonEliminar.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         botonEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectoswing/imagenes/elimina3.png"))); // NOI18N
         botonEliminar.setText("Quitar producto");
+        botonEliminar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         botonEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonEliminarActionPerformed(evt);
             }
         });
 
-        textoTotal.setBackground(new java.awt.Color(0, 153, 153));
-        textoTotal.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        textoTotal.setText("Total a pagar: $");
-        textoTotal.setToolTipText("");
-        textoTotal.setBorder(null);
-
-        precio.setBackground(new java.awt.Color(0, 153, 153));
-        precio.setFont(new java.awt.Font("Tahoma", 2, 14)); // NOI18N
-        precio.setBorder(null);
-
-        jScrollPane2.setBackground(new java.awt.Color(255, 255, 255));
-        jScrollPane2.setBorder(null);
-
-        jTextPane2.setBackground(new java.awt.Color(0, 153, 153));
-        jTextPane2.setText("Punto de partida:");
-        jScrollPane2.setViewportView(jTextPane2);
-
-        comboInici.setModel(dlmIni);
-
-        jScrollPane1.setBorder(null);
-
-        jTextPane1.setBackground(new java.awt.Color(0, 153, 153));
-        jTextPane1.setBorder(null);
-        jTextPane1.setText("Punto final:");
-        jScrollPane1.setViewportView(jTextPane1);
-
-        comboFinal.setModel(dlmFin);
-
-        mostrarRecorrido.setBackground(new java.awt.Color(192, 102, 34));
-        mostrarRecorrido.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectoswing/imagenes/recorrido.png"))); // NOI18N
-        mostrarRecorrido.setText("Mostrar recorrido");
-        mostrarRecorrido.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mostrarRecorridoActionPerformed(evt);
-            }
-        });
-
-        botonVolver.setBackground(new java.awt.Color(192, 102, 34));
+        botonVolver.setBackground(new java.awt.Color(226, 226, 226));
         botonVolver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectoswing/imagenes/volver2.png"))); // NOI18N
+        botonVolver.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         botonVolver.setLabel("Volver");
         botonVolver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -198,39 +177,158 @@ public class Carro extends javax.swing.JFrame {
             }
         });
 
-        mejorComercioBoton.setBackground(new java.awt.Color(192, 102, 34));
-        mejorComercioBoton.setText("Buscar Mejor Comercio");
-        mejorComercioBoton.setAutoscrolls(true);
-        mejorComercioBoton.addActionListener(new java.awt.event.ActionListener() {
+        textoTransporte.setEditable(false);
+        textoTransporte.setBackground(new java.awt.Color(255, 255, 255));
+        textoTransporte.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        textoTransporte.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        textoTransporte.setText(" Medio de transporte:");
+        textoTransporte.setBorder(null);
+        textoTransporte.setFocusable(false);
+        textoTransporte.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mejorComercioBotonActionPerformed(evt);
+                textoTransporteActionPerformed(evt);
             }
         });
 
-        totalMejorCom.setBackground(new java.awt.Color(0, 153, 153));
+        botonCaminar.setBackground(new java.awt.Color(255, 255, 255));
+        buttonGroup1.add(botonCaminar);
+        botonCaminar.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        botonCaminar.setText("Caminar");
+        botonCaminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonCaminarActionPerformed(evt);
+            }
+        });
+
+        botonAuto.setBackground(new java.awt.Color(255, 255, 255));
+        buttonGroup1.add(botonAuto);
+        botonAuto.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        botonAuto.setSelected(true);
+        botonAuto.setText("Auto");
+        botonAuto.setAutoscrolls(true);
+
+        javax.swing.GroupLayout panelCarroLayout = new javax.swing.GroupLayout(panelCarro);
+        panelCarro.setLayout(panelCarroLayout);
+        panelCarroLayout.setHorizontalGroup(
+            panelCarroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelCarroLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelCarroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelCarroLayout.createSequentialGroup()
+                        .addComponent(botonVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(botonEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(textoTransporte, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(botonAuto)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(botonCaminar))
+                    .addComponent(panelItems, javax.swing.GroupLayout.PREFERRED_SIZE, 752, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textoCarro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(66, Short.MAX_VALUE))
+        );
+        panelCarroLayout.setVerticalGroup(
+            panelCarroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelCarroLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(textoCarro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(panelItems, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelCarroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(botonEliminar)
+                    .addComponent(botonVolver)
+                    .addGroup(panelCarroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(textoTransporte, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(botonAuto)
+                        .addComponent(botonCaminar)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        panelLita.setBackground(new java.awt.Color(255, 255, 255));
+
+        tituloLita.setBackground(new java.awt.Color(255, 153, 0));
+        tituloLita.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        tituloLita.setForeground(new java.awt.Color(255, 255, 255));
+        tituloLita.setText("Modo Lita de Lazzari");
+        tituloLita.setBorderPainted(false);
+        tituloLita.setFocusPainted(false);
+        tituloLita.setFocusable(false);
+        tituloLita.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tituloLitaActionPerformed(evt);
+            }
+        });
+
+        mostrarRecorrido.setBackground(new java.awt.Color(255, 232, 199));
+        mostrarRecorrido.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectoswing/imagenes/recorrido.png"))); // NOI18N
+        mostrarRecorrido.setText("Iniciar Recorrido");
+        mostrarRecorrido.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        mostrarRecorrido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mostrarRecorridoActionPerformed(evt);
+            }
+        });
+
+        textoTotal.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        textoTotal.setText("Total a pagar: $");
+        textoTotal.setToolTipText("");
+        textoTotal.setBorder(null);
+
+        precio.setFont(new java.awt.Font("Tahoma", 2, 14)); // NOI18N
+        precio.setBorder(null);
+
+        javax.swing.GroupLayout panelLitaLayout = new javax.swing.GroupLayout(panelLita);
+        panelLita.setLayout(panelLitaLayout);
+        panelLitaLayout.setHorizontalGroup(
+            panelLitaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelLitaLayout.createSequentialGroup()
+                .addComponent(tituloLita, javax.swing.GroupLayout.PREFERRED_SIZE, 498, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(mostrarRecorrido, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(panelLitaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(textoTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(precio, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        panelLitaLayout.setVerticalGroup(
+            panelLitaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelLitaLayout.createSequentialGroup()
+                .addGroup(panelLitaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(mostrarRecorrido, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(tituloLita, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelLitaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(textoTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(precio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        panelUnComerio.setBackground(new java.awt.Color(255, 255, 255));
+
+        botonBuscarMejorComercio.setBackground(new java.awt.Color(0, 204, 153));
+        botonBuscarMejorComercio.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        botonBuscarMejorComercio.setForeground(new java.awt.Color(255, 255, 255));
+        botonBuscarMejorComercio.setText("Desactivar Modo Lita -> Quiero comprar todo en el mismo comercio");
+        botonBuscarMejorComercio.setAutoscrolls(true);
+        botonBuscarMejorComercio.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        botonBuscarMejorComercio.setBorderPainted(false);
+        botonBuscarMejorComercio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonBuscarMejorComercioActionPerformed(evt);
+            }
+        });
+
         totalMejorCom.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        totalMejorCom.setForeground(new java.awt.Color(0, 153, 153));
-        totalMejorCom.setText("Mejor Precio: $");
+        totalMejorCom.setForeground(new java.awt.Color(204, 204, 204));
+        totalMejorCom.setText("Comercio:");
         totalMejorCom.setToolTipText("");
         totalMejorCom.setBorder(null);
 
-        totalMejorCom1.setBackground(new java.awt.Color(0, 153, 153));
-        totalMejorCom1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        totalMejorCom1.setForeground(new java.awt.Color(0, 153, 153));
-        totalMejorCom1.setText("Comercio");
-        totalMejorCom1.setToolTipText("");
-        totalMejorCom1.setAutoscrolls(false);
-        totalMejorCom1.setBorder(null);
-
-        mejorPrecio.setBackground(new java.awt.Color(0, 153, 153));
-        mejorPrecio.setBorder(null);
-        mejorPrecio.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mejorPrecioActionPerformed(evt);
-            }
-        });
-
-        mejorComNombre.setBackground(new java.awt.Color(0, 153, 153));
         mejorComNombre.setBorder(null);
         mejorComNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -238,129 +336,177 @@ public class Carro extends javax.swing.JFrame {
             }
         });
 
-        mostrarRecorrido1.setBackground(new java.awt.Color(192, 102, 34));
-        mostrarRecorrido1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectoswing/imagenes/recorrido.png"))); // NOI18N
-        mostrarRecorrido1.setEnabled(false);
-        mostrarRecorrido1.addActionListener(new java.awt.event.ActionListener() {
+        totalMejorCom1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        totalMejorCom1.setForeground(new java.awt.Color(204, 204, 204));
+        totalMejorCom1.setText("Total a pagar: $");
+        totalMejorCom1.setToolTipText("");
+        totalMejorCom1.setAutoscrolls(false);
+        totalMejorCom1.setBorder(null);
+
+        botonRecorrerMejorComercio.setBackground(new java.awt.Color(170, 236, 219));
+        botonRecorrerMejorComercio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectoswing/imagenes/recorrido.png"))); // NOI18N
+        botonRecorrerMejorComercio.setText("Iniciar Recorrido");
+        botonRecorrerMejorComercio.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        botonRecorrerMejorComercio.setEnabled(false);
+        botonRecorrerMejorComercio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mostrarRecorrido1ActionPerformed(evt);
+                botonRecorrerMejorComercioActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(botonEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(textoTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(precio, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(panelItems, javax.swing.GroupLayout.PREFERRED_SIZE, 402, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(textoCarro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(mejorComercioBoton)
-                        .addGap(2, 2, 2)
-                        .addComponent(mostrarRecorrido1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+        textoNombreMejorComercio.setFont(new java.awt.Font("Tahoma", 2, 14)); // NOI18N
+        textoNombreMejorComercio.setBorder(null);
+        textoNombreMejorComercio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textoNombreMejorComercioActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panelUnComerioLayout = new javax.swing.GroupLayout(panelUnComerio);
+        panelUnComerio.setLayout(panelUnComerioLayout);
+        panelUnComerioLayout.setHorizontalGroup(
+            panelUnComerioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelUnComerioLayout.createSequentialGroup()
+                .addGroup(panelUnComerioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelUnComerioLayout.createSequentialGroup()
+                        .addGap(11, 11, 11)
+                        .addComponent(totalMejorCom1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(textoNombreMejorComercio, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(totalMejorCom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(2, 2, 2)
-                        .addComponent(mejorPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(comboInici, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(comboFinal, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(botonVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(mostrarRecorrido, javax.swing.GroupLayout.DEFAULT_SIZE, 204, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(textoTransporte, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(botonAuto)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(botonCaminar))
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(totalMejorCom1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(mejorComNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addComponent(mejorComNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 439, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelUnComerioLayout.createSequentialGroup()
+                        .addComponent(botonBuscarMejorComercio, javax.swing.GroupLayout.PREFERRED_SIZE, 498, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(botonRecorrerMejorComercio, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(textoCarro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        panelUnComerioLayout.setVerticalGroup(
+            panelUnComerioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelUnComerioLayout.createSequentialGroup()
+                .addGroup(panelUnComerioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(botonBuscarMejorComercio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(botonRecorrerMejorComercio, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(panelUnComerioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelUnComerioLayout.createSequentialGroup()
+                        .addGroup(panelUnComerioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(textoNombreMejorComercio, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(totalMejorCom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(panelUnComerioLayout.createSequentialGroup()
+                        .addGroup(panelUnComerioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(totalMejorCom1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(mejorComNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(22, Short.MAX_VALUE))))
+        );
+
+        panelOpciones.setBackground(new java.awt.Color(255, 255, 255));
+
+        jScrollPane1.setBorder(null);
+
+        jTextPane1.setBorder(null);
+        jTextPane1.setText("Punto final:");
+        jScrollPane1.setViewportView(jTextPane1);
+
+        comboFinal.setModel(dlmFin);
+
+        comboInici.setModel(dlmIni);
+
+        jScrollPane2.setBackground(new java.awt.Color(255, 255, 255));
+        jScrollPane2.setBorder(null);
+
+        jTextPane2.setText("Punto de partida:");
+        jScrollPane2.setViewportView(jTextPane2);
+
+        javax.swing.GroupLayout panelOpcionesLayout = new javax.swing.GroupLayout(panelOpciones);
+        panelOpciones.setLayout(panelOpcionesLayout);
+        panelOpcionesLayout.setHorizontalGroup(
+            panelOpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelOpcionesLayout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addGroup(panelOpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(comboInici, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(panelItems, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(comboInici, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                .addGroup(panelOpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelOpcionesLayout.createSequentialGroup()
+                        .addComponent(comboFinal, 0, 354, Short.MAX_VALUE)
+                        .addGap(72, 72, 72))
+                    .addGroup(panelOpcionesLayout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+        );
+        panelOpcionesLayout.setVerticalGroup(
+            panelOpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelOpcionesLayout.createSequentialGroup()
+                .addGroup(panelOpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(panelOpcionesLayout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(comboFinal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(textoTransporte, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(botonAuto)
-                            .addComponent(botonCaminar))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(botonVolver)
-                            .addComponent(mostrarRecorrido))))
+                        .addComponent(comboFinal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelOpcionesLayout.createSequentialGroup()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(comboInici, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 11, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout allLayout = new javax.swing.GroupLayout(all);
+        all.setLayout(allLayout);
+        allLayout.setHorizontalGroup(
+            allLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(allLayout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addGroup(allLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(panelCarro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(panelLita, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(panelUnComerio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, allLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(panelOpciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+            .addGroup(allLayout.createSequentialGroup()
+                .addComponent(panelTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        allLayout.setVerticalGroup(
+            allLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(allLayout.createSequentialGroup()
+                .addContainerGap(15, Short.MAX_VALUE)
+                .addComponent(panelTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(textoTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(precio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(botonEliminar))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(mejorPrecio, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(mejorComercioBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(totalMejorCom1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(totalMejorCom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(mejorComNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(mostrarRecorrido1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(58, 58, 58))
+                .addComponent(panelCarro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(panelOpciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(panelLita, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(panelUnComerio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 827, Short.MAX_VALUE)
+            .addComponent(all, javax.swing.GroupLayout.PREFERRED_SIZE, 798, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 374, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(all, javax.swing.GroupLayout.PREFERRED_SIZE, 567, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void mostrarRecorrido1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mostrarRecorrido1ActionPerformed
+    private void tituloPaginaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tituloPaginaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tituloPaginaActionPerformed
+
+    private void botonRecorrerMejorComercioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRecorrerMejorComercioActionPerformed
         try {
             a.dispose();
             Nodo origen = Servicios.getInstance().getMapa().getMapa().get(comboInici.getSelectedIndex());
@@ -380,32 +526,32 @@ public class Carro extends javax.swing.JFrame {
             new PanelBusqueda().setVisible(true); // Crea y muestra panel de busqueda
             this.dispose();
         }
-    }//GEN-LAST:event_mostrarRecorrido1ActionPerformed
+    }//GEN-LAST:event_botonRecorrerMejorComercioActionPerformed
 
     private void mejorComNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mejorComNombreActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_mejorComNombreActionPerformed
 
-    private void mejorPrecioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mejorPrecioActionPerformed
+    private void textoNombreMejorComercioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textoNombreMejorComercioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_mejorPrecioActionPerformed
+    }//GEN-LAST:event_textoNombreMejorComercioActionPerformed
 
-    private void mejorComercioBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mejorComercioBotonActionPerformed
+    private void botonBuscarMejorComercioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBuscarMejorComercioActionPerformed
 
         Comercio mejorComercio = carro.calcularCompraOptima();
         if (mejorComercio != null) {
             totalMejorCom.setForeground(Color.BLACK);
             totalMejorCom1.setForeground(Color.BLACK);
-            mostrarRecorrido1.setEnabled(true);
+            botonRecorrerMejorComercio.setEnabled(true);
             mejorComNombre.setText(mejorComercio.getNombre());
-            mejorPrecio.setText(String.valueOf(carro.getMejorPrecio()));
+            textoNombreMejorComercio.setText(String.valueOf(carro.getMejorPrecio()));
             this.mejorComercio = mejorComercio;
         } else {
             totalMejorCom1.setForeground(Color.BLACK);
             mejorComNombre.setText("Ningún comercio contiene todos sus productos.");
-            mejorPrecio.setText(String.valueOf(""));
+            textoNombreMejorComercio.setText(String.valueOf(""));
         }
-    }//GEN-LAST:event_mejorComercioBotonActionPerformed
+    }//GEN-LAST:event_botonBuscarMejorComercioActionPerformed
 
     private void botonVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonVolverActionPerformed
         this.dispose();
@@ -453,6 +599,14 @@ public class Carro extends javax.swing.JFrame {
     private void botonCaminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCaminarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_botonCaminarActionPerformed
+
+    private void textoTransporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textoTransporteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textoTransporteActionPerformed
+
+    private void tituloLitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tituloLitaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tituloLitaActionPerformed
     private String calcularPrecio() {
         double precio = 0;
         for (int d = 0; d != carro.getListaDeProductos().size(); d++) {
@@ -492,29 +646,37 @@ public class Carro extends javax.swing.JFrame {
      */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel all;
     private javax.swing.JRadioButton botonAuto;
+    private javax.swing.JButton botonBuscarMejorComercio;
     private javax.swing.JRadioButton botonCaminar;
     private javax.swing.JButton botonEliminar;
+    private javax.swing.JButton botonRecorrerMejorComercio;
     private javax.swing.JButton botonVolver;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JComboBox<String> comboFinal;
     private javax.swing.JComboBox<String> comboInici;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextPane jTextPane1;
     private javax.swing.JTextPane jTextPane2;
+    private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JList<String> listaProductos;
     private javax.swing.JTextField mejorComNombre;
-    private javax.swing.JButton mejorComercioBoton;
-    private javax.swing.JTextField mejorPrecio;
     private javax.swing.JButton mostrarRecorrido;
-    private javax.swing.JButton mostrarRecorrido1;
+    private javax.swing.JPanel panelCarro;
     private javax.swing.JScrollPane panelItems;
+    private javax.swing.JPanel panelLita;
+    private javax.swing.JPanel panelOpciones;
+    private javax.swing.JPanel panelTitulo;
+    private javax.swing.JPanel panelUnComerio;
     private javax.swing.JTextField precio;
     private javax.swing.JTextField textoCarro;
+    private javax.swing.JTextField textoNombreMejorComercio;
     private javax.swing.JTextField textoTotal;
     private javax.swing.JTextField textoTransporte;
+    private javax.swing.JButton tituloLita;
+    private javax.swing.JButton tituloPagina;
     private javax.swing.JTextField totalMejorCom;
     private javax.swing.JTextField totalMejorCom1;
     // End of variables declaration//GEN-END:variables

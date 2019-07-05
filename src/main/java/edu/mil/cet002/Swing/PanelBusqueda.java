@@ -37,6 +37,7 @@ public class PanelBusqueda extends javax.swing.JFrame {
         setdefault();
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         this.setLocationRelativeTo(null); //Centrado en pantalla
+        this.getContentPane().setBackground(Color.WHITE); //fondo blanco
 
     }
 
@@ -50,20 +51,25 @@ public class PanelBusqueda extends javax.swing.JFrame {
     private void initComponents() {
 
         Horario = new javax.swing.ButtonGroup();
-        botonBuscar = new javax.swing.JButton();
-        PanelProducto = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
         logo = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        PanelProducto = new javax.swing.JPanel();
         titulo = new javax.swing.JTextField();
         campoBusqueda = new javax.swing.JTextField();
+        icono = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         PanelHorarios = new javax.swing.JPanel();
         horarioNull = new javax.swing.JRadioButton();
         horarioActual = new javax.swing.JRadioButton();
         horarioEspecifico = new javax.swing.JRadioButton();
         horas = new javax.swing.JComboBox<>();
-        jLabel1 = new javax.swing.JLabel();
+        botonBuscar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setBackground(new java.awt.Color(12, 70, 67));
+        setBackground(new java.awt.Color(255, 255, 255));
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        setUndecorated(true);
         setResizable(false);
         addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -71,10 +77,142 @@ public class PanelBusqueda extends javax.swing.JFrame {
             }
         });
 
-        botonBuscar.setBackground(new java.awt.Color(0, 153, 153));
-        botonBuscar.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        botonBuscar.setText("Buscar!");
-        botonBuscar.setBorder(null);
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        logo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectoswing/imagenes/logo3.png"))); // NOI18N
+
+        jButton1.setBackground(new java.awt.Color(0, 204, 153));
+        jButton1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setText("Bienvenido a Las Compras de Lita");
+        jButton1.setBorderPainted(false);
+        jButton1.setFocusPainted(false);
+        jButton1.setFocusable(false);
+
+        PanelProducto.setBackground(new java.awt.Color(255, 255, 255));
+
+        titulo.setEditable(false);
+        titulo.setBackground(new java.awt.Color(255, 255, 255));
+        titulo.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
+        titulo.setText("¿Qué estas buscando?");
+        titulo.setBorder(null);
+        titulo.setFocusable(false);
+
+        campoBusqueda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                campoBusquedaActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectoswing/imagenes/buscar.png"))); // NOI18N
+
+        javax.swing.GroupLayout PanelProductoLayout = new javax.swing.GroupLayout(PanelProducto);
+        PanelProducto.setLayout(PanelProductoLayout);
+        PanelProductoLayout.setHorizontalGroup(
+            PanelProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelProductoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(PanelProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PanelProductoLayout.createSequentialGroup()
+                        .addGap(255, 255, 255)
+                        .addComponent(icono))
+                    .addGroup(PanelProductoLayout.createSequentialGroup()
+                        .addComponent(titulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(campoBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel1)
+                .addGap(12, 12, 12))
+        );
+        PanelProductoLayout.setVerticalGroup(
+            PanelProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelProductoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(PanelProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(PanelProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(campoBusqueda)
+                        .addComponent(titulo))
+                    .addComponent(jLabel1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(icono)
+                .addGap(39, 39, 39))
+        );
+
+        PanelHorarios.setBackground(new java.awt.Color(255, 255, 255));
+
+        horarioNull.setBackground(new java.awt.Color(255, 255, 255));
+        Horario.add(horarioNull);
+        horarioNull.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        horarioNull.setSelected(true);
+        horarioNull.setText("Cualquier horario");
+        horarioNull.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                horarioNullActionPerformed(evt);
+            }
+        });
+
+        horarioActual.setBackground(new java.awt.Color(255, 255, 255));
+        Horario.add(horarioActual);
+        horarioActual.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        horarioActual.setText("Horario actual");
+        horarioActual.setToolTipText("");
+        horarioActual.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                horarioActualActionPerformed(evt);
+            }
+        });
+
+        horarioEspecifico.setBackground(new java.awt.Color(255, 255, 255));
+        Horario.add(horarioEspecifico);
+        horarioEspecifico.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        horarioEspecifico.setText("Horario especifico");
+        horarioEspecifico.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                horarioEspecificoActionPerformed(evt);
+            }
+        });
+
+        horas.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        horas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23" }));
+        horas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                horasActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout PanelHorariosLayout = new javax.swing.GroupLayout(PanelHorarios);
+        PanelHorarios.setLayout(PanelHorariosLayout);
+        PanelHorariosLayout.setHorizontalGroup(
+            PanelHorariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelHorariosLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(horarioNull)
+                .addGap(18, 18, 18)
+                .addComponent(horarioActual)
+                .addGap(18, 18, 18)
+                .addComponent(horarioEspecifico)
+                .addGap(18, 18, 18)
+                .addComponent(horas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(104, 104, 104))
+        );
+        PanelHorariosLayout.setVerticalGroup(
+            PanelHorariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelHorariosLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(PanelHorariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(horarioNull)
+                    .addComponent(horarioEspecifico)
+                    .addComponent(horas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(horarioActual, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        botonBuscar.setBackground(new java.awt.Color(255, 153, 0));
+        botonBuscar.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        botonBuscar.setForeground(new java.awt.Color(255, 255, 255));
+        botonBuscar.setText("BUSCAR");
         botonBuscar.setBorderPainted(false);
         botonBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -87,168 +225,57 @@ public class PanelBusqueda extends javax.swing.JFrame {
             }
         });
 
-        PanelProducto.setBackground(new java.awt.Color(0, 153, 153));
-        PanelProducto.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-
-        logo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectoswing/imagenes/logo3.png"))); // NOI18N
-
-        titulo.setEditable(false);
-        titulo.setBackground(new java.awt.Color(0, 153, 153));
-        titulo.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
-        titulo.setForeground(new java.awt.Color(10, 66, 63));
-        titulo.setText("Ingrese el producto que busca:");
-        titulo.setBorder(null);
-        titulo.setFocusable(false);
-
-        campoBusqueda.setBackground(new java.awt.Color(12, 70, 67));
-        campoBusqueda.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
-        campoBusqueda.setForeground(new java.awt.Color(255, 255, 255));
-        campoBusqueda.setBorder(null);
-        campoBusqueda.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                campoBusquedaActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout PanelProductoLayout = new javax.swing.GroupLayout(PanelProducto);
-        PanelProducto.setLayout(PanelProductoLayout);
-        PanelProductoLayout.setHorizontalGroup(
-            PanelProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PanelProductoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(PanelProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(titulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(campoBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(11, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(PanelProducto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(PanelHorarios, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(98, 98, 98))))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(293, 293, 293)
                 .addComponent(logo)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(botonBuscar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
-        PanelProductoLayout.setVerticalGroup(
-            PanelProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PanelProductoLayout.createSequentialGroup()
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(PanelProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(PanelProductoLayout.createSequentialGroup()
-                        .addComponent(logo)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(PanelProductoLayout.createSequentialGroup()
-                        .addComponent(titulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(campoBusqueda)
-                        .addGap(83, 83, 83))))
-        );
-
-        PanelHorarios.setBackground(new java.awt.Color(0, 153, 153));
-
-        horarioNull.setBackground(new java.awt.Color(0, 153, 153));
-        Horario.add(horarioNull);
-        horarioNull.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        horarioNull.setSelected(true);
-        horarioNull.setText("Cualquier horario");
-        horarioNull.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                horarioNullActionPerformed(evt);
-            }
-        });
-
-        horarioActual.setBackground(new java.awt.Color(0, 153, 153));
-        Horario.add(horarioActual);
-        horarioActual.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        horarioActual.setText("Horario actual");
-        horarioActual.setToolTipText("");
-        horarioActual.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                horarioActualActionPerformed(evt);
-            }
-        });
-
-        horarioEspecifico.setBackground(new java.awt.Color(0, 153, 153));
-        Horario.add(horarioEspecifico);
-        horarioEspecifico.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        horarioEspecifico.setText("Horario especifico");
-        horarioEspecifico.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                horarioEspecificoActionPerformed(evt);
-            }
-        });
-
-        horas.setBackground(new java.awt.Color(192, 102, 34));
-        horas.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        horas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23" }));
-        horas.setBorder(null);
-        horas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                horasActionPerformed(evt);
-            }
-        });
-
-        jLabel1.setForeground(new java.awt.Color(255, 0, 0));
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectoswing/imagenes/clock.png"))); // NOI18N
-
-        javax.swing.GroupLayout PanelHorariosLayout = new javax.swing.GroupLayout(PanelHorarios);
-        PanelHorarios.setLayout(PanelHorariosLayout);
-        PanelHorariosLayout.setHorizontalGroup(
-            PanelHorariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PanelHorariosLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(PanelHorariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(PanelHorariosLayout.createSequentialGroup()
-                        .addComponent(horarioEspecifico)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(PanelHorariosLayout.createSequentialGroup()
-                        .addGap(8, 8, 8)
-                        .addComponent(horas, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addContainerGap())
-                    .addGroup(PanelHorariosLayout.createSequentialGroup()
-                        .addGroup(PanelHorariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(horarioNull)
-                            .addComponent(horarioActual))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel1)
-                        .addGap(18, 18, 18))))
-        );
-        PanelHorariosLayout.setVerticalGroup(
-            PanelHorariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PanelHorariosLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(PanelHorariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(PanelHorariosLayout.createSequentialGroup()
-                        .addComponent(horarioNull)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(horarioActual, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel1))
+                .addComponent(logo)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton1)
+                .addGap(1, 1, 1)
+                .addComponent(PanelProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 65, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(horarioEspecifico)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
-                .addComponent(horas)
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addComponent(PanelHorarios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(botonBuscar)
+                .addGap(0, 20, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(botonBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(PanelHorarios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(PanelProducto, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(PanelProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(PanelHorarios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(botonBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -280,7 +307,6 @@ public class PanelBusqueda extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_horasActionPerformed
     private void inic() {
-        this.getContentPane().setBackground(new java.awt.Color(255,255,255));
         KeyListen(horarioActual);
         KeyListen(horarioEspecifico);
         KeyListen(horarioNull);
@@ -408,7 +434,10 @@ public class PanelBusqueda extends javax.swing.JFrame {
     private javax.swing.JRadioButton horarioEspecifico;
     private javax.swing.JRadioButton horarioNull;
     private javax.swing.JComboBox<String> horas;
+    private javax.swing.JLabel icono;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel logo;
     private javax.swing.JTextField titulo;
     // End of variables declaration//GEN-END:variables
