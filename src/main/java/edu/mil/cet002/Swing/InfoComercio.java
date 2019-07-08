@@ -72,11 +72,12 @@ public class InfoComercio extends javax.swing.JFrame {
             }
         });
 
-        jPanel1.setBackground(new java.awt.Color(0, 153, 153));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         nombreComercio.setEditable(false);
-        nombreComercio.setBackground(new java.awt.Color(0, 153, 153));
-        nombreComercio.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        nombreComercio.setBackground(new java.awt.Color(0, 204, 153));
+        nombreComercio.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        nombreComercio.setForeground(new java.awt.Color(255, 255, 255));
         nombreComercio.setText("Nombre del Comercio");
         nombreComercio.setBorder(null);
         nombreComercio.setFocusable(false);
@@ -87,14 +88,14 @@ public class InfoComercio extends javax.swing.JFrame {
         });
 
         textoUbicacion.setEditable(false);
-        textoUbicacion.setBackground(new java.awt.Color(0, 153, 153));
+        textoUbicacion.setBackground(new java.awt.Color(255, 255, 255));
         textoUbicacion.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         textoUbicacion.setText("Ubicacion");
         textoUbicacion.setBorder(null);
         textoUbicacion.setFocusable(false);
 
         textoDueño.setEditable(false);
-        textoDueño.setBackground(new java.awt.Color(0, 153, 153));
+        textoDueño.setBackground(new java.awt.Color(255, 255, 255));
         textoDueño.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         textoDueño.setText("Dueño");
         textoDueño.setAutoscrolls(false);
@@ -102,7 +103,7 @@ public class InfoComercio extends javax.swing.JFrame {
         textoDueño.setFocusable(false);
 
         textoHorario.setEditable(false);
-        textoHorario.setBackground(new java.awt.Color(0, 153, 153));
+        textoHorario.setBackground(new java.awt.Color(255, 255, 255));
         textoHorario.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         textoHorario.setText("Horario");
         textoHorario.setBorder(null);
@@ -114,21 +115,23 @@ public class InfoComercio extends javax.swing.JFrame {
         });
 
         textoCalifPosit.setEditable(false);
-        textoCalifPosit.setBackground(new java.awt.Color(0, 153, 153));
+        textoCalifPosit.setBackground(new java.awt.Color(255, 255, 255));
         textoCalifPosit.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         textoCalifPosit.setText("Calificaciones Positivas: ##");
         textoCalifPosit.setBorder(null);
         textoCalifPosit.setFocusable(false);
 
         textoCalifNegat.setEditable(false);
-        textoCalifNegat.setBackground(new java.awt.Color(0, 153, 153));
+        textoCalifNegat.setBackground(new java.awt.Color(255, 255, 255));
         textoCalifNegat.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         textoCalifNegat.setText("Calificaciones Negativas: ##");
         textoCalifNegat.setBorder(null);
         textoCalifNegat.setFocusable(false);
 
-        botonVolver.setBackground(new java.awt.Color(192, 102, 34));
+        botonVolver.setBackground(new java.awt.Color(255, 153, 0));
+        botonVolver.setForeground(new java.awt.Color(255, 255, 255));
         botonVolver.setAutoscrolls(true);
+        botonVolver.setBorderPainted(false);
         botonVolver.setLabel("Volver");
         botonVolver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -137,7 +140,7 @@ public class InfoComercio extends javax.swing.JFrame {
         });
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         textoCalificacion.setEditable(false);
         textoCalificacion.setBackground(new java.awt.Color(255, 255, 255));
@@ -161,8 +164,10 @@ public class InfoComercio extends javax.swing.JFrame {
         botonNegativa.setText("Negativa");
         botonNegativa.setFocusable(false);
 
-        botonEnviar.setBackground(new java.awt.Color(192, 102, 34));
+        botonEnviar.setBackground(new java.awt.Color(255, 153, 0));
+        botonEnviar.setForeground(new java.awt.Color(255, 255, 255));
         botonEnviar.setText("Enviar calificación");
+        botonEnviar.setBorderPainted(false);
         botonEnviar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonEnviarActionPerformed(evt);

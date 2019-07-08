@@ -59,30 +59,39 @@ public class Calificacion extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(0, 153, 153));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         textoCalificacion.setEditable(false);
-        textoCalificacion.setBackground(new java.awt.Color(0, 153, 153));
-        textoCalificacion.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        textoCalificacion.setText("Calificación de comercios:");
+        textoCalificacion.setBackground(new java.awt.Color(0, 204, 153));
+        textoCalificacion.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        textoCalificacion.setForeground(new java.awt.Color(255, 255, 255));
+        textoCalificacion.setText(" Calificación de comercios:");
         textoCalificacion.setBorder(null);
         textoCalificacion.setFocusable(false);
+        textoCalificacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textoCalificacionActionPerformed(evt);
+            }
+        });
 
-        listaComercios.setBackground(new java.awt.Color(192, 102, 34));
         listaComercios.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         listaComercios.setModel(dft);
         panelComercios.setViewportView(listaComercios);
 
-        botonFinalizar.setBackground(new java.awt.Color(192, 102, 34));
+        botonFinalizar.setBackground(new java.awt.Color(255, 153, 0));
+        botonFinalizar.setForeground(new java.awt.Color(255, 255, 255));
         botonFinalizar.setText("Finalizar");
+        botonFinalizar.setBorderPainted(false);
         botonFinalizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonFinalizarActionPerformed(evt);
             }
         });
 
-        botonEnviar.setBackground(new java.awt.Color(192, 102, 34));
+        botonEnviar.setBackground(new java.awt.Color(255, 153, 0));
+        botonEnviar.setForeground(new java.awt.Color(255, 255, 255));
         botonEnviar.setText("Calificar Comercio");
+        botonEnviar.setBorderPainted(false);
         botonEnviar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonEnviarActionPerformed(evt);
@@ -100,8 +109,8 @@ public class Calificacion extends javax.swing.JFrame {
                         .addComponent(botonEnviar, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(botonFinalizar, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(textoCalificacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(panelComercios))
+                    .addComponent(panelComercios)
+                    .addComponent(textoCalificacion))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -146,6 +155,10 @@ public class Calificacion extends javax.swing.JFrame {
         this.dispose();
         System.exit(0);
     }//GEN-LAST:event_botonFinalizarActionPerformed
+
+    private void textoCalificacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textoCalificacionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textoCalificacionActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
